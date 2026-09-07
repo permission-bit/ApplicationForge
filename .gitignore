@@ -18,7 +18,6 @@ __pycache__/
 
 # virtual envs
 venv/
-.env/
 .venv/
 ENV/
 env/
@@ -32,8 +31,8 @@ pip-delete-this-directory.txt
 # =========================
 #  Secrets / Config
 # =========================
-.env
-.env.*
+
+
 *.key
 *.pem
 *.crt
