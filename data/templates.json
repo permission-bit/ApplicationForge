@@ -1,0 +1,522 @@
+{
+    "cybersecurity": {
+        "formal": {
+            "order": [
+                "salutation",
+                "opening",
+                "experience",
+                "job_connection",
+                "motivation",
+                "closing"
+            ],
+            "salutation": [
+                "Sehr geehrte Damen und Herren,",
+                "Guten Tag, liebes {company_name}-Team,"
+            ],
+            "opening": [
+                "mit großem Interesse bewerbe ich mich bei {company_name} als {position}. Die Verbindung aus technischen Aufgaben, IT-Sicherheit und praxisnaher Problemlösung entspricht meinen beruflichen Interessen.",
+                "die ausgeschriebene Position als {position} bei {company_name} hat mein besonderes Interesse geweckt. Insbesondere die Verbindung von IT-Systemen, Netzwerken und Informationssicherheit spricht mich an.",
+                "mit großem Interesse habe ich Ihre Ausschreibung für die Position als {position} gelesen. Die beschriebenen Aufgaben passen sehr gut zu meinem technischen Schwerpunkt und meinem Interesse an moderner IT-Sicherheit."
+            ],
+            "experience": [
+                "Meine bisherigen technischen Schwerpunkte liegen insbesondere in {relevant_keywords}. Dabei beschäftige ich mich sowohl mit praktischer Softwareentwicklung als auch mit Linux-Systemen, Netzwerken und sicherheitsrelevanten technischen Fragestellungen.",
+                "Meine Kenntnisse umfassen insbesondere {relevant_keywords}. Ich arbeite mich strukturiert in technische Problemstellungen ein und lege großen Wert darauf, Zusammenhänge nicht nur theoretisch zu verstehen, sondern auch praktisch umzusetzen.",
+                "Im technischen Umfeld beschäftige ich mich insbesondere mit {relevant_keywords}. Dabei verbinde ich praktische Programmierkenntnisse mit meinem Interesse an Systemen, Netzwerken und deren Absicherung."
+            ],
+            "job_connection": [
+                "Besonders interessant finde ich die Möglichkeit, meine Kenntnisse in {relevant_keywords} direkt mit den Anforderungen der ausgeschriebenen Position zu verbinden.",
+                "Die in der Ausschreibung genannten Schwerpunkte bieten eine interessante Möglichkeit, meine bisherigen Kenntnisse insbesondere in {relevant_keywords} praktisch einzusetzen und weiterzuentwickeln.",
+                "Meine bisherigen Kenntnisse in {relevant_keywords} bilden aus meiner Sicht eine gute Grundlage, um mich in die technischen Aufgaben der Position einzuarbeiten."
+            ],
+            "motivation": [
+                "Besonders motiviert mich die Möglichkeit, meine technischen Fähigkeiten in einem professionellen Security-Umfeld einzusetzen und kontinuierlich weiterzuentwickeln.",
+                "Ich möchte meine bisherigen Kenntnisse langfristig im Bereich IT-Sicherheit vertiefen und dabei praktische Erfahrungen mit professionellen Systemen und Sicherheitsprozessen sammeln.",
+                "Die Kombination aus technischen Herausforderungen, strukturierter Problemanalyse und IT-Sicherheit entspricht meinen persönlichen Interessen besonders gut."
+            ],
+            "closing": [
+                "Über die Einladung zu einem persönlichen Gespräch freue ich mich sehr.",
+                "Gerne erläutere ich Ihnen meine Motivation und meine technischen Kenntnisse in einem persönlichen Gespräch.",
+                "Ich freue mich darauf, mich persönlich bei Ihnen vorzustellen und mehr über die Position und Ihr Team zu erfahren."
+            ]
+        },
+
+        "technical": {
+            "order": [
+                "salutation",
+                "opening",
+                "experience",
+                "job_connection",
+                "motivation",
+                "closing"
+            ],
+            "salutation": [
+                "Sehr geehrte Damen und Herren,",
+                "Guten Tag, liebes {company_name}-Team,"
+            ],
+            "opening": [
+                "die Position als {position} bei {company_name} spricht mich besonders an, da sie technische Analyse, IT-Systeme und Sicherheitsaspekte miteinander verbindet.",
+                "mit großem Interesse bewerbe ich mich als {position}. Besonders interessant finde ich die Möglichkeit, technische Kenntnisse in einem professionellen Security-Umfeld praktisch einzusetzen.",
+                "die ausgeschriebene Position verbindet mehrere technische Bereiche, mit denen ich mich intensiv beschäftige. Daher möchte ich meine Kenntnisse gerne bei {company_name} einbringen."
+            ],
+            "experience": [
+                "Mein technischer Schwerpunkt liegt auf {relevant_keywords}. Besonders wichtig ist mir dabei ein systematisches Vorgehen: technische Zusammenhänge analysieren, Probleme nachvollziehbar eingrenzen und praktikable Lösungen entwickeln.",
+                "Ich beschäftige mich insbesondere mit {relevant_keywords}. Dabei arbeite ich gerne praktisch und selbstständig und vertiefe mein Wissen kontinuierlich anhand realer technischer Problemstellungen.",
+                "Zu meinen technischen Schwerpunkten gehören {relevant_keywords}. Durch die Kombination aus Programmierung, Linux, Netzwerken und IT-Sicherheit kann ich technische Fragestellungen aus unterschiedlichen Perspektiven betrachten."
+            ],
+            "job_connection": [
+                "Besonders gut zu meinem bisherigen Schwerpunkt passen die in der Ausschreibung genannten Themen {relevant_keywords}. Diese Kenntnisse möchte ich gezielt in die Aufgaben der Position einbringen.",
+                "Die Überschneidung meiner bisherigen Kenntnisse mit den Anforderungen der Stelle liegt insbesondere in {relevant_keywords}. Genau diese Verbindung macht die Position für mich besonders interessant.",
+                "Insbesondere die Bereiche {relevant_keywords} bieten eine gute Grundlage, um mich fachlich in die ausgeschriebenen Aufgaben einzuarbeiten."
+            ],
+            "motivation": [
+                "Mein Ziel ist es, meine technischen Fähigkeiten kontinuierlich auszubauen und dabei zunehmend anspruchsvollere Aufgaben im Bereich Cybersecurity zu übernehmen.",
+                "Ich möchte mein technisches Verständnis langfristig mit praktischer Security-Arbeit verbinden und mich dabei fachlich kontinuierlich weiterentwickeln.",
+                "Ein Umfeld, in dem technische Analyse, Security und kontinuierliches Lernen zusammenkommen, entspricht genau meiner beruflichen Zielrichtung."
+            ],
+            "closing": [
+                "Gerne erläutere ich Ihnen meine technischen Kenntnisse und meine Motivation in einem persönlichen Gespräch.",
+                "Über die Gelegenheit zu einem persönlichen Gespräch freue ich mich sehr.",
+                "Ich freue mich darauf, Ihnen meine Motivation und meinen technischen Hintergrund persönlich vorzustellen."
+            ]
+        },
+
+        "modern": {
+            "order": [
+                "salutation",
+                "opening",
+                "experience",
+                "job_connection",
+                "motivation",
+                "closing"
+            ],
+            "salutation": [
+                "Guten Tag, liebes {company_name}-Team,",
+                "Hallo {company_name}-Team,"
+            ],
+            "opening": [
+                "IT-Sicherheit ist für mich vor allem eine praktische und technische Herausforderung. Genau deshalb hat mich Ihre Ausschreibung für die Position als {position} sofort angesprochen.",
+                "die Kombination aus IT, Security und technischen Herausforderungen macht die Position als {position} für mich besonders interessant.",
+                "als technisch interessierter Bewerber mit Schwerpunkt auf IT-Sicherheit möchte ich meine Kenntnisse gerne bei {company_name} einsetzen und weiterentwickeln."
+            ],
+            "experience": [
+                "Technisch beschäftige ich mich vor allem mit {relevant_keywords}. Ich lerne gerne selbstständig, probiere Dinge praktisch aus und arbeite mich systematisch in neue Themen ein.",
+                "Meine bisherigen Schwerpunkte liegen in {relevant_keywords}. Dabei interessiert mich besonders, wie Systeme funktionieren, wie Probleme entstehen und wie sich diese technisch analysieren und lösen lassen.",
+                "Ich bringe Kenntnisse in {relevant_keywords} mit und beschäftige mich gerne intensiv mit technischen Fragestellungen. Besonders wichtig ist mir dabei, Theorie mit praktischer Umsetzung zu verbinden."
+            ],
+            "job_connection": [
+                "Die Überschneidung mit den Anforderungen der Stelle sehe ich insbesondere bei {relevant_keywords}. Diese Kenntnisse möchte ich gerne in der täglichen Arbeit weiter vertiefen.",
+                "Besonders interessant finde ich die Bereiche {relevant_keywords}, da sie direkt zu meinen bisherigen technischen Schwerpunkten passen.",
+                "Die Kombination meiner Kenntnisse in {relevant_keywords} mit den beschriebenen Aufgaben macht die Position für mich besonders attraktiv."
+            ],
+            "motivation": [
+                "Ich suche ein Umfeld, in dem ich technisch gefordert werde, Neues lernen kann und gleichzeitig einen praktischen Beitrag leisten kann.",
+                "Besonders reizt mich die Möglichkeit, mich fachlich weiterzuentwickeln und gleichzeitig an realen Security-Aufgaben zu arbeiten.",
+                "Ich möchte meine technischen Interessen langfristig zu einem professionellen Schwerpunkt im Bereich Cybersecurity weiterentwickeln."
+            ],
+            "closing": [
+                "Ich freue mich darauf, mehr über die Position und Ihr Team zu erfahren.",
+                "Über ein persönliches Gespräch freue ich mich sehr.",
+                "Gerne stelle ich mich persönlich vor und erläutere Ihnen meine Motivation."
+            ]
+        },
+
+        "startup": {
+            "order": [
+                "salutation",
+                "opening",
+                "experience",
+                "job_connection",
+                "motivation",
+                "closing"
+            ],
+            "salutation": [
+                "Hallo {company_name}-Team,",
+                "Guten Tag, liebes {company_name}-Team,"
+            ],
+            "opening": [
+                "die Position als {position} hat sofort mein Interesse geweckt, weil sie technische Verantwortung, Security und praktische Problemlösung miteinander verbindet.",
+                "ich möchte mich gerne als {position} bei {company_name} bewerben. Besonders angesprochen hat mich die technische Ausrichtung der Position.",
+                "Ihre Ausschreibung für die Position als {position} passt sehr gut zu meinem technischen Interesse und meinem Wunsch, mich praktisch im Bereich Cybersecurity weiterzuentwickeln."
+            ],
+            "experience": [
+                "Ich beschäftige mich aktuell intensiv mit {relevant_keywords} und arbeite mich gerne selbstständig in neue technische Themen ein.",
+                "Mein technischer Hintergrund umfasst insbesondere {relevant_keywords}. Ich bin es gewohnt, mich eigenständig in neue Systeme und Technologien einzuarbeiten.",
+                "Meine bisherigen Schwerpunkte liegen in {relevant_keywords}. Dabei arbeite ich gerne praktisch, lösungsorientiert und eigenständig."
+            ],
+            "job_connection": [
+                "Besonders gut passt dabei meine Erfahrung beziehungsweise mein technischer Schwerpunkt in {relevant_keywords} zu den beschriebenen Aufgaben.",
+                "Die Themen {relevant_keywords} verbinden meine bisherigen Kenntnisse direkt mit den Anforderungen Ihrer Stelle.",
+                "Gerade die Bereiche {relevant_keywords} bieten für mich eine interessante Schnittstelle zwischen meinen bisherigen Kenntnissen und den Aufgaben der Position."
+            ],
+            "motivation": [
+                "Besonders attraktiv finde ich ein Umfeld, in dem Eigeninitiative, technisches Lernen und praktische Umsetzung eine wichtige Rolle spielen.",
+                "Ich möchte mich aktiv einbringen, Verantwortung übernehmen und meine technischen Fähigkeiten gemeinsam mit einem motivierten Team weiterentwickeln.",
+                "Ein dynamisches technisches Umfeld, in dem ich schnell lernen und gleichzeitig praktisch mitarbeiten kann, entspricht meinen Vorstellungen besonders gut."
+            ],
+            "closing": [
+                "Ich freue mich darauf, mehr über Ihre Arbeit und die Position zu erfahren.",
+                "Gerne würde ich mich persönlich vorstellen und mehr über Ihr Team erfahren.",
+                "Über ein persönliches Gespräch freue ich mich sehr."
+            ]
+        },
+
+        "junior": {
+            "order": [
+                "salutation",
+                "opening",
+                "experience",
+                "job_connection",
+                "motivation",
+                "closing"
+            ],
+            "salutation": [
+                "Sehr geehrte Damen und Herren,",
+                "Guten Tag, liebes {company_name}-Team,"
+            ],
+            "opening": [
+                "mit großem Interesse bewerbe ich mich bei {company_name} als {position}. Die Position bietet für mich eine interessante Möglichkeit, meine bisherigen technischen Kenntnisse praktisch einzusetzen und weiter auszubauen.",
+                "die ausgeschriebene Position als {position} hat mein Interesse geweckt, da sie technische Aufgaben mit meinem besonderen Interesse an IT-Sicherheit verbindet.",
+                "ich möchte meine bisherigen technischen Kenntnisse gerne in einem professionellen Umfeld weiterentwickeln und bewerbe mich daher mit großem Interesse als {position}."
+            ],
+            "experience": [
+                "Meine bisherigen Kenntnisse liegen insbesondere in {relevant_keywords}. Dabei habe ich mir angewöhnt, technische Probleme strukturiert zu analysieren und mich selbstständig in neue Themen einzuarbeiten.",
+                "Ich bringe grundlegende praktische Kenntnisse in {relevant_keywords} mit und beschäftige mich intensiv mit deren praktischer Anwendung.",
+                "Mein bisheriger technischer Schwerpunkt umfasst {relevant_keywords}. Besonders wichtig ist mir, mein Wissen kontinuierlich durch praktische Aufgaben zu erweitern."
+            ],
+            "job_connection": [
+                "Eine gute fachliche Überschneidung mit der ausgeschriebenen Position sehe ich insbesondere bei {relevant_keywords}.",
+                "Besonders gut passen meine bisherigen Kenntnisse in {relevant_keywords} zu den beschriebenen technischen Aufgaben.",
+                "Die Bereiche {relevant_keywords} bilden eine gute Grundlage, um mich in die weiteren Anforderungen der Position einzuarbeiten."
+            ],
+            "motivation": [
+                "Da ich mich langfristig im Bereich Cybersecurity weiterentwickeln möchte, sehe ich die Position als interessante Möglichkeit, praktische Berufserfahrung zu sammeln und mein technisches Wissen zu vertiefen.",
+                "Besonders wichtig ist mir die Möglichkeit, von erfahrenen Kollegen zu lernen und gleichzeitig eigene technische Kenntnisse praktisch einzusetzen.",
+                "Ich möchte meine bisherigen Kenntnisse Schritt für Schritt zu einem professionellen technischen Profil weiterentwickeln."
+            ],
+            "closing": [
+                "Über die Gelegenheit zu einem persönlichen Gespräch freue ich mich sehr.",
+                "Gerne erläutere ich Ihnen meine Motivation und meine bisherigen Kenntnisse persönlich.",
+                "Ich freue mich darauf, mich persönlich bei Ihnen vorzustellen."
+            ]
+        }
+    },
+
+    "it": {
+        "formal": {
+            "order": [
+                "salutation",
+                "opening",
+                "experience",
+                "job_connection",
+                "motivation",
+                "closing"
+            ],
+            "salutation": [
+                "Sehr geehrte Damen und Herren,",
+                "Guten Tag, liebes {company_name}-Team,"
+            ],
+            "opening": [
+                "mit großem Interesse bewerbe ich mich bei {company_name} als {position}. Die technische Ausrichtung der Position entspricht meinen beruflichen Interessen.",
+                "die ausgeschriebene Position als {position} hat mein Interesse geweckt, da sie praxisnahe IT-Arbeit mit technischen Herausforderungen verbindet.",
+                "mit großem Interesse habe ich Ihre Ausschreibung für die Position als {position} gelesen. Besonders angesprochen hat mich die Verbindung aus Systemen, Netzwerken und Administration."
+            ],
+            "experience": [
+                "Meine technischen Schwerpunkte liegen insbesondere in {relevant_keywords}. Dabei beschäftige ich mich mit Systemen, Netzwerken, Administration und der strukturierten Analyse technischer Probleme.",
+                "Ich bringe Kenntnisse in {relevant_keywords} mit und arbeite mich gerne selbstständig in neue technische Umgebungen und Technologien ein.",
+                "Mein technischer Hintergrund umfasst insbesondere {relevant_keywords}. Dabei lege ich Wert auf strukturierte Arbeitsweisen und nachvollziehbare technische Lösungen."
+            ],
+            "job_connection": [
+                "Besonders gut zu den Anforderungen der ausgeschriebenen Position passen meine Kenntnisse in {relevant_keywords}.",
+                "Die in der Ausschreibung genannten technischen Bereiche überschneiden sich insbesondere bei {relevant_keywords} mit meinen bisherigen Kenntnissen.",
+                "Meine bisherigen Kenntnisse in {relevant_keywords} bilden aus meiner Sicht eine gute Grundlage für die Aufgaben der Position."
+            ],
+            "motivation": [
+                "Ich möchte meine bisherigen technischen Kenntnisse in einem professionellen IT-Umfeld praktisch einsetzen und gleichzeitig weiter ausbauen.",
+                "Besonders interessant finde ich die Möglichkeit, neue technische Herausforderungen kennenzulernen und meine Kenntnisse kontinuierlich weiterzuentwickeln.",
+                "Mein Ziel ist es, meine technischen Fähigkeiten langfristig auszubauen und zunehmend anspruchsvollere Aufgaben im IT-Umfeld zu übernehmen."
+            ],
+            "closing": [
+                "Über die Einladung zu einem persönlichen Gespräch freue ich mich sehr.",
+                "Gerne erläutere ich Ihnen meine Motivation und meine technischen Kenntnisse in einem persönlichen Gespräch.",
+                "Ich freue mich darauf, mich persönlich bei Ihnen vorzustellen."
+            ]
+        },
+
+        "technical": {
+            "order": [
+                "salutation",
+                "opening",
+                "experience",
+                "job_connection",
+                "motivation",
+                "closing"
+            ],
+            "salutation": [
+                "Sehr geehrte Damen und Herren,"
+            ],
+            "opening": [
+                "die Position als {position} bei {company_name} spricht mich besonders an, da sie technische Administration, Systemverständnis und Problemlösung miteinander verbindet.",
+                "mit großem Interesse bewerbe ich mich als {position}. Besonders interessant finde ich die technische Verantwortung und die beschriebenen Aufgaben im Bereich IT-Infrastruktur.",
+                "die ausgeschriebene Position bietet eine interessante Verbindung aus Systemadministration, Netzwerken und praktischer Fehleranalyse."
+            ],
+            "experience": [
+                "Mein technischer Schwerpunkt liegt insbesondere auf {relevant_keywords}. Ich arbeite strukturiert und versuche technische Probleme zunächst systematisch einzugrenzen, bevor ich geeignete Lösungen umsetze.",
+                "Zu meinen bisherigen technischen Schwerpunkten gehören {relevant_keywords}. Dabei beschäftige ich mich sowohl mit der Administration als auch mit der praktischen Analyse von Systemen und Netzwerken.",
+                "Ich bringe Kenntnisse in {relevant_keywords} mit und arbeite mich gerne eigenständig in neue technische Umgebungen ein."
+            ],
+            "job_connection": [
+                "Die stärkste Überschneidung mit den Anforderungen Ihrer Position sehe ich insbesondere bei {relevant_keywords}.",
+                "Besonders relevant für die ausgeschriebenen Aufgaben sind meine Kenntnisse in {relevant_keywords}.",
+                "Die Bereiche {relevant_keywords} bilden eine gute Grundlage für die technischen Anforderungen der Position."
+            ],
+            "motivation": [
+                "Ich möchte meine technischen Fähigkeiten in einem professionellen Umfeld einsetzen und gleichzeitig mein Wissen in den Bereichen Administration und Infrastruktur weiter vertiefen.",
+                "Besonders motiviert mich die Möglichkeit, praktische Verantwortung für technische Systeme zu übernehmen und mich dabei fachlich weiterzuentwickeln.",
+                "Ich suche eine Position, in der technisches Verständnis, eigenständige Problemlösung und kontinuierliches Lernen miteinander verbunden werden."
+            ],
+            "closing": [
+                "Gerne erläutere ich Ihnen meine technischen Kenntnisse in einem persönlichen Gespräch.",
+                "Über die Gelegenheit zu einem persönlichen Gespräch freue ich mich sehr.",
+                "Ich freue mich darauf, Ihnen meinen technischen Hintergrund persönlich vorzustellen."
+            ]
+        },
+
+        "modern": {
+            "order": [
+                "salutation",
+                "opening",
+                "experience",
+                "job_connection",
+                "motivation",
+                "closing"
+            ],
+            "salutation": [
+                "Guten Tag, liebes {company_name}-Team,"
+            ],
+            "opening": [
+                "Technik, Systeme und Problemlösung gehören zu den Bereichen, mit denen ich mich besonders gerne beschäftige. Deshalb hat mich Ihre Ausschreibung für die Position als {position} direkt angesprochen.",
+                "die Position als {position} verbindet genau die technischen Themen, in denen ich mich weiterentwickeln möchte.",
+                "ich möchte meine technischen Kenntnisse gerne in einem professionellen IT-Umfeld einsetzen und bewerbe mich daher mit großem Interesse bei {company_name}."
+            ],
+            "experience": [
+                "Mein technischer Schwerpunkt liegt bei {relevant_keywords}. Ich arbeite mich gerne selbstständig in neue Technologien ein und suche nach nachvollziehbaren und effizienten Lösungen.",
+                "Ich beschäftige mich insbesondere mit {relevant_keywords}. Dabei ist mir wichtig, technische Zusammenhänge wirklich zu verstehen und praktisch anwenden zu können.",
+                "Meine bisherigen Kenntnisse umfassen {relevant_keywords}. Besonders interessant finde ich technische Aufgaben, bei denen Analyse und praktische Umsetzung zusammenkommen."
+            ],
+            "job_connection": [
+                "Besonders gut zu der Position passen meine Kenntnisse in {relevant_keywords}.",
+                "Die Themen {relevant_keywords} bieten eine direkte Verbindung zwischen meinen bisherigen Kenntnissen und den Aufgaben Ihrer Stelle.",
+                "Insbesondere bei {relevant_keywords} sehe ich eine gute fachliche Überschneidung mit den Anforderungen der Position."
+            ],
+            "motivation": [
+                "Ich möchte mich fachlich weiterentwickeln, neue Systeme kennenlernen und meine technischen Kenntnisse praktisch einsetzen.",
+                "Besonders interessant finde ich ein Umfeld, in dem ich technische Verantwortung übernehmen und gleichzeitig kontinuierlich dazulernen kann.",
+                "Mein Ziel ist es, mein technisches Profil langfristig weiter auszubauen und mich zunehmend in anspruchsvollere IT-Aufgaben einzuarbeiten."
+            ],
+            "closing": [
+                "Ich freue mich darauf, mehr über die Position zu erfahren.",
+                "Gerne stelle ich mich persönlich vor.",
+                "Über ein persönliches Gespräch freue ich mich sehr."
+            ]
+        },
+
+        "junior": {
+            "order": [
+                "salutation",
+                "opening",
+                "experience",
+                "job_connection",
+                "motivation",
+                "closing"
+            ],
+            "salutation": [
+                "Sehr geehrte Damen und Herren,"
+            ],
+            "opening": [
+                "mit großem Interesse bewerbe ich mich bei {company_name} als {position}. Die Position bietet für mich eine interessante Möglichkeit, meine bisherigen technischen Kenntnisse praktisch einzusetzen und weiterzuentwickeln.",
+                "die ausgeschriebene Position als {position} hat mein Interesse geweckt, da sie praxisnahe IT-Aufgaben mit meinem technischen Interesse verbindet.",
+                "ich möchte meine bisherigen Kenntnisse gerne in einem professionellen IT-Umfeld vertiefen und bewerbe mich daher mit großem Interesse bei {company_name}."
+            ],
+            "experience": [
+                "Meine bisherigen technischen Kenntnisse liegen insbesondere in {relevant_keywords}. Dabei arbeite ich mich gerne selbstständig in neue Themen ein und versuche technische Probleme strukturiert zu lösen.",
+                "Ich bringe praktische Kenntnisse in {relevant_keywords} mit und möchte diese nun stärker im beruflichen Umfeld einsetzen und weiter vertiefen.",
+                "Mein bisheriger technischer Schwerpunkt umfasst {relevant_keywords}. Besonders wichtig ist mir, durch praktische Aufgaben kontinuierlich dazuzulernen."
+            ],
+            "job_connection": [
+                "Eine gute Überschneidung mit den Anforderungen der Stelle sehe ich insbesondere bei {relevant_keywords}.",
+                "Besonders gut passen meine bisherigen Kenntnisse in {relevant_keywords} zu den beschriebenen Aufgaben.",
+                "Die Bereiche {relevant_keywords} bilden eine gute Grundlage, um mich in die weiteren technischen Anforderungen einzuarbeiten."
+            ],
+            "motivation": [
+                "Ich sehe die Position als gute Möglichkeit, praktische Berufserfahrung zu sammeln und mein technisches Wissen unter professionellen Bedingungen weiterzuentwickeln.",
+                "Besonders wichtig ist mir ein Umfeld, in dem ich von erfahrenen Kollegen lernen und gleichzeitig eigene technische Kenntnisse einbringen kann.",
+                "Ich möchte mein technisches Wissen Schritt für Schritt ausbauen und mich langfristig zu einem zuverlässigen IT-Fachmann weiterentwickeln."
+            ],
+            "closing": [
+                "Über die Gelegenheit zu einem persönlichen Gespräch freue ich mich sehr.",
+                "Gerne erläutere ich Ihnen meine Motivation und meine bisherigen Kenntnisse persönlich.",
+                "Ich freue mich darauf, mich persönlich bei Ihnen vorzustellen."
+            ]
+        }
+    },
+
+    "software": {
+        "formal": {
+            "order": [
+                "salutation",
+                "opening",
+                "experience",
+                "job_connection",
+                "motivation",
+                "closing"
+            ],
+            "salutation": [
+                "Sehr geehrte Damen und Herren,",
+                "Guten Tag, liebes {company_name}-Team,"
+            ],
+            "opening": [
+                "mit großem Interesse bewerbe ich mich bei {company_name} als {position}. Besonders angesprochen hat mich die Verbindung aus moderner Softwareentwicklung und technisch anspruchsvollen Aufgaben.",
+                "die ausgeschriebene Position als {position} entspricht meinen technischen Interessen und meiner Begeisterung für Softwareentwicklung.",
+                "mit großem Interesse habe ich Ihre Ausschreibung für die Position als {position} gelesen. Besonders interessant finde ich die Möglichkeit, meine Programmierkenntnisse in einem professionellen Entwicklungsumfeld einzusetzen."
+            ],
+            "experience": [
+                "Meine technischen Schwerpunkte liegen insbesondere in {relevant_keywords}. Dabei beschäftige ich mich mit der Entwicklung, Strukturierung und praktischen Umsetzung von Softwarelösungen.",
+                "Ich bringe Kenntnisse in {relevant_keywords} mit und beschäftige mich gerne mit der Entwicklung nachvollziehbarer und wartbarer Softwarelösungen.",
+                "Mein technischer Schwerpunkt liegt auf {relevant_keywords}. Dabei lege ich Wert auf sauberen Code, eine klare Struktur und eine systematische Vorgehensweise."
+            ],
+            "job_connection": [
+                "Besonders gut zu den Anforderungen der Position passen meine Kenntnisse in {relevant_keywords}.",
+                "Die in der Ausschreibung genannten Themen überschneiden sich insbesondere bei {relevant_keywords} mit meinen bisherigen technischen Kenntnissen.",
+                "Meine Kenntnisse in {relevant_keywords} bieten eine gute Grundlage, um mich in die technischen Aufgaben der Position einzuarbeiten."
+            ],
+            "motivation": [
+                "Ich möchte meine bisherigen Programmierkenntnisse in einem professionellen Entwicklungsumfeld praktisch einsetzen und kontinuierlich weiterentwickeln.",
+                "Besonders reizt mich die Möglichkeit, an realen Softwareprojekten mitzuwirken und dabei von erfahrenen Entwicklern zu lernen.",
+                "Mein Ziel ist es, meine Kenntnisse in der Softwareentwicklung weiter zu vertiefen und langfristig anspruchsvollere Entwicklungsaufgaben zu übernehmen."
+            ],
+            "closing": [
+                "Über die Einladung zu einem persönlichen Gespräch freue ich mich sehr.",
+                "Gerne erläutere ich Ihnen meine Motivation und meine technischen Kenntnisse in einem persönlichen Gespräch.",
+                "Ich freue mich darauf, mich persönlich bei Ihnen vorzustellen."
+            ]
+        },
+
+        "technical": {
+            "order": [
+                "salutation",
+                "opening",
+                "experience",
+                "job_connection",
+                "motivation",
+                "closing"
+            ],
+            "salutation": [
+                "Sehr geehrte Damen und Herren,"
+            ],
+            "opening": [
+                "die Position als {position} bei {company_name} spricht mich besonders an, da sie Softwareentwicklung mit technisch anspruchsvollen Aufgaben verbindet.",
+                "mit großem Interesse bewerbe ich mich als {position}. Besonders interessant finde ich die Möglichkeit, meine Kenntnisse in Entwicklung und Systemtechnik praktisch einzusetzen.",
+                "Ihre Ausschreibung verbindet mehrere technische Bereiche, die mich besonders interessieren. Daher möchte ich meine Kenntnisse gerne bei {company_name} einbringen."
+            ],
+            "experience": [
+                "Mein technischer Schwerpunkt liegt insbesondere auf {relevant_keywords}. Dabei beschäftige ich mich mit Softwareentwicklung, Systemen und der praktischen Umsetzung technischer Lösungen.",
+                "Zu meinen bisherigen technischen Schwerpunkten gehören {relevant_keywords}. Ich arbeite strukturiert und lege Wert auf nachvollziehbare, wartbare und technisch saubere Lösungen.",
+                "Ich beschäftige mich intensiv mit {relevant_keywords}. Besonders wichtig ist mir dabei, nicht nur einzelne Technologien zu verwenden, sondern deren Zusammenspiel und technische Zusammenhänge zu verstehen."
+            ],
+            "job_connection": [
+                "Die stärkste fachliche Überschneidung mit Ihrer Position sehe ich bei {relevant_keywords}.",
+                "Besonders relevant für die ausgeschriebenen Aufgaben sind meine Kenntnisse in {relevant_keywords}.",
+                "Die Bereiche {relevant_keywords} bilden eine gute Grundlage, um mich in Ihre Entwicklungsumgebung und die konkreten Aufgaben einzuarbeiten."
+            ],
+            "motivation": [
+                "Ich möchte meine technischen Fähigkeiten kontinuierlich ausbauen und dabei an realen Softwareprojekten mitarbeiten.",
+                "Besonders motiviert mich die Möglichkeit, technische Herausforderungen zu lösen und gleichzeitig mein Wissen in einem professionellen Entwicklungsumfeld zu vertiefen.",
+                "Ich suche ein Umfeld, in dem saubere technische Lösungen, kontinuierliches Lernen und praktische Softwareentwicklung miteinander verbunden werden."
+            ],
+            "closing": [
+                "Gerne erläutere ich Ihnen meinen technischen Hintergrund in einem persönlichen Gespräch.",
+                "Über die Gelegenheit zu einem persönlichen Gespräch freue ich mich sehr.",
+                "Ich freue mich darauf, Ihnen meine Motivation und meine technischen Kenntnisse persönlich vorzustellen."
+            ]
+        },
+
+        "startup": {
+            "order": [
+                "salutation",
+                "opening",
+                "experience",
+                "job_connection",
+                "motivation",
+                "closing"
+            ],
+            "salutation": [
+                "Hallo {company_name}-Team,",
+                "Guten Tag, liebes {company_name}-Team,"
+            ],
+            "opening": [
+                "die Position als {position} hat sofort mein Interesse geweckt, weil sie moderne Softwareentwicklung mit praktischen technischen Herausforderungen verbindet.",
+                "ich möchte mich gerne als {position} bei {company_name} bewerben. Besonders angesprochen hat mich die technische Ausrichtung Ihrer Stelle.",
+                "Ihre Ausschreibung passt sehr gut zu meinem Interesse an Softwareentwicklung und meinem Wunsch, mich praktisch in anspruchsvolle technische Projekte einzubringen."
+            ],
+            "experience": [
+                "Ich beschäftige mich intensiv mit {relevant_keywords} und arbeite mich gerne selbstständig in neue Technologien ein.",
+                "Mein technischer Schwerpunkt liegt auf {relevant_keywords}. Dabei probiere ich neue Technologien gerne praktisch aus und arbeite mich eigenständig in neue Aufgaben ein.",
+                "Zu meinen bisherigen technischen Schwerpunkten gehören {relevant_keywords}. Ich arbeite gerne lösungsorientiert und praktisch."
+            ],
+            "job_connection": [
+                "Besonders interessant finde ich dabei die Überschneidung mit den Anforderungen in {relevant_keywords}.",
+                "Die Bereiche {relevant_keywords} verbinden meine bisherigen Kenntnisse direkt mit den Aufgaben der Position.",
+                "Gerade die Themen {relevant_keywords} machen die Position für mich fachlich besonders interessant."
+            ],
+            "motivation": [
+                "Ich möchte mich aktiv einbringen, Verantwortung übernehmen und meine technischen Fähigkeiten gemeinsam mit einem motivierten Team weiterentwickeln.",
+                "Besonders attraktiv finde ich ein Umfeld, in dem Eigeninitiative, schnelles Lernen und praktische Umsetzung eine wichtige Rolle spielen.",
+                "Ich suche ein dynamisches technisches Umfeld, in dem ich neue Dinge lernen und gleichzeitig konkrete Beiträge zu Projekten leisten kann."
+            ],
+            "closing": [
+                "Ich freue mich darauf, mehr über Ihre Projekte und die Position zu erfahren.",
+                "Gerne würde ich mich persönlich vorstellen und mehr über Ihr Team erfahren.",
+                "Über ein persönliches Gespräch freue ich mich sehr."
+            ]
+        },
+
+        "junior": {
+            "order": [
+                "salutation",
+                "opening",
+                "experience",
+                "job_connection",
+                "motivation",
+                "closing"
+            ],
+            "salutation": [
+                "Sehr geehrte Damen und Herren,"
+            ],
+            "opening": [
+                "mit großem Interesse bewerbe ich mich bei {company_name} als {position}. Die Position bietet mir eine interessante Möglichkeit, meine bisherigen Programmierkenntnisse praktisch einzusetzen und weiterzuentwickeln.",
+                "die ausgeschriebene Position als {position} hat mein Interesse geweckt, da sie Softwareentwicklung mit meinem technischen Schwerpunkt verbindet.",
+                "ich möchte meine bisherigen Kenntnisse in der Softwareentwicklung gerne in einem professionellen Umfeld vertiefen und bewerbe mich daher mit großem Interesse bei {company_name}."
+            ],
+            "experience": [
+                "Meine bisherigen technischen Kenntnisse liegen insbesondere in {relevant_keywords}. Dabei beschäftige ich mich intensiv mit praktischer Entwicklung und arbeite mich gerne selbstständig in neue Technologien ein.",
+                "Ich bringe Kenntnisse in {relevant_keywords} mit und möchte diese nun stärker in realen Projekten einsetzen und weiter vertiefen.",
+                "Mein bisheriger technischer Schwerpunkt umfasst {relevant_keywords}. Besonders wichtig ist mir, mein Wissen durch praktische Aufgaben kontinuierlich auszubauen."
+            ],
+            "job_connection": [
+                "Eine gute fachliche Überschneidung mit der Position sehe ich insbesondere bei {relevant_keywords}.",
+                "Besonders gut passen meine bisherigen Kenntnisse in {relevant_keywords} zu den beschriebenen technischen Aufgaben.",
+                "Die Bereiche {relevant_keywords} bilden eine gute Grundlage, um mich in Ihre Entwicklungsumgebung einzuarbeiten."
+            ],
+            "motivation": [
+                "Ich sehe die Position als gute Möglichkeit, praktische Erfahrung in der Softwareentwicklung zu sammeln und mein technisches Wissen weiter auszubauen.",
+                "Besonders wichtig ist mir ein Umfeld, in dem ich von erfahrenen Entwicklern lernen und gleichzeitig eigene Kenntnisse praktisch einsetzen kann.",
+                "Ich möchte meine Programmierkenntnisse Schritt für Schritt weiterentwickeln und langfristig anspruchsvollere Entwicklungsaufgaben übernehmen."
+            ],
+            "closing": [
+                "Über die Gelegenheit zu einem persönlichen Gespräch freue ich mich sehr.",
+                "Gerne erläutere ich Ihnen meine Motivation und meine bisherigen Kenntnisse persönlich.",
+                "Ich freue mich darauf, mich persönlich bei Ihnen vorzustellen."
+            ]
+        }
+    }
+}

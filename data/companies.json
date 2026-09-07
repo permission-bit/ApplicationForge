@@ -1,0 +1,81 @@
+{
+    "companies": [
+        {
+            "id": "example-security",
+            "name": "Example Security GmbH",
+            "email": "jobs@example.com",
+            "type": "cybersecurity",
+            "size": "enterprise",
+            "location": "Berlin",
+            "position": "Junior Security Analyst",
+            "keywords": [
+                "Cyber Security",
+                "Penetration Testing",
+                "Linux",
+                "Python",
+                "Networking",
+                "Web Security",
+                "Vulnerability Assessment"
+            ],
+            "requirements": [
+                "Grundkenntnisse in Cyber Security",
+                "Kenntnisse in Linux",
+                "Python-Kenntnisse",
+                "Netzwerkkenntnisse",
+                "Interesse an Penetration Testing",
+                "Analytisches Denken"
+            ],
+            "description": "Unterstützung bei Security Assessments, Schwachstellenanalysen und technischen Sicherheitsprüfungen."
+        },
+        {
+            "id": "example-software",
+            "name": "Example Software AG",
+            "email": "careers@example.com",
+            "type": "software",
+            "size": "medium",
+            "location": "München",
+            "position": "Junior Python Developer",
+            "keywords": [
+                "Python",
+                "Git",
+                "Linux",
+                "REST API",
+                "SQL",
+                "Software Development"
+            ],
+            "requirements": [
+                "Grundkenntnisse in Python",
+                "Erfahrung mit Git",
+                "Grundkenntnisse in SQL",
+                "Interesse an Softwareentwicklung",
+                "Strukturierte Arbeitsweise"
+            ],
+            "description": "Entwicklung und Wartung von Python-Anwendungen und REST-Schnittstellen."
+        },
+        {
+            "id": "example-it-services",
+            "name": "Example IT Services GmbH",
+            "email": "bewerbung@example.com",
+            "type": "it-services",
+            "size": "small",
+            "location": "Hamburg",
+            "position": "Junior System Administrator",
+            "keywords": [
+                "Linux",
+                "Networking",
+                "Windows",
+                "Python",
+                "Bash",
+                "System Administration"
+            ],
+            "requirements": [
+                "Linux-Kenntnisse",
+                "Grundkenntnisse in Netzwerken",
+                "Interesse an Systemadministration",
+                "Grundkenntnisse in Bash",
+                "Technisches Verständnis"
+            ],
+            "description": "Unterstützung bei der Administration von Linux- und Windows-Systemen sowie bei Netzwerk- und Infrastrukturaufgaben."
+        }
+    ]
+}

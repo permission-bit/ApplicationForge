@@ -1,0 +1,595 @@
+{
+    "cybersecurity": {
+        "formal": {
+            "order": [
+                "salutation",
+                "opening",
+                "experience",
+                "job_connection",
+                "motivation",
+                "closing"
+            ],
+            "salutation": [
+                "Dear Sir or Madam,",
+                "Dear {company_name} Team,"
+            ],
+            "opening": [
+                "I am writing to apply for the {position} position at {company_name}. The combination of technical responsibilities, cybersecurity, and practical problem-solving strongly aligns with my professional interests.",
+                "The advertised {position} position at {company_name} immediately caught my attention. I am particularly interested in the combination of IT systems, networks, and information security.",
+                "I was very interested to read your posting for the {position} position. The responsibilities described align closely with my technical focus and my interest in modern cybersecurity."
+            ],
+            "experience": [
+                "My main technical areas of focus include {relevant_keywords}. I work on practical software development as well as Linux systems, networks, and security-related technical challenges.",
+                "My technical skills include {relevant_keywords}. I approach technical problems in a structured way and place great importance on understanding concepts both theoretically and through practical implementation.",
+                "My technical focus includes {relevant_keywords}. I combine practical programming skills with a strong interest in systems, networks, and their security."
+            ],
+            "job_connection": [
+                "I am particularly interested in the opportunity to connect my knowledge of {relevant_keywords} directly with the requirements of the position.",
+                "The areas mentioned in the job description provide an excellent opportunity to apply and further develop my existing knowledge, particularly in {relevant_keywords}.",
+                "My existing knowledge of {relevant_keywords} provides a strong foundation for taking on the technical responsibilities of the position."
+            ],
+            "motivation": [
+                "I am particularly motivated by the opportunity to apply my technical skills in a professional security environment and continuously develop them.",
+                "My goal is to deepen my knowledge of cybersecurity over the long term while gaining practical experience with professional systems and security processes.",
+                "The combination of technical challenges, structured problem analysis, and cybersecurity closely matches my professional interests."
+            ],
+            "closing": [
+                "I would be very pleased to discuss my motivation and background with you in an interview.",
+                "I would be happy to discuss my motivation and technical skills with you in person.",
+                "I look forward to introducing myself personally and learning more about the position and your team."
+            ]
+        },
+        "technical": {
+            "order": [
+                "salutation",
+                "opening",
+                "experience",
+                "job_connection",
+                "motivation",
+                "closing"
+            ],
+            "salutation": [
+                "Dear Sir or Madam,",
+                "Dear {company_name} Team,"
+            ],
+            "opening": [
+                "The {position} position at {company_name} particularly appeals to me because it combines technical analysis, IT systems, and security.",
+                "I am very interested in applying for the {position} position. I am particularly attracted by the opportunity to apply my technical knowledge in a professional security environment.",
+                "The advertised position combines several technical areas that I work with extensively. I would therefore like to contribute my knowledge at {company_name}."
+            ],
+            "experience": [
+                "My technical focus is on {relevant_keywords}. I value a systematic approach: analyzing technical relationships, narrowing down problems in a traceable way, and developing practical solutions.",
+                "I work primarily with {relevant_keywords}. I enjoy working independently and practically while continuously deepening my knowledge through real technical challenges.",
+                "My technical areas include {relevant_keywords}. The combination of programming, Linux, networking, and cybersecurity allows me to approach technical problems from different perspectives."
+            ],
+            "job_connection": [
+                "The topics {relevant_keywords} mentioned in the job description are particularly well aligned with my existing focus, and I would like to apply these skills to the position.",
+                "There is a strong overlap between my existing knowledge and the requirements of the position, particularly in {relevant_keywords}. This connection is what makes the role especially interesting to me.",
+                "The areas of {relevant_keywords} provide a strong foundation for developing my expertise in the responsibilities described."
+            ],
+            "motivation": [
+                "My goal is to continuously expand my technical skills and take on increasingly demanding responsibilities in cybersecurity.",
+                "I want to combine my technical understanding with practical security work while continuously developing professionally.",
+                "An environment where technical analysis, security, and continuous learning come together matches my professional direction very well."
+            ],
+            "closing": [
+                "I would be happy to discuss my technical skills and motivation with you in an interview.",
+                "I would greatly appreciate the opportunity to speak with you in person.",
+                "I look forward to personally introducing my motivation and technical background."
+            ]
+        },
+        "modern": {
+            "order": [
+                "salutation",
+                "opening",
+                "experience",
+                "job_connection",
+                "motivation",
+                "closing"
+            ],
+            "salutation": [
+                "Dear {company_name} Team,",
+                "Hello {company_name} Team,"
+            ],
+            "opening": [
+                "For me, cybersecurity is above all a practical and technical challenge. That is exactly why your {position} position immediately caught my attention.",
+                "The combination of IT, security, and technical challenges makes the {position} position particularly interesting to me.",
+                "As a technically minded applicant focused on cybersecurity, I would like to apply and further develop my skills at {company_name}."
+            ],
+            "experience": [
+                "Technically, I mainly work with {relevant_keywords}. I enjoy learning independently, testing things in practice, and approaching new topics systematically.",
+                "My current focus is on {relevant_keywords}. I am particularly interested in how systems work, how problems arise, and how they can be analyzed and solved technically.",
+                "I bring knowledge of {relevant_keywords} and enjoy working intensively on technical challenges. I consider it important to connect theory with practical implementation."
+            ],
+            "job_connection": [
+                "I see the strongest overlap with the requirements of the position in {relevant_keywords}, which I would like to deepen through my daily work.",
+                "I am particularly interested in {relevant_keywords}, as these areas directly match my existing technical focus.",
+                "The combination of my knowledge of {relevant_keywords} and the responsibilities described makes the position particularly attractive to me."
+            ],
+            "motivation": [
+                "I am looking for an environment where I can be technically challenged, learn new things, and make a practical contribution at the same time.",
+                "I am particularly attracted by the opportunity to develop professionally while working on real-world security tasks.",
+                "I want to turn my technical interests into a professional focus in cybersecurity over the long term."
+            ],
+            "closing": [
+                "I look forward to learning more about the position and your team.",
+                "I would be very pleased to speak with you in person.",
+                "I would be happy to introduce myself personally and discuss my motivation."
+            ]
+        },
+        "startup": {
+            "order": [
+                "salutation",
+                "opening",
+                "experience",
+                "job_connection",
+                "motivation",
+                "closing"
+            ],
+            "salutation": [
+                "Hello {company_name} Team,",
+                "Dear {company_name} Team,"
+            ],
+            "opening": [
+                "The {position} position immediately caught my attention because it combines technical responsibility, security, and practical problem-solving.",
+                "I would like to apply for the {position} position at {company_name}. I was particularly drawn to the technical focus of the role.",
+                "Your posting for the {position} position fits very well with my technical interests and my goal of developing further through practical cybersecurity work."
+            ],
+            "experience": [
+                "I am currently working intensively with {relevant_keywords} and enjoy learning new technical topics independently.",
+                "My technical background includes {relevant_keywords}. I am used to familiarizing myself independently with new systems and technologies.",
+                "My current focus is on {relevant_keywords}. I enjoy working practically, independently, and with a solution-oriented mindset."
+            ],
+            "job_connection": [
+                "My experience and technical focus in {relevant_keywords} align particularly well with the responsibilities described.",
+                "The areas of {relevant_keywords} directly connect my existing knowledge with the requirements of the position.",
+                "The topics of {relevant_keywords} offer an interesting intersection between my existing skills and the responsibilities of the role."
+            ],
+            "motivation": [
+                "I am particularly attracted to an environment where initiative, technical learning, and practical implementation play an important role.",
+                "I want to contribute actively, take responsibility, and continue developing my technical skills together with a motivated team.",
+                "A dynamic technical environment where I can learn quickly while contributing in practice matches my expectations very well."
+            ],
+            "closing": [
+                "I look forward to learning more about your work and the position.",
+                "I would be happy to introduce myself personally and learn more about your team.",
+                "I would be very pleased to speak with you in person."
+            ]
+        },
+        "junior": {
+            "order": [
+                "salutation",
+                "opening",
+                "experience",
+                "job_connection",
+                "motivation",
+                "closing"
+            ],
+            "salutation": [
+                "Dear Sir or Madam,",
+                "Dear {company_name} Team,"
+            ],
+            "opening": [
+                "I am writing to apply for the {position} position at {company_name}. The role offers an excellent opportunity for me to apply my existing technical knowledge in practice and continue developing it.",
+                "The advertised {position} position caught my attention because it combines technical responsibilities with my strong interest in cybersecurity.",
+                "I would like to further develop my existing technical knowledge in a professional environment and am therefore very interested in the {position} position."
+            ],
+            "experience": [
+                "My current knowledge is particularly focused on {relevant_keywords}. I have developed a structured approach to technical problems and enjoy independently learning new topics.",
+                "I have practical foundational knowledge of {relevant_keywords} and am focused on applying these skills in real-world situations.",
+                "My current technical focus includes {relevant_keywords}. I consider it important to continuously expand my knowledge through practical tasks."
+            ],
+            "job_connection": [
+                "I see a strong technical overlap with the position, particularly in {relevant_keywords}.",
+                "My existing knowledge of {relevant_keywords} aligns particularly well with the technical responsibilities described.",
+                "The areas of {relevant_keywords} provide a solid foundation for developing my skills in the further requirements of the position."
+            ],
+            "motivation": [
+                "As I want to develop professionally in cybersecurity, I see this position as an excellent opportunity to gain practical experience and deepen my technical knowledge.",
+                "It is particularly important to me to learn from experienced colleagues while also applying my own technical knowledge in practice.",
+                "I want to develop my existing knowledge step by step into a strong professional technical profile."
+            ],
+            "closing": [
+                "I would be very pleased to have the opportunity to speak with you in person.",
+                "I would be happy to discuss my motivation and existing knowledge with you personally.",
+                "I look forward to introducing myself personally."
+            ]
+        }
+    },
+
+    "it": {
+        "formal": {
+            "order": [
+                "salutation",
+                "opening",
+                "experience",
+                "job_connection",
+                "motivation",
+                "closing"
+            ],
+            "salutation": [
+                "Dear Sir or Madam,",
+                "Dear {company_name} Team,"
+            ],
+            "opening": [
+                "I am writing to apply for the {position} position at {company_name}. The combination of IT systems, technical responsibilities, and practical problem-solving strongly aligns with my interests.",
+                "The advertised {position} position at {company_name} immediately caught my attention. I am particularly interested in systems, networks, and practical IT operations.",
+                "I was very interested to read your posting for the {position} position. The responsibilities described match my technical focus and interest in modern IT environments."
+            ],
+            "experience": [
+                "My main technical areas of focus include {relevant_keywords}. I work with systems, networks, administration, and the structured analysis of technical problems.",
+                "My skills include {relevant_keywords}. I enjoy working independently with new technical environments and technologies.",
+                "My technical background includes {relevant_keywords}. I value structured working methods and clear, practical technical solutions."
+            ],
+            "job_connection": [
+                "I am particularly interested in the opportunity to connect my knowledge of {relevant_keywords} directly with the requirements of the position.",
+                "The areas mentioned in the job description provide an excellent opportunity to apply and further develop my existing knowledge, particularly in {relevant_keywords}.",
+                "My existing knowledge of {relevant_keywords} provides a strong foundation for taking on the technical responsibilities of the position."
+            ],
+            "motivation": [
+                "I would like to apply my existing technical knowledge in a professional IT environment while continuing to develop my skills.",
+                "I am particularly interested in learning about new technical challenges and continuously expanding my knowledge.",
+                "My goal is to strengthen my technical skills over the long term and take on increasingly demanding responsibilities in IT."
+            ],
+            "closing": [
+                "I would be very pleased to discuss my motivation and background with you in an interview.",
+                "I would be happy to discuss my motivation and technical skills with you in person.",
+                "I look forward to introducing myself personally and learning more about the position and your team."
+            ]
+        },
+        "technical": {
+            "order": [
+                "salutation",
+                "opening",
+                "experience",
+                "job_connection",
+                "motivation",
+                "closing"
+            ],
+            "salutation": [
+                "Dear Sir or Madam,",
+                "Dear {company_name} Team,"
+            ],
+            "opening": [
+                "The {position} position at {company_name} particularly appeals to me because it combines technical administration, system understanding, and problem-solving.",
+                "I am very interested in applying for the {position} position. I am particularly attracted by the technical responsibility and the IT infrastructure tasks described.",
+                "The advertised position offers an interesting combination of system administration, networking, and practical troubleshooting."
+            ],
+            "experience": [
+                "My technical focus is on {relevant_keywords}. I work systematically, first narrowing down technical problems before implementing appropriate solutions.",
+                "My technical focus includes {relevant_keywords}. I work with both administration and the practical analysis of systems and networks.",
+                "I have knowledge of {relevant_keywords} and enjoy independently familiarizing myself with new technical environments."
+            ],
+            "job_connection": [
+                "The topics {relevant_keywords} mentioned in the job description are particularly well aligned with my existing focus, and I would like to apply these skills to the position.",
+                "There is a strong overlap between my existing knowledge and the requirements of the position, particularly in {relevant_keywords}. This connection is what makes the role especially interesting to me.",
+                "The areas of {relevant_keywords} provide a strong foundation for developing my expertise in the responsibilities described."
+            ],
+            "motivation": [
+                "I want to apply my technical skills in a professional environment while deepening my knowledge of administration and infrastructure.",
+                "I am particularly motivated by the opportunity to take practical responsibility for technical systems while continuing to develop professionally.",
+                "I am looking for a role that combines technical understanding, independent problem-solving, and continuous learning."
+            ],
+            "closing": [
+                "I would be happy to discuss my technical skills and motivation with you in an interview.",
+                "I would greatly appreciate the opportunity to speak with you in person.",
+                "I look forward to personally introducing my motivation and technical background."
+            ]
+        },
+        "modern": {
+            "order": [
+                "salutation",
+                "opening",
+                "experience",
+                "job_connection",
+                "motivation",
+                "closing"
+            ],
+            "salutation": [
+                "Dear {company_name} Team,",
+                "Hello {company_name} Team,"
+            ],
+            "opening": [
+                "For me, IT is above all a practical and technical challenge. That is exactly why your {position} position immediately caught my attention.",
+                "The combination of IT, security, and technical challenges makes the {position} position particularly interesting to me.",
+                "As a technically minded applicant focused on IT, I would like to apply and further develop my skills at {company_name}."
+            ],
+            "experience": [
+                "Technically, I mainly work with {relevant_keywords}. I enjoy learning independently, testing things in practice, and approaching new topics systematically.",
+                "My current focus is on {relevant_keywords}. I am particularly interested in how systems work, how problems arise, and how they can be analyzed and solved technically.",
+                "I bring knowledge of {relevant_keywords} and enjoy working intensively on technical challenges. I consider it important to connect theory with practical implementation."
+            ],
+            "job_connection": [
+                "I see the strongest overlap with the requirements of the position in {relevant_keywords}, which I would like to deepen through my daily work.",
+                "I am particularly interested in {relevant_keywords}, as these areas directly match my existing technical focus.",
+                "The combination of my knowledge of {relevant_keywords} and the responsibilities described makes the position particularly attractive to me."
+            ],
+            "motivation": [
+                "I am looking for an environment where I can be technically challenged, learn new things, and make a practical contribution at the same time.",
+                "I am particularly attracted by the opportunity to develop professionally while working on real-world IT tasks.",
+                "I want to turn my technical interests into a professional focus in IT over the long term."
+            ],
+            "closing": [
+                "I look forward to learning more about the position and your team.",
+                "I would be very pleased to speak with you in person.",
+                "I would be happy to introduce myself personally and discuss my motivation."
+            ]
+        },
+        "startup": {
+            "order": [
+                "salutation",
+                "opening",
+                "experience",
+                "job_connection",
+                "motivation",
+                "closing"
+            ],
+            "salutation": [
+                "Hello {company_name} Team,",
+                "Dear {company_name} Team,"
+            ],
+            "opening": [
+                "The {position} position immediately caught my attention because it combines technical responsibility, security, and practical problem-solving.",
+                "I would like to apply for the {position} position at {company_name}. I was particularly drawn to the technical focus of the role.",
+                "Your posting for the {position} position fits very well with my technical interests and my goal of developing further through practical IT work."
+            ],
+            "experience": [
+                "I am currently working intensively with {relevant_keywords} and enjoy learning new technical topics independently.",
+                "My technical background includes {relevant_keywords}. I am used to familiarizing myself independently with new systems and technologies.",
+                "My current focus is on {relevant_keywords}. I enjoy working practically, independently, and with a solution-oriented mindset."
+            ],
+            "job_connection": [
+                "My experience and technical focus in {relevant_keywords} align particularly well with the responsibilities described.",
+                "The areas of {relevant_keywords} directly connect my existing knowledge with the requirements of the position.",
+                "The topics of {relevant_keywords} offer an interesting intersection between my existing skills and the responsibilities of the role."
+            ],
+            "motivation": [
+                "I am particularly attracted to an environment where initiative, technical learning, and practical implementation play an important role.",
+                "I want to contribute actively, take responsibility, and continue developing my technical skills together with a motivated team.",
+                "A dynamic technical environment where I can learn quickly while contributing in practice matches my expectations very well."
+            ],
+            "closing": [
+                "I look forward to learning more about your work and the position.",
+                "I would be happy to introduce myself personally and learn more about your team.",
+                "I would be very pleased to speak with you in person."
+            ]
+        },
+        "junior": {
+            "order": [
+                "salutation",
+                "opening",
+                "experience",
+                "job_connection",
+                "motivation",
+                "closing"
+            ],
+            "salutation": [
+                "Dear Sir or Madam,",
+                "Dear {company_name} Team,"
+            ],
+            "opening": [
+                "I am writing to apply for the {position} position at {company_name}. The role offers an excellent opportunity for me to apply my existing technical knowledge in practice and continue developing it.",
+                "The advertised {position} position caught my attention because it combines technical responsibilities with my strong interest in IT.",
+                "I would like to further develop my existing technical knowledge in a professional environment and am therefore very interested in the {position} position."
+            ],
+            "experience": [
+                "My current knowledge is particularly focused on {relevant_keywords}. I have developed a structured approach to technical problems and enjoy independently learning new topics.",
+                "I have practical foundational knowledge of {relevant_keywords} and am focused on applying these skills in real-world situations.",
+                "My current technical focus includes {relevant_keywords}. I consider it important to continuously expand my knowledge through practical tasks."
+            ],
+            "job_connection": [
+                "I see a strong technical overlap with the position, particularly in {relevant_keywords}.",
+                "My existing knowledge of {relevant_keywords} aligns particularly well with the technical responsibilities described.",
+                "The areas of {relevant_keywords} provide a solid foundation for developing my skills in the further requirements of the position."
+            ],
+            "motivation": [
+                "As I want to develop professionally in IT, I see this position as an excellent opportunity to gain practical experience and deepen my technical knowledge.",
+                "It is particularly important to me to learn from experienced colleagues while also applying my own technical knowledge in practice.",
+                "I want to develop my existing knowledge step by step into a strong professional technical profile."
+            ],
+            "closing": [
+                "I would be very pleased to have the opportunity to speak with you in person.",
+                "I would be happy to discuss my motivation and existing knowledge with you personally.",
+                "I look forward to introducing myself personally."
+            ]
+        }
+    },
+
+    "software": {
+        "formal": {
+            "order": [
+                "salutation",
+                "opening",
+                "experience",
+                "job_connection",
+                "motivation",
+                "closing"
+            ],
+            "salutation": [
+                "Dear Sir or Madam,",
+                "Dear {company_name} Team,"
+            ],
+            "opening": [
+                "I am writing to apply for the {position} position at {company_name}. I am particularly interested in the combination of modern software development and technically demanding tasks.",
+                "The advertised {position} position matches my technical interests and my enthusiasm for software development.",
+                "I was very interested to read your posting for the {position} position. I am particularly attracted by the opportunity to apply my programming skills in a professional development environment."
+            ],
+            "experience": [
+                "My main technical areas of focus include {relevant_keywords}. I work on developing, structuring, and practically implementing software solutions.",
+                "I have knowledge of {relevant_keywords} and enjoy developing clear, maintainable software solutions.",
+                "My technical focus is on {relevant_keywords}. I value clean code, clear structure, and a systematic approach."
+            ],
+            "job_connection": [
+                "I am particularly interested in the opportunity to connect my knowledge of {relevant_keywords} directly with the requirements of the position.",
+                "The areas mentioned in the job description provide an excellent opportunity to apply and further develop my existing knowledge, particularly in {relevant_keywords}.",
+                "My existing knowledge of {relevant_keywords} provides a strong foundation for taking on the technical responsibilities of the position."
+            ],
+            "motivation": [
+                "I want to apply my programming skills in a professional development environment and continuously improve them.",
+                "I am particularly motivated by the opportunity to contribute to real software projects while learning from experienced developers.",
+                "My goal is to deepen my software development skills and take on increasingly demanding development responsibilities."
+            ],
+            "closing": [
+                "I would be very pleased to discuss my motivation and background with you in an interview.",
+                "I would be happy to discuss my motivation and technical skills with you in person.",
+                "I look forward to introducing myself personally and learning more about the position and your team."
+            ]
+        },
+        "technical": {
+            "order": [
+                "salutation",
+                "opening",
+                "experience",
+                "job_connection",
+                "motivation",
+                "closing"
+            ],
+            "salutation": [
+                "Dear Sir or Madam,",
+                "Dear {company_name} Team,"
+            ],
+            "opening": [
+                "The {position} position at {company_name} particularly appeals to me because it combines software development with technically demanding tasks.",
+                "I am very interested in applying for the {position} position. I am particularly attracted by the opportunity to apply my development and systems knowledge in practice.",
+                "Your posting combines several technical areas that interest me. I would therefore like to contribute my knowledge at {company_name}."
+            ],
+            "experience": [
+                "My technical focus is on {relevant_keywords}. I work with software development, systems, and the practical implementation of technical solutions.",
+                "My technical focus includes {relevant_keywords}. I work in a structured way and value maintainable, technically clean solutions.",
+                "I work extensively with {relevant_keywords}. I consider it important not only to use individual technologies but also to understand how they interact."
+            ],
+            "job_connection": [
+                "The topics {relevant_keywords} mentioned in the job description are particularly well aligned with my existing focus, and I would like to apply these skills to the position.",
+                "There is a strong overlap between my existing knowledge and the requirements of the position, particularly in {relevant_keywords}. This connection is what makes the role especially interesting to me.",
+                "The areas of {relevant_keywords} provide a strong foundation for developing my expertise in the responsibilities described."
+            ],
+            "motivation": [
+                "I want to continuously expand my technical skills while contributing to real software projects.",
+                "I am particularly motivated by solving technical challenges while deepening my knowledge in a professional development environment.",
+                "I am looking for an environment where clean technical solutions, continuous learning, and practical software development come together."
+            ],
+            "closing": [
+                "I would be happy to discuss my technical skills and motivation with you in an interview.",
+                "I would greatly appreciate the opportunity to speak with you in person.",
+                "I look forward to personally introducing my motivation and technical background."
+            ]
+        },
+        "modern": {
+            "order": [
+                "salutation",
+                "opening",
+                "experience",
+                "job_connection",
+                "motivation",
+                "closing"
+            ],
+            "salutation": [
+                "Dear {company_name} Team,",
+                "Hello {company_name} Team,"
+            ],
+            "opening": [
+                "For me, software development is above all a practical and technical challenge. That is exactly why your {position} position immediately caught my attention.",
+                "The combination of IT, software, and technical challenges makes the {position} position particularly interesting to me.",
+                "As a technically minded applicant focused on software development, I would like to apply and further develop my skills at {company_name}."
+            ],
+            "experience": [
+                "Technically, I mainly work with {relevant_keywords}. I enjoy learning independently, testing things in practice, and approaching new topics systematically.",
+                "My current focus is on {relevant_keywords}. I am particularly interested in how systems work, how problems arise, and how they can be analyzed and solved technically.",
+                "I bring knowledge of {relevant_keywords} and enjoy working intensively on technical challenges. I consider it important to connect theory with practical implementation."
+            ],
+            "job_connection": [
+                "I see the strongest overlap with the requirements of the position in {relevant_keywords}, which I would like to deepen through my daily work.",
+                "I am particularly interested in {relevant_keywords}, as these areas directly match my existing technical focus.",
+                "The combination of my knowledge of {relevant_keywords} and the responsibilities described makes the position particularly attractive to me."
+            ],
+            "motivation": [
+                "I am looking for an environment where I can be technically challenged, learn new things, and make a practical contribution at the same time.",
+                "I am particularly attracted by the opportunity to develop professionally while working on real-world software tasks.",
+                "I want to turn my technical interests into a professional focus in software development over the long term."
+            ],
+            "closing": [
+                "I look forward to learning more about the position and your team.",
+                "I would be very pleased to speak with you in person.",
+                "I would be happy to introduce myself personally and discuss my motivation."
+            ]
+        },
+        "startup": {
+            "order": [
+                "salutation",
+                "opening",
+                "experience",
+                "job_connection",
+                "motivation",
+                "closing"
+            ],
+            "salutation": [
+                "Hello {company_name} Team,",
+                "Dear {company_name} Team,"
+            ],
+            "opening": [
+                "The {position} position immediately caught my attention because it combines technical responsibility, software, and practical problem-solving.",
+                "I would like to apply for the {position} position at {company_name}. I was particularly drawn to the technical focus of the role.",
+                "Your posting for the {position} position fits very well with my technical interests and my goal of developing further through practical software development work."
+            ],
+            "experience": [
+                "I am currently working intensively with {relevant_keywords} and enjoy learning new technical topics independently.",
+                "My technical background includes {relevant_keywords}. I am used to familiarizing myself independently with new systems and technologies.",
+                "My current focus is on {relevant_keywords}. I enjoy working practically, independently, and with a solution-oriented mindset."
+            ],
+            "job_connection": [
+                "My experience and technical focus in {relevant_keywords} align particularly well with the responsibilities described.",
+                "The areas of {relevant_keywords} directly connect my existing knowledge with the requirements of the position.",
+                "The topics of {relevant_keywords} offer an interesting intersection between my existing skills and the responsibilities of the role."
+            ],
+            "motivation": [
+                "I am particularly attracted to an environment where initiative, technical learning, and practical implementation play an important role.",
+                "I want to contribute actively, take responsibility, and continue developing my technical skills together with a motivated team.",
+                "A dynamic technical environment where I can learn quickly while contributing in practice matches my expectations very well."
+            ],
+            "closing": [
+                "I look forward to learning more about your work and the position.",
+                "I would be happy to introduce myself personally and learn more about your team.",
+                "I would be very pleased to speak with you in person."
+            ]
+        },
+        "junior": {
+            "order": [
+                "salutation",
+                "opening",
+                "experience",
+                "job_connection",
+                "motivation",
+                "closing"
+            ],
+            "salutation": [
+                "Dear Sir or Madam,",
+                "Dear {company_name} Team,"
+            ],
+            "opening": [
+                "I am writing to apply for the {position} position at {company_name}. The role offers an excellent opportunity for me to apply my existing technical knowledge in practice and continue developing it.",
+                "The advertised {position} position caught my attention because it combines technical responsibilities with my strong interest in software development.",
+                "I would like to further develop my existing technical knowledge in a professional environment and am therefore very interested in the {position} position."
+            ],
+            "experience": [
+                "My current knowledge is particularly focused on {relevant_keywords}. I have developed a structured approach to technical problems and enjoy independently learning new topics.",
+                "I have practical foundational knowledge of {relevant_keywords} and am focused on applying these skills in real-world situations.",
+                "My current technical focus includes {relevant_keywords}. I consider it important to continuously expand my knowledge through practical tasks."
+            ],
+            "job_connection": [
+                "I see a strong technical overlap with the position, particularly in {relevant_keywords}.",
+                "My existing knowledge of {relevant_keywords} aligns particularly well with the technical responsibilities described.",
+                "The areas of {relevant_keywords} provide a solid foundation for developing my skills in the further requirements of the position."
+            ],
+            "motivation": [
+                "As I want to develop professionally in software development, I see this position as an excellent opportunity to gain practical experience and deepen my technical knowledge.",
+                "It is particularly important to me to learn from experienced colleagues while also applying my own technical knowledge in practice.",
+                "I want to develop my existing knowledge step by step into a strong professional technical profile."
+            ],
+            "closing": [
+                "I would be very pleased to have the opportunity to speak with you in person.",
+                "I would be happy to discuss my motivation and existing knowledge with you personally.",
+                "I look forward to introducing myself personally."
+            ]
+        }
+    }
+}

@@ -1,0 +1,80 @@
+{
+    "_comment": "Example applicant profile. Copy this file to applicant.json and replace the example values with your own data.",
+
+    "first_name": "Max",
+    "last_name": "Mustermann",
+
+    "email": "max.mustermann@example.com",
+    "phone": "+49 170 12345678",
+
+    "address": "Musterstraße 1",
+    "zip_code": "10115",
+    "city": "Berlin",
+
+    "github": "https://github.com/example-user",
+
+    "_comment_personal": "Personal contact information should only be stored locally and must not be committed to Git.",
+
+    "skills": [
+        "Python",
+        "Linux",
+        "Cyber Security",
+        "Networking",
+        "Web Development",
+        "Django",
+        "Flask",
+        "Git",
+        "GitHub",
+        "Cryptography",
+        "Web Security",
+        "Penetration Testing",
+        "Vulnerability Assessment"
+    ],
+
+    "experience": [
+        "Python-Entwicklung",
+        "Entwicklung mit Django und Flask",
+        "Entwicklung von REST APIs",
+        "Linux-Systemadministration",
+        "Netzwerkadministration",
+        "IT-Sicherheit",
+        "Webentwicklung",
+        "Git und GitHub",
+        "Entwicklung eigener CLI-Tools",
+        "Automatisierung mit Python",
+        "Arbeiten mit Python-Bibliotheken",
+        "Kryptografie und Encoding",
+        "JSON-Verarbeitung",
+        "Datenbankanbindung mit SQLite",
+        "Security Testing",
+        "Arbeiten mit Security-Tools"
+    ],
+
+    "security_tools": [
+        "Nmap",
+        "Gobuster",
+        "ffuf",
+        "Wireshark",
+        "Metasploit",
+        "Ghidra"
+    ],
+
+    "python_technologies": [
+        "Python",
+        "Django",
+        "Flask",
+        "REST APIs",
+        "Cryptography",
+        "Base64",
+        "JSON",
+        "SQLite",
+        "Argparse",
+        "Logging",
+        "Pathlib",
+        "Subprocess",
+        "Requests",
+        "Dataclasses",
+        "Regular Expressions",
+        "Python Virtual Environments"
+    ]
+}

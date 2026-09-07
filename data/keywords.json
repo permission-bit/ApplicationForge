@@ -1,0 +1,1558 @@
+{
+    "version": "1.0",
+    "description": "Zentrale Skill-, Technologie- und Keyword-Definitionen für Stellenanalyse und Bewerber-Matching.",
+
+    "settings": {
+        "case_sensitive": false,
+        "minimum_match_score": 0.0,
+        "default_weight": 5,
+        "required_weight_multiplier": 1.5,
+        "preferred_weight_multiplier": 1.0,
+        "ignore_words": [
+            "und",
+            "oder",
+            "sowie",
+            "mit",
+            "für",
+            "von",
+            "bei",
+            "der",
+            "die",
+            "das",
+            "eine",
+            "einer",
+            "einem",
+            "einen",
+            "als",
+            "im",
+            "in",
+            "auf",
+            "zu",
+            "zum",
+            "zur"
+        ]
+    },
+
+    "categories": {
+        "cybersecurity": {
+            "name": "Cybersecurity",
+            "description": "Informationssicherheit, offensive Security, defensive Security und Security Operations.",
+
+            "keywords": {
+                "Cybersecurity": {
+                    "weight": 10,
+                    "level": "core",
+                    "aliases": [
+                        "cybersecurity",
+                        "cyber security",
+                        "cyber security engineering",
+                        "cyber security operations",
+                        "IT security",
+                        "IT-security",
+                        "information security",
+                        "Informationssicherheit",
+                        "IT-Sicherheit"
+                    ]
+                },
+
+                "Penetration Testing": {
+                    "weight": 10,
+                    "level": "core",
+                    "aliases": [
+                        "penetration testing",
+                        "penetration test",
+                        "pentesting",
+                        "pentest",
+                        "pen testing",
+                        "security testing",
+                        "offensive security"
+                    ]
+                },
+
+                "Ethical Hacking": {
+                    "weight": 10,
+                    "level": "core",
+                    "aliases": [
+                        "ethical hacking",
+                        "ethical hacker",
+                        "ethical hacking methodology",
+                        "offensive hacking"
+                    ]
+                },
+
+                "Vulnerability Management": {
+                    "weight": 8,
+                    "level": "important",
+                    "aliases": [
+                        "vulnerability management",
+                        "vulnerability assessment",
+                        "vulnerability scanning",
+                        "vulnerability analysis",
+                        "security vulnerabilities"
+                    ]
+                },
+
+                "Security Operations": {
+                    "weight": 8,
+                    "level": "important",
+                    "aliases": [
+                        "security operations",
+                        "security operations center",
+                        "security operations centre",
+                        "SOC",
+                        "SOC operations"
+                    ]
+                },
+
+                "SIEM": {
+                    "weight": 8,
+                    "level": "important",
+                    "aliases": [
+                        "SIEM",
+                        "security information and event management"
+                    ]
+                },
+
+                "Incident Response": {
+                    "weight": 9,
+                    "level": "important",
+                    "aliases": [
+                        "incident response",
+                        "incident handling",
+                        "security incident response",
+                        "incident management"
+                    ]
+                },
+
+                "Threat Detection": {
+                    "weight": 8,
+                    "level": "important",
+                    "aliases": [
+                        "threat detection",
+                        "threat monitoring",
+                        "threat analysis",
+                        "security monitoring"
+                    ]
+                },
+
+                "Threat Intelligence": {
+                    "weight": 7,
+                    "level": "important",
+                    "aliases": [
+                        "threat intelligence",
+                        "cyber threat intelligence",
+                        "CTI"
+                    ]
+                },
+
+                "Malware Analysis": {
+                    "weight": 9,
+                    "level": "specialized",
+                    "aliases": [
+                        "malware analysis",
+                        "malware reverse engineering",
+                        "malware research",
+                        "malware investigation"
+                    ]
+                },
+
+                "Reverse Engineering": {
+                    "weight": 9,
+                    "level": "specialized",
+                    "aliases": [
+                        "reverse engineering",
+                        "reverse-engineering",
+                        "binary analysis",
+                        "software reverse engineering"
+                    ]
+                },
+
+                "Digital Forensics": {
+                    "weight": 8,
+                    "level": "specialized",
+                    "aliases": [
+                        "digital forensics",
+                        "computer forensics",
+                        "forensic analysis",
+                        "IT forensics"
+                    ]
+                },
+
+                "Security Auditing": {
+                    "weight": 7,
+                    "level": "important",
+                    "aliases": [
+                        "security audit",
+                        "security auditing",
+                        "IT audit",
+                        "information security audit"
+                    ]
+                },
+
+                "Security Assessment": {
+                    "weight": 8,
+                    "level": "important",
+                    "aliases": [
+                        "security assessment",
+                        "security assessments",
+                        "security review",
+                        "security analysis"
+                    ]
+                },
+
+                "OWASP": {
+                    "weight": 8,
+                    "level": "specialized",
+                    "aliases": [
+                        "OWASP",
+                        "OWASP Top 10",
+                        "OWASP top ten",
+                        "Open Web Application Security Project"
+                    ]
+                },
+
+                "Web Security": {
+                    "weight": 8,
+                    "level": "specialized",
+                    "aliases": [
+                        "web security",
+                        "web application security",
+                        "application security",
+                        "AppSec",
+                        "application security testing"
+                    ]
+                },
+
+                "Network Security": {
+                    "weight": 8,
+                    "level": "important",
+                    "aliases": [
+                        "network security",
+                        "network security engineering",
+                        "network protection"
+                    ]
+                },
+
+                "Endpoint Security": {
+                    "weight": 7,
+                    "level": "important",
+                    "aliases": [
+                        "endpoint security",
+                        "endpoint protection",
+                        "endpoint detection",
+                        "EDR"
+                    ]
+                },
+
+                "Identity and Access Management": {
+                    "weight": 7,
+                    "level": "important",
+                    "aliases": [
+                        "identity and access management",
+                        "identity management",
+                        "access management",
+                        "IAM"
+                    ]
+                }
+            }
+        },
+
+        "programming": {
+            "name": "Programming",
+            "description": "Programmiersprachen, Entwicklung und Software Engineering.",
+
+            "keywords": {
+                "Python": {
+                    "weight": 10,
+                    "level": "core",
+                    "aliases": [
+                        "python",
+                        "python 3",
+                        "python3"
+                    ]
+                },
+
+                "C": {
+                    "weight": 9,
+                    "level": "important",
+                    "aliases": [
+                        "c programming",
+                        "c language"
+                    ]
+                },
+
+                "C++": {
+                    "weight": 9,
+                    "level": "important",
+                    "aliases": [
+                        "c++",
+                        "cpp"
+                    ]
+                },
+
+                "C#": {
+                    "weight": 8,
+                    "level": "important",
+                    "aliases": [
+                        "c#",
+                        "c sharp",
+                        "dotnet c#"
+                    ]
+                },
+
+                "Java": {
+                    "weight": 8,
+                    "level": "important",
+                    "aliases": [
+                        "java"
+                    ]
+                },
+
+                "JavaScript": {
+                    "weight": 8,
+                    "level": "important",
+                    "aliases": [
+                        "javascript",
+                        "java script",
+                        "js"
+                    ]
+                },
+
+                "TypeScript": {
+                    "weight": 8,
+                    "level": "important",
+                    "aliases": [
+                        "typescript",
+                        "type script",
+                        "ts"
+                    ]
+                },
+
+                "Go": {
+                    "weight": 8,
+                    "level": "important",
+                    "aliases": [
+                        "golang",
+                        "go programming",
+                        "go language"
+                    ]
+                },
+
+                "Rust": {
+                    "weight": 8,
+                    "level": "specialized",
+                    "aliases": [
+                        "rust",
+                        "rustlang"
+                    ]
+                },
+
+                "PHP": {
+                    "weight": 7,
+                    "level": "important",
+                    "aliases": [
+                        "php"
+                    ]
+                },
+
+                "Bash": {
+                    "weight": 7,
+                    "level": "important",
+                    "aliases": [
+                        "bash",
+                        "bash scripting",
+                        "shell scripting",
+                        "shell script"
+                    ]
+                },
+
+                "PowerShell": {
+                    "weight": 7,
+                    "level": "important",
+                    "aliases": [
+                        "powershell",
+                        "power shell"
+                    ]
+                }
+            }
+        },
+
+        "web_development": {
+            "name": "Web Development",
+            "description": "Webentwicklung, Backend, Frontend und APIs.",
+
+            "keywords": {
+                "Django": {
+                    "weight": 9,
+                    "level": "important",
+                    "aliases": [
+                        "django"
+                    ]
+                },
+
+                "Flask": {
+                    "weight": 9,
+                    "level": "important",
+                    "aliases": [
+                        "flask"
+                    ]
+                },
+
+                "FastAPI": {
+                    "weight": 9,
+                    "level": "important",
+                    "aliases": [
+                        "fastapi",
+                        "fast api"
+                    ]
+                },
+
+                "REST API": {
+                    "weight": 8,
+                    "level": "important",
+                    "aliases": [
+                        "REST API",
+                        "REST APIs",
+                        "RESTful API",
+                        "RESTful APIs",
+                        "REST"
+                    ]
+                },
+
+                "GraphQL": {
+                    "weight": 7,
+                    "level": "specialized",
+                    "aliases": [
+                        "graphql"
+                    ]
+                },
+
+                "HTML": {
+                    "weight": 5,
+                    "level": "basic",
+                    "aliases": [
+                        "html",
+                        "html5"
+                    ]
+                },
+
+                "CSS": {
+                    "weight": 5,
+                    "level": "basic",
+                    "aliases": [
+                        "css",
+                        "css3"
+                    ]
+                },
+
+                "React": {
+                    "weight": 8,
+                    "level": "important",
+                    "aliases": [
+                        "react",
+                        "react.js",
+                        "reactjs"
+                    ]
+                },
+
+                "Vue.js": {
+                    "weight": 8,
+                    "level": "important",
+                    "aliases": [
+                        "vue",
+                        "vue.js",
+                        "vuejs"
+                    ]
+                },
+
+                "Node.js": {
+                    "weight": 8,
+                    "level": "important",
+                    "aliases": [
+                        "node",
+                        "node.js",
+                        "nodejs"
+                    ]
+                }
+            }
+        },
+
+        "linux": {
+            "name": "Linux",
+            "description": "Linux-Systeme, Distributionen und Administration.",
+
+            "keywords": {
+                "Linux": {
+                    "weight": 10,
+                    "level": "core",
+                    "aliases": [
+                        "linux",
+                        "linux systems",
+                        "linux administration",
+                        "linux system administration"
+                    ]
+                },
+
+                "Ubuntu": {
+                    "weight": 7,
+                    "level": "important",
+                    "aliases": [
+                        "ubuntu",
+                        "ubuntu linux"
+                    ]
+                },
+
+                "Debian": {
+                    "weight": 7,
+                    "level": "important",
+                    "aliases": [
+                        "debian",
+                        "debian linux"
+                    ]
+                },
+
+                "Arch Linux": {
+                    "weight": 6,
+                    "level": "specialized",
+                    "aliases": [
+                        "arch linux",
+                        "archlinux"
+                    ]
+                },
+
+                "CentOS": {
+                    "weight": 6,
+                    "level": "important",
+                    "aliases": [
+                        "centos"
+                    ]
+                },
+
+                "Red Hat Enterprise Linux": {
+                    "weight": 7,
+                    "level": "important",
+                    "aliases": [
+                        "red hat enterprise linux",
+                        "rhel",
+                        "redhat"
+                    ]
+                },
+
+                "System Administration": {
+                    "weight": 9,
+                    "level": "core",
+                    "aliases": [
+                        "system administration",
+                        "system administrator",
+                        "system administration tasks",
+                        "systems administration"
+                    ]
+                },
+
+                "Linux Administration": {
+                    "weight": 9,
+                    "level": "core",
+                    "aliases": [
+                        "linux administration",
+                        "linux administrator",
+                        "linux system administration"
+                    ]
+                },
+
+                "Bash": {
+                    "weight": 7,
+                    "level": "important",
+                    "aliases": [
+                        "bash",
+                        "shell scripting",
+                        "shell scripts"
+                    ]
+                },
+
+                "SSH": {
+                    "weight": 7,
+                    "level": "important",
+                    "aliases": [
+                        "ssh",
+                        "secure shell",
+                        "openssh"
+                    ]
+                }
+            }
+        },
+
+        "networking": {
+            "name": "Networking",
+            "description": "Netzwerke, Protokolle und Netzwerkadministration.",
+
+            "keywords": {
+                "Networking": {
+                    "weight": 9,
+                    "level": "core",
+                    "aliases": [
+                        "networking",
+                        "computer networking",
+                        "network administration",
+                        "network administration"
+                    ]
+                },
+
+                "TCP/IP": {
+                    "weight": 9,
+                    "level": "core",
+                    "aliases": [
+                        "TCP/IP",
+                        "TCP IP",
+                        "TCP",
+                        "IP networking"
+                    ]
+                },
+
+                "IPv4": {
+                    "weight": 6,
+                    "level": "important",
+                    "aliases": [
+                        "IPv4",
+                        "IPV4"
+                    ]
+                },
+
+                "IPv6": {
+                    "weight": 6,
+                    "level": "important",
+                    "aliases": [
+                        "IPv6",
+                        "IPV6"
+                    ]
+                },
+
+                "DNS": {
+                    "weight": 7,
+                    "level": "important",
+                    "aliases": [
+                        "DNS",
+                        "domain name system"
+                    ]
+                },
+
+                "DHCP": {
+                    "weight": 6,
+                    "level": "important",
+                    "aliases": [
+                        "DHCP",
+                        "dynamic host configuration protocol"
+                    ]
+                },
+
+                "HTTP": {
+                    "weight": 5,
+                    "level": "basic",
+                    "aliases": [
+                        "HTTP",
+                        "HTTP protocol"
+                    ]
+                },
+
+                "HTTPS": {
+                    "weight": 6,
+                    "level": "important",
+                    "aliases": [
+                        "HTTPS",
+                        "HTTP over TLS"
+                    ]
+                },
+
+                "FTP": {
+                    "weight": 5,
+                    "level": "basic",
+                    "aliases": [
+                        "FTP",
+                        "file transfer protocol"
+                    ]
+                },
+
+                "SMB": {
+                    "weight": 7,
+                    "level": "important",
+                    "aliases": [
+                        "SMB",
+                        "server message block",
+                        "Samba"
+                    ]
+                },
+
+                "NFS": {
+                    "weight": 6,
+                    "level": "important",
+                    "aliases": [
+                        "NFS",
+                        "network file system"
+                    ]
+                },
+
+                "VPN": {
+                    "weight": 6,
+                    "level": "important",
+                    "aliases": [
+                        "VPN",
+                        "virtual private network"
+                    ]
+                },
+
+                "Firewalls": {
+                    "weight": 8,
+                    "level": "important",
+                    "aliases": [
+                        "firewall",
+                        "firewalls",
+                        "network firewall",
+                        "firewall administration"
+                    ]
+                },
+
+                "Routing": {
+                    "weight": 7,
+                    "level": "important",
+                    "aliases": [
+                        "routing",
+                        "network routing"
+                    ]
+                },
+
+                "Switching": {
+                    "weight": 6,
+                    "level": "important",
+                    "aliases": [
+                        "switching",
+                        "network switching"
+                    ]
+                }
+            }
+        },
+
+        "windows": {
+            "name": "Windows",
+            "description": "Windows-Systeme, Server und Microsoft-Infrastruktur.",
+
+            "keywords": {
+                "Windows": {
+                    "weight": 8,
+                    "level": "core",
+                    "aliases": [
+                        "windows",
+                        "microsoft windows"
+                    ]
+                },
+
+                "Windows Server": {
+                    "weight": 9,
+                    "level": "core",
+                    "aliases": [
+                        "windows server",
+                        "windows server administration"
+                    ]
+                },
+
+                "Active Directory": {
+                    "weight": 9,
+                    "level": "core",
+                    "aliases": [
+                        "active directory",
+                        "active-directory",
+                        "AD"
+                    ]
+                },
+
+                "Group Policy": {
+                    "weight": 8,
+                    "level": "important",
+                    "aliases": [
+                        "group policy",
+                        "group policies",
+                        "GPO",
+                        "group policy objects"
+                    ]
+                },
+
+                "PowerShell": {
+                    "weight": 8,
+                    "level": "important",
+                    "aliases": [
+                        "powershell",
+                        "power shell"
+                    ]
+                },
+
+                "Microsoft 365": {
+                    "weight": 7,
+                    "level": "important",
+                    "aliases": [
+                        "microsoft 365",
+                        "office 365",
+                        "o365"
+                    ]
+                },
+
+                "Entra ID": {
+                    "weight": 7,
+                    "level": "specialized",
+                    "aliases": [
+                        "entra id",
+                        "microsoft entra",
+                        "azure active directory",
+                        "azure ad",
+                        "AAD"
+                    ]
+                }
+            }
+        },
+
+        "databases": {
+            "name": "Databases",
+            "description": "Relationale und nicht-relationale Datenbanken.",
+
+            "keywords": {
+                "SQL": {
+                    "weight": 8,
+                    "level": "core",
+                    "aliases": [
+                        "sql",
+                        "structured query language"
+                    ]
+                },
+
+                "PostgreSQL": {
+                    "weight": 8,
+                    "level": "important",
+                    "aliases": [
+                        "postgresql",
+                        "postgres"
+                    ]
+                },
+
+                "MySQL": {
+                    "weight": 8,
+                    "level": "important",
+                    "aliases": [
+                        "mysql"
+                    ]
+                },
+
+                "SQLite": {
+                    "weight": 7,
+                    "level": "important",
+                    "aliases": [
+                        "sqlite",
+                        "sqlite3"
+                    ]
+                },
+
+                "Microsoft SQL Server": {
+                    "weight": 8,
+                    "level": "important",
+                    "aliases": [
+                        "sql server",
+                        "microsoft sql server",
+                        "mssql"
+                    ]
+                },
+
+                "MongoDB": {
+                    "weight": 7,
+                    "level": "specialized",
+                    "aliases": [
+                        "mongodb",
+                        "mongo db"
+                    ]
+                },
+
+                "Redis": {
+                    "weight": 6,
+                    "level": "specialized",
+                    "aliases": [
+                        "redis"
+                    ]
+                }
+            }
+        },
+
+        "devops": {
+            "name": "DevOps",
+            "description": "CI/CD, Container, Infrastructure und Automatisierung.",
+
+            "keywords": {
+                "Git": {
+                    "weight": 8,
+                    "level": "core",
+                    "aliases": [
+                        "git",
+                        "git version control",
+                        "version control"
+                    ]
+                },
+
+                "GitHub": {
+                    "weight": 6,
+                    "level": "important",
+                    "aliases": [
+                        "github",
+                        "github actions"
+                    ]
+                },
+
+                "GitLab": {
+                    "weight": 6,
+                    "level": "important",
+                    "aliases": [
+                        "gitlab",
+                        "gitlab ci"
+                    ]
+                },
+
+                "Docker": {
+                    "weight": 8,
+                    "level": "important",
+                    "aliases": [
+                        "docker",
+                        "docker containers",
+                        "containerization"
+                    ]
+                },
+
+                "Kubernetes": {
+                    "weight": 9,
+                    "level": "specialized",
+                    "aliases": [
+                        "kubernetes",
+                        "k8s"
+                    ]
+                },
+
+                "CI/CD": {
+                    "weight": 8,
+                    "level": "important",
+                    "aliases": [
+                        "CI/CD",
+                        "CI CD",
+                        "continuous integration",
+                        "continuous delivery",
+                        "continuous deployment"
+                    ]
+                },
+
+                "Jenkins": {
+                    "weight": 7,
+                    "level": "specialized",
+                    "aliases": [
+                        "jenkins"
+                    ]
+                },
+
+                "Terraform": {
+                    "weight": 8,
+                    "level": "specialized",
+                    "aliases": [
+                        "terraform",
+                        "infrastructure as code"
+                    ]
+                },
+
+                "Ansible": {
+                    "weight": 8,
+                    "level": "specialized",
+                    "aliases": [
+                        "ansible"
+                    ]
+                },
+
+                "Infrastructure as Code": {
+                    "weight": 8,
+                    "level": "specialized",
+                    "aliases": [
+                        "infrastructure as code",
+                        "IaC"
+                    ]
+                }
+            }
+        },
+
+        "cloud": {
+            "name": "Cloud",
+            "description": "Cloud-Plattformen und Cloud-Infrastruktur.",
+
+            "keywords": {
+                "AWS": {
+                    "weight": 8,
+                    "level": "important",
+                    "aliases": [
+                        "AWS",
+                        "Amazon Web Services"
+                    ]
+                },
+
+                "Microsoft Azure": {
+                    "weight": 8,
+                    "level": "important",
+                    "aliases": [
+                        "Azure",
+                        "Microsoft Azure"
+                    ]
+                },
+
+                "Google Cloud": {
+                    "weight": 8,
+                    "level": "important",
+                    "aliases": [
+                        "Google Cloud",
+                        "Google Cloud Platform",
+                        "GCP"
+                    ]
+                },
+
+                "Cloud Security": {
+                    "weight": 9,
+                    "level": "specialized",
+                    "aliases": [
+                        "cloud security",
+                        "cloud cybersecurity",
+                        "cloud security engineering"
+                    ]
+                },
+
+                "AWS Security": {
+                    "weight": 9,
+                    "level": "specialized",
+                    "aliases": [
+                        "AWS security",
+                        "AWS security services"
+                    ]
+                }
+            }
+        },
+
+        "virtualization": {
+            "name": "Virtualization",
+            "description": "Virtualisierung und virtuelle Infrastruktur.",
+
+            "keywords": {
+                "VMware": {
+                    "weight": 7,
+                    "level": "important",
+                    "aliases": [
+                        "VMware",
+                        "VMware vSphere",
+                        "vSphere"
+                    ]
+                },
+
+                "VirtualBox": {
+                    "weight": 6,
+                    "level": "important",
+                    "aliases": [
+                        "VirtualBox",
+                        "Oracle VirtualBox"
+                    ]
+                },
+
+                "Hyper-V": {
+                    "weight": 7,
+                    "level": "important",
+                    "aliases": [
+                        "Hyper-V",
+                        "Hyper V",
+                        "Microsoft Hyper-V"
+                    ]
+                }
+            }
+        },
+
+        "security_tools": {
+            "name": "Security Tools",
+            "description": "Werkzeuge für Security Testing, Netzwerkdiagnose und Analyse.",
+
+            "keywords": {
+                "Nmap": {
+                    "weight": 8,
+                    "level": "important",
+                    "aliases": [
+                        "nmap",
+                        "network mapper"
+                    ]
+                },
+
+                "Masscan": {
+                    "weight": 7,
+                    "level": "specialized",
+                    "aliases": [
+                        "masscan"
+                    ]
+                },
+
+                "Burp Suite": {
+                    "weight": 9,
+                    "level": "specialized",
+                    "aliases": [
+                        "burp suite",
+                        "burpsuite",
+                        "burp"
+                    ]
+                },
+
+                "Metasploit": {
+                    "weight": 9,
+                    "level": "specialized",
+                    "aliases": [
+                        "metasploit",
+                        "metasploit framework"
+                    ]
+                },
+
+                "Wireshark": {
+                    "weight": 8,
+                    "level": "important",
+                    "aliases": [
+                        "wireshark"
+                    ]
+                },
+
+                "Gobuster": {
+                    "weight": 7,
+                    "level": "specialized",
+                    "aliases": [
+                        "gobuster"
+                    ]
+                },
+
+                "Subfinder": {
+                    "weight": 7,
+                    "level": "specialized",
+                    "aliases": [
+                        "subfinder"
+                    ]
+                },
+
+                "Nikto": {
+                    "weight": 7,
+                    "level": "specialized",
+                    "aliases": [
+                        "nikto"
+                    ]
+                },
+
+                "SQLmap": {
+                    "weight": 8,
+                    "level": "specialized",
+                    "aliases": [
+                        "sqlmap",
+                        "sql map"
+                    ]
+                },
+
+                "OWASP ZAP": {
+                    "weight": 8,
+                    "level": "specialized",
+                    "aliases": [
+                        "OWASP ZAP",
+                        "ZAP",
+                        "Zed Attack Proxy"
+                    ]
+                }
+            }
+        },
+
+        "architecture": {
+            "name": "Architecture",
+            "description": "Software-, System- und Infrastrukturarchitektur.",
+
+            "keywords": {
+                "Software Architecture": {
+                    "weight": 8,
+                    "level": "advanced",
+                    "aliases": [
+                        "software architecture",
+                        "software design",
+                        "application architecture"
+                    ]
+                },
+
+                "System Architecture": {
+                    "weight": 8,
+                    "level": "advanced",
+                    "aliases": [
+                        "system architecture",
+                        "systems architecture"
+                    ]
+                },
+
+                "Microservices": {
+                    "weight": 8,
+                    "level": "advanced",
+                    "aliases": [
+                        "microservices",
+                        "microservice architecture",
+                        "microservice"
+                    ]
+                },
+
+                "API Design": {
+                    "weight": 7,
+                    "level": "advanced",
+                    "aliases": [
+                        "API design",
+                        "API architecture"
+                    ]
+                }
+            }
+        },
+
+        "methodologies": {
+            "name": "Methodologies",
+            "description": "Arbeitsweisen und Entwicklungsprozesse.",
+
+            "keywords": {
+                "Agile": {
+                    "weight": 5,
+                    "level": "basic",
+                    "aliases": [
+                        "agile",
+                        "agile methodology",
+                        "agile development"
+                    ]
+                },
+
+                "Scrum": {
+                    "weight": 5,
+                    "level": "basic",
+                    "aliases": [
+                        "scrum"
+                    ]
+                },
+
+                "Kanban": {
+                    "weight": 5,
+                    "level": "basic",
+                    "aliases": [
+                        "kanban"
+                    ]
+                },
+
+                "Code Review": {
+                    "weight": 6,
+                    "level": "important",
+                    "aliases": [
+                        "code review",
+                        "code reviews",
+                        "peer review"
+                    ]
+                },
+
+                "Test Driven Development": {
+                    "weight": 7,
+                    "level": "advanced",
+                    "aliases": [
+                        "test driven development",
+                        "test-driven development",
+                        "TDD"
+                    ]
+                }
+            }
+        }
+    },
+
+    "job_types": {
+        "cybersecurity": {
+            "keywords": [
+                "Cybersecurity",
+                "Penetration Testing",
+                "Ethical Hacking",
+                "Vulnerability Management",
+                "Security Operations",
+                "SIEM",
+                "Incident Response",
+                "Threat Detection",
+                "Threat Intelligence",
+                "Malware Analysis",
+                "Reverse Engineering",
+                "Digital Forensics",
+                "Security Auditing",
+                "Security Assessment",
+                "OWASP",
+                "Web Security",
+                "Network Security",
+                "Endpoint Security",
+                "Identity and Access Management"
+            ],
+
+            "position_patterns": [
+                "security analyst",
+                "security engineer",
+                "cyber security analyst",
+                "cybersecurity analyst",
+                "cyber security engineer",
+                "cybersecurity engineer",
+                "penetration tester",
+                "penetration testing",
+                "pentester",
+                "ethical hacker",
+                "security consultant",
+                "soc analyst",
+                "soc engineer",
+                "security operations",
+                "incident responder",
+                "security specialist",
+                "information security",
+                "it security"
+            ]
+        },
+
+        "software": {
+            "keywords": [
+                "Python",
+                "C",
+                "C++",
+                "C#",
+                "Java",
+                "JavaScript",
+                "TypeScript",
+                "Go",
+                "Rust",
+                "PHP",
+                "Django",
+                "Flask",
+                "FastAPI",
+                "REST API",
+                "GraphQL",
+                "React",
+                "Vue.js",
+                "Node.js",
+                "SQL",
+                "Git",
+                "Docker"
+            ],
+
+            "position_patterns": [
+                "software developer",
+                "software engineer",
+                "softwareentwickler",
+                "softwareentwicklerin",
+                "python developer",
+                "python entwickler",
+                "backend developer",
+                "backend engineer",
+                "frontend developer",
+                "frontend engineer",
+                "full stack developer",
+                "fullstack developer",
+                "web developer",
+                "webentwickler",
+                "application developer"
+            ]
+        },
+
+        "it": {
+            "keywords": [
+                "Linux",
+                "Windows",
+                "Windows Server",
+                "Active Directory",
+                "System Administration",
+                "Linux Administration",
+                "Networking",
+                "TCP/IP",
+                "DNS",
+                "DHCP",
+                "SSH",
+                "Firewalls",
+                "VPN",
+                "PowerShell",
+                "Docker",
+                "VMware",
+                "VirtualBox"
+            ],
+
+            "position_patterns": [
+                "system administrator",
+                "systemadministrator",
+                "systemadministration",
+                "it administrator",
+                "it administrator",
+                "it system administrator",
+                "it-systemadministrator",
+                "network administrator",
+                "netzwerkadministrator",
+                "network engineer",
+                "it support",
+                "system engineer",
+                "infrastructure engineer"
+            ]
+        },
+
+        "devops": {
+            "keywords": [
+                "Linux",
+                "Git",
+                "GitHub",
+                "GitLab",
+                "Docker",
+                "Kubernetes",
+                "CI/CD",
+                "Jenkins",
+                "Terraform",
+                "Ansible",
+                "Infrastructure as Code",
+                "AWS",
+                "Microsoft Azure",
+                "Google Cloud"
+            ],
+
+            "position_patterns": [
+                "devops engineer",
+                "devops",
+                "site reliability engineer",
+                "SRE",
+                "platform engineer",
+                "cloud engineer",
+                "infrastructure engineer",
+                "devsecops",
+                "devsecops engineer"
+            ]
+        },
+
+        "networking": {
+            "keywords": [
+                "Networking",
+                "TCP/IP",
+                "IPv4",
+                "IPv6",
+                "DNS",
+                "DHCP",
+                "HTTP",
+                "HTTPS",
+                "SMB",
+                "NFS",
+                "VPN",
+                "Firewalls",
+                "Routing",
+                "Switching"
+            ],
+
+            "position_patterns": [
+                "network administrator",
+                "netzwerkadministrator",
+                "network engineer",
+                "netzwerkingenieur",
+                "network technician",
+                "network specialist",
+                "netzwerktechniker"
+            ]
+        },
+
+        "cloud": {
+            "keywords": [
+                "AWS",
+                "Microsoft Azure",
+                "Google Cloud",
+                "Cloud Security",
+                "Docker",
+                "Kubernetes",
+                "Terraform",
+                "Infrastructure as Code"
+            ],
+
+            "position_patterns": [
+                "cloud engineer",
+                "cloud architect",
+                "cloud security engineer",
+                "cloud administrator",
+                "cloud specialist"
+            ]
+        }
+    },
+
+    "seniority": {
+        "junior": {
+            "patterns": [
+                "junior",
+                "entry level",
+                "entry-level",
+                "graduate",
+                "absolvent",
+                "trainee",
+                "berufseinsteiger",
+                "berufseinsteigerin"
+            ]
+        },
+
+        "mid": {
+            "patterns": [
+                "mid-level",
+                "mid level",
+                "professional",
+                "specialist",
+                "experienced"
+            ]
+        },
+
+        "senior": {
+            "patterns": [
+                "senior",
+                "lead",
+                "principal",
+                "staff",
+                "expert",
+                "architect",
+                "team lead",
+                "technical lead"
+            ]
+        }
+    },
+
+    "employment": {
+        "full_time": {
+            "patterns": [
+                "full-time",
+                "full time",
+                "vollzeit",
+                "vollzeitstelle"
+            ]
+        },
+
+        "part_time": {
+            "patterns": [
+                "part-time",
+                "part time",
+                "teilzeit"
+            ]
+        },
+
+        "remote": {
+            "patterns": [
+                "remote",
+                "fully remote",
+                "100% remote",
+                "home office",
+                "work from home",
+                "mobile working",
+                "mobiles arbeiten"
+            ]
+        },
+
+        "hybrid": {
+            "patterns": [
+                "hybrid",
+                "hybrid work",
+                "hybrides arbeiten"
+            ]
+        },
+
+        "onsite": {
+            "patterns": [
+                "on-site",
+                "onsite",
+                "office-based",
+                "vor ort"
+            ]
+        }
+    }
+}
+
