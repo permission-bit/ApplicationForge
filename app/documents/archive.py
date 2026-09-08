@@ -180,9 +180,15 @@ def create_zip(
     # Anschreiben
     # --------------------------------------------------------
 
+    cover_letter_name = (
+        "Cover_Letter.pdf"
+        if language == "en"
+        else "Anschreiben.pdf"
+    )
+
     shutil.copy2(
         cover_letter,
-        build_dir / "Anschreiben.pdf",
+        build_dir / cover_letter_name,
     )
 
     # --------------------------------------------------------
