@@ -37,7 +37,6 @@ from app.mail.sender import (
 
 from app.matching.matcher import (
     apply_match_result,
-    format_match_summary,
     match_job,
 )
 
@@ -2148,6 +2147,20 @@ def build_application(
         match_result,
     )
 
+    # ========================================================
+    # PRESERVE / VALIDATE EMAIL
+    # ========================================================
+
+    recipient = company.get("email")
+
+    if not isinstance(recipient, str) or not recipient.strip():
+        raise ValueError(
+            "Nach dem Matching enthält die Company "
+            "keine gültige Empfänger-E-Mail-Adresse."
+        )
+
+    company["email"] = recipient.strip()
+
     logger.info(
         "Match Score: %.1f%%",
         company.get(
@@ -2975,6 +2988,16 @@ def main() -> int:
 
         logger.info(
             "Versende Bewerbung..."
+        )
+
+        print(
+            f"DEBUG recipient: "
+            f"{build.company.get('email')!r}"
+        )
+
+        logger.info(
+            "DEBUG recipient=%r",
+            build.company.get("email"),
         )
 
         send_email(

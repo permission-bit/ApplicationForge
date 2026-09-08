@@ -1228,6 +1228,9 @@ def validate_company(
 ) -> None:
     """
     Validiert die minimal notwendigen Jobdaten.
+
+    Jeder Job muss zwingend eine gültige
+    Empfänger-E-Mail-Adresse enthalten.
     """
 
     if not isinstance(company, dict):
@@ -1238,6 +1241,7 @@ def validate_company(
     required_fields = (
         "name",
         "position",
+        "email",
     )
 
     for field_name in required_fields:
@@ -1250,6 +1254,35 @@ def validate_company(
             raise ValueError(
                 f"company['{field_name}'] fehlt."
             )
+
+    # --------------------------------------------------------
+    # E-Mail validieren
+    # --------------------------------------------------------
+
+    email = company.get("email")
+
+    if not isinstance(email, str):
+        raise ValueError(
+            "company['email'] muss ein String sein."
+        )
+
+    email = email.strip()
+
+    if not email:
+        raise ValueError(
+            "company['email'] darf nicht leer sein."
+        )
+
+    # Bewusst einfache Validierung.
+    # Die eigentliche SMTP-Prüfung erfolgt später.
+    email_pattern = re.compile(
+        r"^[^@\s]+@[^@\s]+\.[^@\s]+$"
+    )
+
+    if not email_pattern.fullmatch(email):
+        raise ValueError(
+            f"Ungültige E-Mail-Adresse: {email!r}"
+        )
 
     keywords = company.get(
         "keywords",
