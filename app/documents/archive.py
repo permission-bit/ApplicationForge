@@ -5,7 +5,6 @@ import shutil
 from config import (
     GENERATED_DIR,
     DOCUMENTS_DIR,
-    ZIP_PREFIX,
 )
 
 from app.documents.converter import convert_docx_to_pdf
@@ -122,6 +121,7 @@ def create_zip(
     applicant: dict,
     company: dict,
     documents_dir: Path | None = None,
+    language: str = "de",
 ) -> Path:
 
     if documents_dir is None:
@@ -146,8 +146,14 @@ def create_zip(
         company["name"]
     )
 
+    zip_prefix = (
+        "Application"
+        if language == "en"
+        else "Bewerbung"
+    )
+
     application_name = (
-        f"{ZIP_PREFIX}_"
+        f"{zip_prefix}_"
         f"{applicant_name}_"
         f"{company_name}"
     )

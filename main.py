@@ -2253,6 +2253,7 @@ def build_application(
         applicant=applicant,
         company=company,
         documents_dir=documents_dir,
+        language=language,
     )
 
     if not zip_file.exists():
