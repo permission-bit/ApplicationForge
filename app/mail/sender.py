@@ -3,6 +3,7 @@ from __future__ import annotations
 import mimetypes
 import smtplib
 
+from html import escape
 from email.message import EmailMessage
 from pathlib import Path
 
@@ -134,6 +135,7 @@ def check_attachment_size(
 # BUILD EMAIL
 # ============================================================
 
+
 def build_email(
     company: dict,
     applicant: dict,
@@ -142,17 +144,11 @@ def build_email(
     language: str = DEFAULT_LANGUAGE,
 ) -> EmailMessage:
     """
-    Erstellt die Bewerbungs-E-Mail.
-
-    Unterstützte Sprachen:
-
-        de
-        en
+    Erstellt eine professionelle Bewerbungs-E-Mail
+    mit Plain-Text- und HTML-Version.
     """
 
-    language = validate_language(
-        language
-    )
+    language = validate_language(language)
 
     message = EmailMessage()
 
@@ -189,21 +185,24 @@ def build_email(
         )
     ).strip()
 
-    recipient = str(
-        company.get(
-            "email",
-            "",
+    raw_recipient = company.get("email")
+
+    if not isinstance(raw_recipient, str):
+        raise ValueError(
+            "Unternehmen enthält keine gültige "
+            "Empfänger-E-Mail-Adresse."
         )
-    ).strip()
+
+    recipient = raw_recipient.strip()
 
     # --------------------------------------------------------
     # Configuration validation
     # --------------------------------------------------------
 
-    if not recipient:
+    if not recipient or "@" not in recipient:
         raise ValueError(
-            "Unternehmen enthält keine "
-            "Empfänger-E-Mail-Adresse."
+            f"Ungültige Empfänger-E-Mail-Adresse: "
+            f"{recipient!r}"
         )
 
     if not position:
@@ -216,6 +215,30 @@ def build_email(
         raise ValueError(
             "Bewerber enthält keinen Namen."
         )
+
+    # --------------------------------------------------------
+    # HTML-safe values
+    # --------------------------------------------------------
+
+    html_position = escape(
+        position
+    )
+
+    html_company_name = escape(
+        company_name
+    )
+
+    html_full_name = escape(
+        full_name
+    )
+
+    html_applicant_email = escape(
+        applicant_email
+    )
+
+    html_applicant_phone = escape(
+        applicant_phone
+    )
 
     # --------------------------------------------------------
     # Headers
@@ -239,23 +262,22 @@ def build_email(
             f"{full_name}"
         )
 
-    # --------------------------------------------------------
-    # Mail body
-    # --------------------------------------------------------
+    # ========================================================
+    # PLAIN TEXT
+    # ========================================================
 
     if language == "en":
 
-        message_body = f"""\
+        plain_text = f"""\
 Dear Sir or Madam,
 
-please find attached my application
-for the position of {position} at {company_name}.
+please find attached my application for the position of
+{position} at {company_name}.
 
-Attached you will find my complete
-application documents.
+Attached you will find my complete application documents.
 
-I would be pleased to have the opportunity
-to introduce myself in a personal interview.
+I would be pleased to have the opportunity to introduce
+myself in a personal interview.
 
 Kind regards,
 
@@ -266,11 +288,11 @@ Kind regards,
 
     else:
 
-        message_body = f"""\
+        plain_text = f"""\
 Sehr geehrte Damen und Herren,
 
-anbei übersende ich Ihnen meine Bewerbung
-als {position} bei {company_name}.
+anbei übersende ich Ihnen meine Bewerbung als
+{position} bei {company_name}.
 
 Im Anhang finden Sie meine vollständigen
 Bewerbungsunterlagen.
@@ -285,21 +307,320 @@ Mit freundlichen Grüßen
 {applicant_phone}
 """
 
+    # ========================================================
+    # HTML
+    # ========================================================
+
+    if language == "en":
+
+        html_body = f"""\
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+    <title>Application</title>
+</head>
+
+<body style="
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #222222;
+">
+
+<table width="100%"
+       cellpadding="0"
+       cellspacing="0"
+       border="0"
+       style="background-color: #f5f5f5;">
+
+    <tr>
+        <td align="center"
+            style="padding: 40px 20px;">
+
+            <table width="600"
+                   cellpadding="0"
+                   cellspacing="0"
+                   border="0"
+                   style="
+                       width: 100%;
+                       max-width: 600px;
+                       background-color: #ffffff;
+                       border: 1px solid #e5e5e5;
+                   ">
+
+                <!-- Header -->
+
+                <tr>
+                    <td style="
+                        padding: 32px 36px 24px 36px;
+                        border-bottom: 1px solid #eeeeee;
+                    ">
+
+                        <div style="
+                            font-size: 22px;
+                            font-weight: bold;
+                            color: #111111;
+                        ">
+                            {html_full_name}
+                        </div>
+
+                        <div style="
+                            margin-top: 6px;
+                            font-size: 14px;
+                            color: #777777;
+                        ">
+                            Application for {html_position}
+                        </div>
+
+                    </td>
+                </tr>
+
+                <!-- Content -->
+
+                <tr>
+                    <td style="
+                        padding: 32px 36px;
+                        font-size: 15px;
+                        line-height: 1.7;
+                        color: #333333;
+                    ">
+
+                        <p style="margin: 0 0 22px 0;">
+                            Dear Sir or Madam,
+                        </p>
+
+                        <p style="margin: 0 0 22px 0;">
+                            please find attached my application
+                            for the position of
+                            <strong>{html_position}</strong>
+                            at <strong>{html_company_name}</strong>.
+                        </p>
+
+                        <p style="margin: 0 0 22px 0;">
+                            Attached you will find my complete
+                            application documents.
+                        </p>
+
+                        <p style="margin: 0 0 28px 0;">
+                            I would be pleased to have the
+                            opportunity to introduce myself in
+                            a personal interview.
+                        </p>
+
+                        <p style="
+                            margin: 0;
+                            line-height: 1.6;
+                        ">
+                            Kind regards,<br><br>
+
+                            <strong>{html_full_name}</strong><br>
+
+                            <span style="color: #777777;">
+                                {html_applicant_email}
+                            </span><br>
+
+                            <span style="color: #777777;">
+                                {html_applicant_phone}
+                            </span>
+                        </p>
+
+                    </td>
+                </tr>
+
+                <!-- Footer -->
+
+                <tr>
+                    <td style="
+                        padding: 18px 36px;
+                        border-top: 1px solid #eeeeee;
+                        font-size: 12px;
+                        color: #999999;
+                    ">
+                        Application documents attached.
+                    </td>
+                </tr>
+
+            </table>
+
+        </td>
+    </tr>
+
+</table>
+
+</body>
+</html>
+"""
+
+    else:
+
+        html_body = f"""\
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+    <title>Bewerbung</title>
+</head>
+
+<body style="
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #222222;
+">
+
+<table width="100%"
+       cellpadding="0"
+       cellspacing="0"
+       border="0"
+       style="background-color: #f5f5f5;">
+
+    <tr>
+        <td align="center"
+            style="padding: 40px 20px;">
+
+            <table width="600"
+                   cellpadding="0"
+                   cellspacing="0"
+                   border="0"
+                   style="
+                       width: 100%;
+                       max-width: 600px;
+                       background-color: #ffffff;
+                       border: 1px solid #e5e5e5;
+                   ">
+
+                <!-- Header -->
+
+                <tr>
+                    <td style="
+                        padding: 32px 36px 24px 36px;
+                        border-bottom: 1px solid #eeeeee;
+                    ">
+
+                        <div style="
+                            font-size: 22px;
+                            font-weight: bold;
+                            color: #111111;
+                        ">
+                            {html_full_name}
+                        </div>
+
+                        <div style="
+                            margin-top: 6px;
+                            font-size: 14px;
+                            color: #777777;
+                        ">
+                            Bewerbung als {html_position}
+                        </div>
+
+                    </td>
+                </tr>
+
+                <!-- Content -->
+
+                <tr>
+                    <td style="
+                        padding: 32px 36px;
+                        font-size: 15px;
+                        line-height: 1.7;
+                        color: #333333;
+                    ">
+
+                        <p style="margin: 0 0 22px 0;">
+                            Sehr geehrte Damen und Herren,
+                        </p>
+
+                        <p style="margin: 0 0 22px 0;">
+                            anbei übersende ich Ihnen meine Bewerbung
+                            als <strong>{html_position}</strong>
+                            bei <strong>{html_company_name}</strong>.
+                        </p>
+
+                        <p style="margin: 0 0 22px 0;">
+                            Im Anhang finden Sie meine vollständigen
+                            Bewerbungsunterlagen.
+                        </p>
+
+                        <p style="margin: 0 0 28px 0;">
+                            Ich freue mich über die Möglichkeit
+                            eines persönlichen Gesprächs.
+                        </p>
+
+                        <p style="
+                            margin: 0;
+                            line-height: 1.6;
+                        ">
+                            Mit freundlichen Grüßen<br><br>
+
+                            <strong>{html_full_name}</strong><br>
+
+                            <span style="color: #777777;">
+                                {html_applicant_email}
+                            </span><br>
+
+                            <span style="color: #777777;">
+                                {html_applicant_phone}
+                            </span>
+                        </p>
+
+                    </td>
+                </tr>
+
+                <!-- Footer -->
+
+                <tr>
+                    <td style="
+                        padding: 18px 36px;
+                        border-top: 1px solid #eeeeee;
+                        font-size: 12px;
+                        color: #999999;
+                    ">
+                        Bewerbungsunterlagen im Anhang.
+                    </td>
+                </tr>
+
+            </table>
+
+        </td>
+    </tr>
+
+</table>
+
+</body>
+</html>
+"""
+
+    # ========================================================
+    # MULTIPART MESSAGE
+    # ========================================================
+
     message.set_content(
-        message_body
+        plain_text
     )
 
-    # --------------------------------------------------------
-    # ZIP prüfen
-    # --------------------------------------------------------
+    message.add_alternative(
+        html_body,
+        subtype="html",
+    )
+
+    # ========================================================
+    # ZIP PRÜFEN
+    # ========================================================
 
     check_attachment_size(
         zip_file
     )
 
-    # --------------------------------------------------------
-    # ZIP anhängen
-    # --------------------------------------------------------
+    # ========================================================
+    # ZIP ANHÄNGEN
+    # ========================================================
 
     attach_file(
         message,
@@ -307,6 +628,7 @@ Mit freundlichen Grüßen
     )
 
     return message
+
 
 
 # ============================================================
