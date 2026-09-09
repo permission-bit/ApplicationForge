@@ -1,0 +1,436 @@
+# ============================================================
+
+# COMPANY RESEARCH CONFIGURATION
+
+# ============================================================
+
+JOB_TYPES = [
+"it",
+"software",
+"cybersecurity"
+]
+
+LOCATION = "Germany"
+
+NUMBER_OF_COMPANIES = 20
+
+MINIMUM_COMPANIES_PER_TYPE = 5
+
+LANGUAGE = "de"
+
+REQUIRE_REAL_EMAIL = true
+
+REQUIRE_APPLICATION_EMAIL = true
+
+ALLOW_GENERIC_EMAIL = true
+
+ALLOW_PERSONAL_EMAIL = false
+
+PREFER_JUNIOR_POSITIONS = true
+
+ALLOW_REMOTE = true
+
+ALLOW_HYBRID = true
+
+ALLOW_ONSITE = true
+
+# ============================================================
+
+# AVAILABLE APPLICATION TEMPLATES
+
+# ============================================================
+
+AVAILABLE_TEMPLATES = [
+"it",
+"software",
+"cybersecurity"
+]
+
+# ============================================================
+
+# TASK
+
+# ============================================================
+
+Using the configuration above, research real companies and create
+a list of suitable job opportunities.
+
+The result must be compatible with an automated job application
+generator.
+
+Only use job types that are explicitly defined in JOB_TYPES.
+
+The value of the "type" field MUST exactly match one of the values
+in AVAILABLE_TEMPLATES.
+
+Do not create alternative names or additional categories.
+
+# ============================================================
+
+# COMPANY REQUIREMENTS
+
+# ============================================================
+
+Every company MUST be real.
+
+Every company MUST have a real email address.
+
+The email address MUST actually exist and MUST be suitable for
+contacting the company regarding a job application.
+
+If REQUIRE_APPLICATION_EMAIL is true, prefer an email address that
+is explicitly intended for applications, recruiting, careers, HR,
+jobs, or hiring.
+
+If ALLOW_GENERIC_EMAIL is true, a legitimate general company email
+may be used when it is clearly suitable for receiving applications.
+
+If ALLOW_PERSONAL_EMAIL is false, do not use personal employee
+email addresses.
+
+NEVER invent, guess, generate, or fabricate an email address.
+
+NEVER use placeholder addresses such as:
+
+[jobs@example.com](mailto:jobs@example.com)
+[careers@example.com](mailto:careers@example.com)
+[bewerbung@example.com](mailto:bewerbung@example.com)
+[hr@example.com](mailto:hr@example.com)
+
+unless that address actually belongs to the researched company.
+
+If a real and usable email address cannot be verified, EXCLUDE
+the company from the result.
+
+The email requirement is mandatory.
+
+# ============================================================
+
+# JOB REQUIREMENTS
+
+# ============================================================
+
+Only include positions that clearly belong to one of the configured
+job types.
+
+For example:
+
+IT:
+
+* IT Support
+* System Administrator
+* Network Administrator
+* IT Administrator
+* System Engineer
+* Infrastructure Engineer
+* IT Operations
+
+Software:
+
+* Python Developer
+* Software Developer
+* Software Engineer
+* Backend Developer
+* Full Stack Developer
+* Junior Developer
+
+Cybersecurity:
+
+* Security Analyst
+* SOC Analyst
+* Junior Security Analyst
+* Penetration Tester
+* Security Engineer
+* Vulnerability Analyst
+* Application Security
+* Cybersecurity Consultant
+
+When PREFER_JUNIOR_POSITIONS is true, prioritize:
+
+* Junior
+* Entry Level
+* Graduate
+* Trainee
+* Associate
+* Beginner-friendly positions
+
+Do not include senior positions unless there are not enough
+appropriate junior opportunities.
+
+# ============================================================
+
+# TEMPLATE COMPATIBILITY
+
+# ============================================================
+
+The "type" field is directly connected to the application's
+template system.
+
+The application generator uses the type to determine which
+application template category should be used.
+
+The available template categories are:
+
+it
+software
+cybersecurity
+
+These correspond to template files such as:
+
+data/de/it.json
+data/de/software.json
+data/de/cybersecurity.json
+
+and:
+
+data/en/it.json
+data/en/software.json
+data/en/cybersecurity.json
+
+Therefore the type MUST be normalized exactly.
+
+Correct:
+
+"type": "it"
+
+"type": "software"
+
+"type": "cybersecurity"
+
+Incorrect:
+
+"type": "IT"
+
+"type": "information-technology"
+
+"type": "programming"
+
+"type": "development"
+
+"type": "cyber-security"
+
+"type": "cyber_security"
+
+"type": "security"
+
+"type": "software-development"
+
+The type must always correspond to an available template.
+
+The relationship is:
+
+company.type
+↓
+template category
+↓
+application template
+↓
+personalized application
+
+# ============================================================
+
+# REQUIRED JSON STRUCTURE
+
+# ============================================================
+
+Every company must use exactly this structure:
+
+{
+"id": "unique-company-id",
+"name": "Company Name",
+"email": "[real-email@company.com](mailto:real-email@company.com)",
+"type": "cybersecurity",
+"size": "enterprise",
+"location": "Berlin",
+"position": "Junior Security Analyst",
+"keywords": [
+"Cyber Security",
+"Linux",
+"Python",
+"Networking",
+"Penetration Testing"
+],
+"requirements": [
+"Grundkenntnisse in Cyber Security",
+"Kenntnisse in Linux",
+"Python-Kenntnisse",
+"Netzwerkkenntnisse",
+"Interesse an Penetration Testing"
+],
+"description": "Short description of the position."
+}
+
+# ============================================================
+
+# FIELD RULES
+
+# ============================================================
+
+"id"
+
+Create a unique identifier for the company.
+
+Use lowercase kebab-case.
+
+Example:
+
+"example-security"
+
+"company-name-cybersecurity"
+
+"name"
+
+Use the official company name.
+
+"email"
+
+Must be a real, verified email address.
+
+This field is mandatory.
+
+Do not leave it empty.
+
+Do not use null.
+
+Do not guess.
+
+"type"
+
+Must exactly match one of:
+
+it
+software
+cybersecurity
+
+"size"
+
+Use one of:
+
+small
+medium
+large
+enterprise
+
+"location"
+
+Use the relevant job location.
+
+Examples:
+
+Berlin
+Hamburg
+Munich
+Frankfurt
+Remote - Germany
+
+"position"
+
+Use the actual or realistic position title.
+
+Prefer junior and entry-level positions when configured.
+
+"keywords"
+
+Provide relevant technical and professional keywords.
+
+Use approximately 5–10 keywords.
+
+They should be useful for automatic job matching.
+
+"requirements"
+
+Provide the main requirements of the position.
+
+Keep them short and understandable.
+
+They should describe realistic requirements for the position.
+
+"description"
+
+Provide a concise description of the position and its
+responsibilities.
+
+The description should contain useful information for generating
+a personalized application.
+
+# ============================================================
+
+# QUALITY CONTROL
+
+# ============================================================
+
+Before including a company, verify:
+
+1. The company exists.
+2. The company operates in the configured LOCATION.
+3. The position belongs to one of the configured JOB_TYPES.
+4. The email address is real.
+5. The email address can reasonably be used for job applications.
+6. The company is not already included.
+7. The information is not fabricated.
+8. The type corresponds to an available template.
+9. All required fields are present.
+
+# ============================================================
+
+# OUTPUT
+
+# ============================================================
+
+Return ONLY valid JSON.
+
+The root object MUST be:
+
+{
+"companies": []
+}
+
+Do not return Markdown.
+
+Do not use code fences.
+
+Do not add explanations.
+
+Do not add comments.
+
+Do not add a source list.
+
+Do not add text before or after the JSON.
+
+Do not add fields that are not defined in the required structure.
+
+The output must be directly usable as:
+
+data/companies.json
+
+# ============================================================
+
+# FINAL VALIDATION
+
+# ============================================================
+
+Before returning the result, validate the complete dataset.
+
+Check:
+
+* Correct number of companies
+* Minimum number per requested type
+* Real companies
+* Real email addresses
+* Application-suitable email addresses
+* No fabricated emails
+* No duplicate companies
+* Valid JSON
+* Correct field names
+* Correct field types
+* Valid "type" values
+* Template compatibility
+* Relevant positions
+* Relevant keywords
+* Relevant requirements
+* No additional fields
+
+If a company fails a mandatory requirement, remove it instead of
+guessing or replacing the missing information with fabricated data.
+
+Return the final JSON-file only.
