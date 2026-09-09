@@ -1,5 +1,5 @@
 {
-    "version": "1.0",
+    "version": "1.1",
     "description": "Zentrale Skill-, Technologie- und Keyword-Definitionen für Stellenanalyse und Bewerber-Matching.",
 
     "settings": {
@@ -37,7 +37,6 @@
         "cybersecurity": {
             "name": "Cybersecurity",
             "description": "Informationssicherheit, offensive Security, defensive Security und Security Operations.",
-
             "keywords": {
                 "Cybersecurity": {
                     "weight": 10,
@@ -54,7 +53,6 @@
                         "IT-Sicherheit"
                     ]
                 },
-
                 "Penetration Testing": {
                     "weight": 10,
                     "level": "core",
@@ -68,7 +66,6 @@
                         "offensive security"
                     ]
                 },
-
                 "Ethical Hacking": {
                     "weight": 10,
                     "level": "core",
@@ -79,7 +76,6 @@
                         "offensive hacking"
                     ]
                 },
-
                 "Vulnerability Management": {
                     "weight": 8,
                     "level": "important",
@@ -91,7 +87,6 @@
                         "security vulnerabilities"
                     ]
                 },
-
                 "Security Operations": {
                     "weight": 8,
                     "level": "important",
@@ -103,7 +98,6 @@
                         "SOC operations"
                     ]
                 },
-
                 "SIEM": {
                     "weight": 8,
                     "level": "important",
@@ -112,7 +106,6 @@
                         "security information and event management"
                     ]
                 },
-
                 "Incident Response": {
                     "weight": 9,
                     "level": "important",
@@ -123,7 +116,6 @@
                         "incident management"
                     ]
                 },
-
                 "Threat Detection": {
                     "weight": 8,
                     "level": "important",
@@ -134,7 +126,6 @@
                         "security monitoring"
                     ]
                 },
-
                 "Threat Intelligence": {
                     "weight": 7,
                     "level": "important",
@@ -144,7 +135,6 @@
                         "CTI"
                     ]
                 },
-
                 "Malware Analysis": {
                     "weight": 9,
                     "level": "specialized",
@@ -155,7 +145,6 @@
                         "malware investigation"
                     ]
                 },
-
                 "Reverse Engineering": {
                     "weight": 9,
                     "level": "specialized",
@@ -166,7 +155,6 @@
                         "software reverse engineering"
                     ]
                 },
-
                 "Digital Forensics": {
                     "weight": 8,
                     "level": "specialized",
@@ -177,7 +165,6 @@
                         "IT forensics"
                     ]
                 },
-
                 "Security Auditing": {
                     "weight": 7,
                     "level": "important",
@@ -188,7 +175,6 @@
                         "information security audit"
                     ]
                 },
-
                 "Security Assessment": {
                     "weight": 8,
                     "level": "important",
@@ -199,7 +185,6 @@
                         "security analysis"
                     ]
                 },
-
                 "OWASP": {
                     "weight": 8,
                     "level": "specialized",
@@ -210,7 +195,6 @@
                         "Open Web Application Security Project"
                     ]
                 },
-
                 "Web Security": {
                     "weight": 8,
                     "level": "specialized",
@@ -222,7 +206,6 @@
                         "application security testing"
                     ]
                 },
-
                 "Network Security": {
                     "weight": 8,
                     "level": "important",
@@ -232,7 +215,6 @@
                         "network protection"
                     ]
                 },
-
                 "Endpoint Security": {
                     "weight": 7,
                     "level": "important",
@@ -243,7 +225,6 @@
                         "EDR"
                     ]
                 },
-
                 "Identity and Access Management": {
                     "weight": 7,
                     "level": "important",
@@ -260,7 +241,6 @@
         "programming": {
             "name": "Programming",
             "description": "Programmiersprachen, Entwicklung und Software Engineering.",
-
             "keywords": {
                 "Python": {
                     "weight": 10,
@@ -271,7 +251,6 @@
                         "python3"
                     ]
                 },
-
                 "C": {
                     "weight": 9,
                     "level": "important",
@@ -280,7 +259,6 @@
                         "c language"
                     ]
                 },
-
                 "C++": {
                     "weight": 9,
                     "level": "important",
@@ -289,7 +267,6 @@
                         "cpp"
                     ]
                 },
-
                 "C#": {
                     "weight": 8,
                     "level": "important",
@@ -299,7 +276,6 @@
                         "dotnet c#"
                     ]
                 },
-
                 "Java": {
                     "weight": 8,
                     "level": "important",
@@ -307,7 +283,6 @@
                         "java"
                     ]
                 },
-
                 "JavaScript": {
                     "weight": 8,
                     "level": "important",
@@ -317,7 +292,6 @@
                         "js"
                     ]
                 },
-
                 "TypeScript": {
                     "weight": 8,
                     "level": "important",
@@ -327,7 +301,6 @@
                         "ts"
                     ]
                 },
-
                 "Go": {
                     "weight": 8,
                     "level": "important",
@@ -337,7 +310,6 @@
                         "go language"
                     ]
                 },
-
                 "Rust": {
                     "weight": 8,
                     "level": "specialized",
@@ -346,7 +318,6 @@
                         "rustlang"
                     ]
                 },
-
                 "PHP": {
                     "weight": 7,
                     "level": "important",
@@ -354,7 +325,6 @@
                         "php"
                     ]
                 },
-
                 "Bash": {
                     "weight": 7,
                     "level": "important",
@@ -362,12 +332,12 @@
                         "bash",
                         "bash scripting",
                         "shell scripting",
-                        "shell script"
+                        "shell script",
+                        "shell scripts"
                     ]
                 },
-
                 "PowerShell": {
-                    "weight": 7,
+                    "weight": 8,
                     "level": "important",
                     "aliases": [
                         "powershell",
@@ -380,7 +350,6 @@
         "web_development": {
             "name": "Web Development",
             "description": "Webentwicklung, Backend, Frontend und APIs.",
-
             "keywords": {
                 "Django": {
                     "weight": 9,
@@ -389,7 +358,6 @@
                         "django"
                     ]
                 },
-
                 "Flask": {
                     "weight": 9,
                     "level": "important",
@@ -397,7 +365,6 @@
                         "flask"
                     ]
                 },
-
                 "FastAPI": {
                     "weight": 9,
                     "level": "important",
@@ -406,7 +373,6 @@
                         "fast api"
                     ]
                 },
-
                 "REST API": {
                     "weight": 8,
                     "level": "important",
@@ -418,7 +384,6 @@
                         "REST"
                     ]
                 },
-
                 "GraphQL": {
                     "weight": 7,
                     "level": "specialized",
@@ -426,7 +391,6 @@
                         "graphql"
                     ]
                 },
-
                 "HTML": {
                     "weight": 5,
                     "level": "basic",
@@ -435,7 +399,6 @@
                         "html5"
                     ]
                 },
-
                 "CSS": {
                     "weight": 5,
                     "level": "basic",
@@ -444,7 +407,6 @@
                         "css3"
                     ]
                 },
-
                 "React": {
                     "weight": 8,
                     "level": "important",
@@ -454,7 +416,6 @@
                         "reactjs"
                     ]
                 },
-
                 "Vue.js": {
                     "weight": 8,
                     "level": "important",
@@ -464,7 +425,6 @@
                         "vuejs"
                     ]
                 },
-
                 "Node.js": {
                     "weight": 8,
                     "level": "important",
@@ -480,7 +440,6 @@
         "linux": {
             "name": "Linux",
             "description": "Linux-Systeme, Distributionen und Administration.",
-
             "keywords": {
                 "Linux": {
                     "weight": 10,
@@ -492,7 +451,6 @@
                         "linux system administration"
                     ]
                 },
-
                 "Ubuntu": {
                     "weight": 7,
                     "level": "important",
@@ -501,7 +459,6 @@
                         "ubuntu linux"
                     ]
                 },
-
                 "Debian": {
                     "weight": 7,
                     "level": "important",
@@ -510,7 +467,6 @@
                         "debian linux"
                     ]
                 },
-
                 "Arch Linux": {
                     "weight": 6,
                     "level": "specialized",
@@ -519,7 +475,6 @@
                         "archlinux"
                     ]
                 },
-
                 "CentOS": {
                     "weight": 6,
                     "level": "important",
@@ -527,7 +482,6 @@
                         "centos"
                     ]
                 },
-
                 "Red Hat Enterprise Linux": {
                     "weight": 7,
                     "level": "important",
@@ -537,7 +491,6 @@
                         "redhat"
                     ]
                 },
-
                 "System Administration": {
                     "weight": 9,
                     "level": "core",
@@ -548,7 +501,6 @@
                         "systems administration"
                     ]
                 },
-
                 "Linux Administration": {
                     "weight": 9,
                     "level": "core",
@@ -558,17 +510,6 @@
                         "linux system administration"
                     ]
                 },
-
-                "Bash": {
-                    "weight": 7,
-                    "level": "important",
-                    "aliases": [
-                        "bash",
-                        "shell scripting",
-                        "shell scripts"
-                    ]
-                },
-
                 "SSH": {
                     "weight": 7,
                     "level": "important",
@@ -584,7 +525,6 @@
         "networking": {
             "name": "Networking",
             "description": "Netzwerke, Protokolle und Netzwerkadministration.",
-
             "keywords": {
                 "Networking": {
                     "weight": 9,
@@ -592,11 +532,9 @@
                     "aliases": [
                         "networking",
                         "computer networking",
-                        "network administration",
                         "network administration"
                     ]
                 },
-
                 "TCP/IP": {
                     "weight": 9,
                     "level": "core",
@@ -607,7 +545,6 @@
                         "IP networking"
                     ]
                 },
-
                 "IPv4": {
                     "weight": 6,
                     "level": "important",
@@ -616,7 +553,6 @@
                         "IPV4"
                     ]
                 },
-
                 "IPv6": {
                     "weight": 6,
                     "level": "important",
@@ -625,7 +561,6 @@
                         "IPV6"
                     ]
                 },
-
                 "DNS": {
                     "weight": 7,
                     "level": "important",
@@ -634,7 +569,6 @@
                         "domain name system"
                     ]
                 },
-
                 "DHCP": {
                     "weight": 6,
                     "level": "important",
@@ -643,7 +577,6 @@
                         "dynamic host configuration protocol"
                     ]
                 },
-
                 "HTTP": {
                     "weight": 5,
                     "level": "basic",
@@ -652,7 +585,6 @@
                         "HTTP protocol"
                     ]
                 },
-
                 "HTTPS": {
                     "weight": 6,
                     "level": "important",
@@ -661,7 +593,6 @@
                         "HTTP over TLS"
                     ]
                 },
-
                 "FTP": {
                     "weight": 5,
                     "level": "basic",
@@ -670,7 +601,6 @@
                         "file transfer protocol"
                     ]
                 },
-
                 "SMB": {
                     "weight": 7,
                     "level": "important",
@@ -680,7 +610,6 @@
                         "Samba"
                     ]
                 },
-
                 "NFS": {
                     "weight": 6,
                     "level": "important",
@@ -689,7 +618,6 @@
                         "network file system"
                     ]
                 },
-
                 "VPN": {
                     "weight": 6,
                     "level": "important",
@@ -698,7 +626,6 @@
                         "virtual private network"
                     ]
                 },
-
                 "Firewalls": {
                     "weight": 8,
                     "level": "important",
@@ -709,7 +636,6 @@
                         "firewall administration"
                     ]
                 },
-
                 "Routing": {
                     "weight": 7,
                     "level": "important",
@@ -718,7 +644,6 @@
                         "network routing"
                     ]
                 },
-
                 "Switching": {
                     "weight": 6,
                     "level": "important",
@@ -733,7 +658,6 @@
         "windows": {
             "name": "Windows",
             "description": "Windows-Systeme, Server und Microsoft-Infrastruktur.",
-
             "keywords": {
                 "Windows": {
                     "weight": 8,
@@ -743,7 +667,6 @@
                         "microsoft windows"
                     ]
                 },
-
                 "Windows Server": {
                     "weight": 9,
                     "level": "core",
@@ -752,7 +675,6 @@
                         "windows server administration"
                     ]
                 },
-
                 "Active Directory": {
                     "weight": 9,
                     "level": "core",
@@ -762,7 +684,6 @@
                         "AD"
                     ]
                 },
-
                 "Group Policy": {
                     "weight": 8,
                     "level": "important",
@@ -773,16 +694,6 @@
                         "group policy objects"
                     ]
                 },
-
-                "PowerShell": {
-                    "weight": 8,
-                    "level": "important",
-                    "aliases": [
-                        "powershell",
-                        "power shell"
-                    ]
-                },
-
                 "Microsoft 365": {
                     "weight": 7,
                     "level": "important",
@@ -792,7 +703,6 @@
                         "o365"
                     ]
                 },
-
                 "Entra ID": {
                     "weight": 7,
                     "level": "specialized",
@@ -810,7 +720,6 @@
         "databases": {
             "name": "Databases",
             "description": "Relationale und nicht-relationale Datenbanken.",
-
             "keywords": {
                 "SQL": {
                     "weight": 8,
@@ -820,7 +729,6 @@
                         "structured query language"
                     ]
                 },
-
                 "PostgreSQL": {
                     "weight": 8,
                     "level": "important",
@@ -829,7 +737,6 @@
                         "postgres"
                     ]
                 },
-
                 "MySQL": {
                     "weight": 8,
                     "level": "important",
@@ -837,7 +744,6 @@
                         "mysql"
                     ]
                 },
-
                 "SQLite": {
                     "weight": 7,
                     "level": "important",
@@ -846,7 +752,6 @@
                         "sqlite3"
                     ]
                 },
-
                 "Microsoft SQL Server": {
                     "weight": 8,
                     "level": "important",
@@ -856,7 +761,6 @@
                         "mssql"
                     ]
                 },
-
                 "MongoDB": {
                     "weight": 7,
                     "level": "specialized",
@@ -865,7 +769,6 @@
                         "mongo db"
                     ]
                 },
-
                 "Redis": {
                     "weight": 6,
                     "level": "specialized",
@@ -879,7 +782,6 @@
         "devops": {
             "name": "DevOps",
             "description": "CI/CD, Container, Infrastructure und Automatisierung.",
-
             "keywords": {
                 "Git": {
                     "weight": 8,
@@ -890,7 +792,6 @@
                         "version control"
                     ]
                 },
-
                 "GitHub": {
                     "weight": 6,
                     "level": "important",
@@ -899,7 +800,6 @@
                         "github actions"
                     ]
                 },
-
                 "GitLab": {
                     "weight": 6,
                     "level": "important",
@@ -908,7 +808,6 @@
                         "gitlab ci"
                     ]
                 },
-
                 "Docker": {
                     "weight": 8,
                     "level": "important",
@@ -918,7 +817,6 @@
                         "containerization"
                     ]
                 },
-
                 "Kubernetes": {
                     "weight": 9,
                     "level": "specialized",
@@ -927,7 +825,6 @@
                         "k8s"
                     ]
                 },
-
                 "CI/CD": {
                     "weight": 8,
                     "level": "important",
@@ -939,7 +836,6 @@
                         "continuous deployment"
                     ]
                 },
-
                 "Jenkins": {
                     "weight": 7,
                     "level": "specialized",
@@ -947,16 +843,13 @@
                         "jenkins"
                     ]
                 },
-
                 "Terraform": {
                     "weight": 8,
                     "level": "specialized",
                     "aliases": [
-                        "terraform",
-                        "infrastructure as code"
+                        "terraform"
                     ]
                 },
-
                 "Ansible": {
                     "weight": 8,
                     "level": "specialized",
@@ -964,7 +857,6 @@
                         "ansible"
                     ]
                 },
-
                 "Infrastructure as Code": {
                     "weight": 8,
                     "level": "specialized",
@@ -979,7 +871,6 @@
         "cloud": {
             "name": "Cloud",
             "description": "Cloud-Plattformen und Cloud-Infrastruktur.",
-
             "keywords": {
                 "AWS": {
                     "weight": 8,
@@ -989,7 +880,6 @@
                         "Amazon Web Services"
                     ]
                 },
-
                 "Microsoft Azure": {
                     "weight": 8,
                     "level": "important",
@@ -998,7 +888,6 @@
                         "Microsoft Azure"
                     ]
                 },
-
                 "Google Cloud": {
                     "weight": 8,
                     "level": "important",
@@ -1008,7 +897,6 @@
                         "GCP"
                     ]
                 },
-
                 "Cloud Security": {
                     "weight": 9,
                     "level": "specialized",
@@ -1018,7 +906,6 @@
                         "cloud security engineering"
                     ]
                 },
-
                 "AWS Security": {
                     "weight": 9,
                     "level": "specialized",
@@ -1033,7 +920,6 @@
         "virtualization": {
             "name": "Virtualization",
             "description": "Virtualisierung und virtuelle Infrastruktur.",
-
             "keywords": {
                 "VMware": {
                     "weight": 7,
@@ -1044,7 +930,6 @@
                         "vSphere"
                     ]
                 },
-
                 "VirtualBox": {
                     "weight": 6,
                     "level": "important",
@@ -1053,7 +938,6 @@
                         "Oracle VirtualBox"
                     ]
                 },
-
                 "Hyper-V": {
                     "weight": 7,
                     "level": "important",
@@ -1069,7 +953,6 @@
         "security_tools": {
             "name": "Security Tools",
             "description": "Werkzeuge für Security Testing, Netzwerkdiagnose und Analyse.",
-
             "keywords": {
                 "Nmap": {
                     "weight": 8,
@@ -1079,7 +962,6 @@
                         "network mapper"
                     ]
                 },
-
                 "Masscan": {
                     "weight": 7,
                     "level": "specialized",
@@ -1087,7 +969,6 @@
                         "masscan"
                     ]
                 },
-
                 "Burp Suite": {
                     "weight": 9,
                     "level": "specialized",
@@ -1097,7 +978,6 @@
                         "burp"
                     ]
                 },
-
                 "Metasploit": {
                     "weight": 9,
                     "level": "specialized",
@@ -1106,7 +986,6 @@
                         "metasploit framework"
                     ]
                 },
-
                 "Wireshark": {
                     "weight": 8,
                     "level": "important",
@@ -1114,7 +993,6 @@
                         "wireshark"
                     ]
                 },
-
                 "Gobuster": {
                     "weight": 7,
                     "level": "specialized",
@@ -1122,7 +1000,6 @@
                         "gobuster"
                     ]
                 },
-
                 "Subfinder": {
                     "weight": 7,
                     "level": "specialized",
@@ -1130,7 +1007,6 @@
                         "subfinder"
                     ]
                 },
-
                 "Nikto": {
                     "weight": 7,
                     "level": "specialized",
@@ -1138,7 +1014,6 @@
                         "nikto"
                     ]
                 },
-
                 "SQLmap": {
                     "weight": 8,
                     "level": "specialized",
@@ -1147,7 +1022,6 @@
                         "sql map"
                     ]
                 },
-
                 "OWASP ZAP": {
                     "weight": 8,
                     "level": "specialized",
@@ -1163,7 +1037,6 @@
         "architecture": {
             "name": "Architecture",
             "description": "Software-, System- und Infrastrukturarchitektur.",
-
             "keywords": {
                 "Software Architecture": {
                     "weight": 8,
@@ -1174,7 +1047,6 @@
                         "application architecture"
                     ]
                 },
-
                 "System Architecture": {
                     "weight": 8,
                     "level": "advanced",
@@ -1183,7 +1055,6 @@
                         "systems architecture"
                     ]
                 },
-
                 "Microservices": {
                     "weight": 8,
                     "level": "advanced",
@@ -1193,7 +1064,6 @@
                         "microservice"
                     ]
                 },
-
                 "API Design": {
                     "weight": 7,
                     "level": "advanced",
@@ -1208,7 +1078,6 @@
         "methodologies": {
             "name": "Methodologies",
             "description": "Arbeitsweisen und Entwicklungsprozesse.",
-
             "keywords": {
                 "Agile": {
                     "weight": 5,
@@ -1219,7 +1088,6 @@
                         "agile development"
                     ]
                 },
-
                 "Scrum": {
                     "weight": 5,
                     "level": "basic",
@@ -1227,7 +1095,6 @@
                         "scrum"
                     ]
                 },
-
                 "Kanban": {
                     "weight": 5,
                     "level": "basic",
@@ -1235,7 +1102,6 @@
                         "kanban"
                     ]
                 },
-
                 "Code Review": {
                     "weight": 6,
                     "level": "important",
@@ -1245,7 +1111,6 @@
                         "peer review"
                     ]
                 },
-
                 "Test Driven Development": {
                     "weight": 7,
                     "level": "advanced",
@@ -1282,7 +1147,6 @@
                 "Endpoint Security",
                 "Identity and Access Management"
             ],
-
             "position_patterns": [
                 "security analyst",
                 "security engineer",
@@ -1329,7 +1193,6 @@
                 "Git",
                 "Docker"
             ],
-
             "position_patterns": [
                 "software developer",
                 "software engineer",
@@ -1369,12 +1232,10 @@
                 "VMware",
                 "VirtualBox"
             ],
-
             "position_patterns": [
                 "system administrator",
                 "systemadministrator",
                 "systemadministration",
-                "it administrator",
                 "it administrator",
                 "it system administrator",
                 "it-systemadministrator",
@@ -1404,7 +1265,6 @@
                 "Microsoft Azure",
                 "Google Cloud"
             ],
-
             "position_patterns": [
                 "devops engineer",
                 "devops",
@@ -1435,7 +1295,6 @@
                 "Routing",
                 "Switching"
             ],
-
             "position_patterns": [
                 "network administrator",
                 "netzwerkadministrator",
@@ -1458,7 +1317,6 @@
                 "Terraform",
                 "Infrastructure as Code"
             ],
-
             "position_patterns": [
                 "cloud engineer",
                 "cloud architect",
@@ -1482,7 +1340,6 @@
                 "berufseinsteigerin"
             ]
         },
-
         "mid": {
             "patterns": [
                 "mid-level",
@@ -1492,7 +1349,6 @@
                 "experienced"
             ]
         },
-
         "senior": {
             "patterns": [
                 "senior",
@@ -1516,7 +1372,6 @@
                 "vollzeitstelle"
             ]
         },
-
         "part_time": {
             "patterns": [
                 "part-time",
@@ -1524,7 +1379,6 @@
                 "teilzeit"
             ]
         },
-
         "remote": {
             "patterns": [
                 "remote",
@@ -1536,7 +1390,6 @@
                 "mobiles arbeiten"
             ]
         },
-
         "hybrid": {
             "patterns": [
                 "hybrid",
@@ -1544,7 +1397,6 @@
                 "hybrides arbeiten"
             ]
         },
-
         "onsite": {
             "patterns": [
                 "on-site",
@@ -1555,4 +1407,3 @@
         }
     }
 }
-
