@@ -1,471 +1,254 @@
-# ApplicationForge
+# Application Tool
 
-# AI generierte Inhalte
+> A modular CLI application for generating, validating, matching, and sending job applications automatically.
 
-## (free-version-ChatGPT)
+The **Application Tool** is a Python-based command-line application designed to automate repetitive parts of the job application process while keeping the workflow structured, reproducible, and safe.
 
-> A production-ready Python CLI for creating, matching, packaging, and managing job applications.
-
-**ApplicationForge** is a modular command-line application that automates repetitive parts of the job application process.
-
-It combines applicant data, company/job data, document management, job matching, cover-letter generation, PDF creation, ZIP packaging, email delivery, and application history into one workflow.
-
-The project is designed with a strong focus on **modularity, reproducibility, safe email delivery, structured data, and extensibility**.
+It combines applicant data, job information, automated matching, dynamic template discovery, document generation, email delivery, duplicate detection, application history, and bulk processing into one modular workflow.
 
 ---
 
-## Features
+## ✨ Features
 
-- 📄 Applicant profile management
-- 🏢 Company and job management using JSON
-- 🎯 Applicant-to-job matching
-- 📊 Match and confidence scores
-- ✍️ Individual cover-letter generation
-- 🌍 German and English application generation
-- 🎨 Multiple template types and writing styles
-- 📑 Automatic cover-letter PDF generation
-- 📦 Automatic application ZIP creation
-- 📧 Optional SMTP email delivery
-- 🧪 Dry-run mode
-- 👀 Cover-letter preview mode
-- 📚 Application history
-- 🔁 Duplicate application detection
-- ⚡ Batch processing with `--send-all`
-- 🌱 Reproducible generation using seeds
-- 📝 Structured logging
-- 🔒 Environment-based SMTP configuration
-- 🧩 Modular Python architecture
-- 💻 Fully CLI-based workflow
+- 🧑‍💼 **Applicant data management**
+- 🏢 **Company and job management**
+- 🎯 **Automatic job matching**
+- 📊 **Match Score**
+- 🔎 **Confidence Score**
+- 📝 **Individual cover letter generation**
+- 🌍 **Language-specific templates**
+- 🧩 **Automatic template discovery**
+- 🎨 **Automatic style selection**
+- 🎲 **Reproducible generation with seeds**
+- 📄 **PDF generation**
+- 📦 **Complete application ZIP archives**
+- 📧 **SMTP email delivery**
+- 🚀 **Automated bulk sending**
+- 🛡️ **Duplicate application detection**
+- 🧪 **Dry-run mode**
+- 👀 **Preview mode**
+- 📚 **Application history**
+- 📝 **Detailed logging**
+- ⚛️ **Atomic JSON file updates**
+- 🔐 **Multiple sending safety mechanisms**
+- 🧱 **Modular architecture**
 
 ---
 
-## How It Works
+# Overview
 
-ApplicationForge follows a simple application pipeline:
+The tool turns a company entry into a complete application workflow.
 
 ```text
-                  ┌─────────────────┐
-                  │ applicant.json  │
-                  └────────┬────────┘
-                           │
-                           ▼
-                  ┌─────────────────┐
-                  │ companies.json  │
-                  └────────┬────────┘
-                           │
-                           ▼
-                  ┌─────────────────┐
-                  │    Matching     │
-                  │                 │
-                  │ Match Score     │
-                  │ Confidence      │
-                  │ Keywords        │
-                  └────────┬────────┘
-                           │
-                           ▼
-                  ┌─────────────────┐
-                  │ Cover Letter    │
-                  │ Generator       │
-                  └────────┬────────┘
-                           │
-                           ▼
-                  ┌─────────────────┐
-                  │   PDF Creator   │
-                  └────────┬────────┘
-                           │
-                           ▼
-                  ┌─────────────────┐
-                  │  ZIP Archive    │
-                  └────────┬────────┘
-                           │
-                    ┌──────┴───────┐
-                    │              │
-                    ▼              ▼
-                 Preview         Email
-                    │              │
-                    └──────┬───────┘
-                           ▼
-                  ┌─────────────────┐
-                  │    History      │
-                  └─────────────────┘
+                    ┌─────────────────────┐
+                    │   Applicant Data    │
+                    └──────────┬──────────┘
+                               │
+                               ▼
+                    ┌─────────────────────┐
+                    │   Company / Job     │
+                    │     Information     │
+                    └──────────┬──────────┘
+                               │
+                               ▼
+                    ┌─────────────────────┐
+                    │  Duplicate Check    │
+                    └──────────┬──────────┘
+                               │
+                               ▼
+                    ┌─────────────────────┐
+                    │   Job Matching      │
+                    │                     │
+                    │ Match + Confidence  │
+                    └──────────┬──────────┘
+                               │
+                               ▼
+                    ┌─────────────────────┐
+                    │ Template Discovery  │
+                    └──────────┬──────────┘
+                               │
+                               ▼
+                    ┌─────────────────────┐
+                    │ Template Selection  │
+                    │    + Style          │
+                    └──────────┬──────────┘
+                               │
+                               ▼
+                    ┌─────────────────────┐
+                    │ Cover Letter        │
+                    │ Generation          │
+                    └──────────┬──────────┘
+                               │
+                    ┌──────────┴──────────┐
+                    ▼                     ▼
+             ┌──────────────┐      ┌──────────────┐
+             │ PDF Document │      │ ZIP Archive  │
+             └──────┬───────┘      └──────┬───────┘
+                    │                     │
+                    └──────────┬──────────┘
+                               ▼
+                    ┌─────────────────────┐
+                    │    Email Delivery   │
+                    └──────────┬──────────┘
+                               │
+                               ▼
+                    ┌─────────────────────┐
+                    │ Application History │
+                    └─────────────────────┘
+```
+
+---
+
+# Why This Tool?
+
+Applying for jobs repeatedly involves many manual steps:
+
+- Finding the correct company entry
+- Checking whether the job was already processed
+- Evaluating the position
+- Selecting the appropriate cover letter template
+- Writing an individual application
+- Creating documents
+- Creating an archive
+- Sending the email
+- Recording the result
+
+The Application Tool automates these steps while keeping the individual components separated.
+
+The goal is not simply to send large numbers of applications, but to create a **consistent, reproducible, and traceable application workflow**.
+
+---
+
+# Requirements
+
+The project requires:
+
+- Python 3
+- A working SMTP configuration for email delivery
+- The required project data files
+- At least one application document
+
+A typical data structure:
+
+```text
+data/
+
+├── applicant.json
+├── companies.json
+├── history.json
+│
+├── de/
+│   ├── cybersecurity.json
+│   ├── it.json
+│   └── software.json
+│
+└── en/
+    ├── cybersecurity.json
+    ├── it.json
+    └── software.json
 ```
 
 ---
 
 # Project Structure
 
-A typical ApplicationForge installation looks like this:
+The application is organized into independent modules:
 
 ```text
-ApplicationForge/
+project/
 │
-├── app/
-│   ├── application/
-│   │   ├── generator.py
-│   │   └── ...
-│   │
-│   ├── documents/
-│   │   ├── archive.py
-│   │   ├── converter.py
-│   │   └── ...
-│   │
-│   ├── mail/
-│   │   ├── sender.py
-│   │   └── ...
-│   │
-│   └── matching/
-│       ├── matcher.py
-│       └── ...
+├── main.py
+├── config.py
 │
 ├── data/
 │   ├── applicant.json
 │   ├── companies.json
-│   └── history.json
+│   ├── history.json
+│   │
+│   ├── de/
+│   │   ├── cybersecurity.json
+│   │   ├── it.json
+│   │   └── ...
+│   │
+│   └── en/
+│       ├── cybersecurity.json
+│       ├── it.json
+│       └── ...
+│
+├── app/
+│   │
+│   ├── application/
+│   │   └── generator.py
+│   │
+│   ├── matching/
+│   │   └── matcher.py
+│   │
+│   ├── documents/
+│   │   ├── converter.py
+│   │   └── archive.py
+│   │
+│   └── mail/
+│       └── sender.py
 │
 ├── Documents/
-│   ├── cv.pdf
-│   ├── certificates.pdf
-│   ├── references.pdf
-│   └── ...
-│
 ├── generated/
-│   ├── cover letters
-│   └── application archives
-│
-├── config.py
-├── main.py
-├── requirements.txt
-├── .env
-├── .env.example
-├── .gitignore
-└── README.md
+└── logs/
 ```
 
-The project is intentionally split into separate modules so that individual components can be developed, tested, and replaced independently.
-
----
-
-# Requirements
-
-- Python 3.10+
-- pip
-- SMTP account for email delivery
-- A valid PDF/document directory
-
-Optional:
-
-- Virtual environment
-- Git
+The actual directories are configurable through `config.py`.
 
 ---
 
 # Installation
 
-Clone the repository:
+Clone the repository and enter the project directory:
 
 ```bash
-git clone https://github.com/your-username/ApplicationForge.git
-cd ApplicationForge
+git clone <repository-url>
+cd <project-directory>
 ```
 
 Create a virtual environment:
 
 ```bash
-python3 -m venv .venv
+python -m venv .venv
 ```
 
-Activate it on macOS/Linux:
+Activate it.
+
+### macOS / Linux
 
 ```bash
 source .venv/bin/activate
 ```
 
-Windows:
+### Windows
 
 ```powershell
-.venv\Scripts\Activate.ps1
+.venv\Scripts\activate
 ```
 
-Install dependencies:
+Install the required dependencies:
 
 ```bash
 pip install -r requirements.txt
 ```
 
----
-
-# Configuration
-
-ApplicationForge uses environment variables for sensitive configuration such as SMTP credentials.
-
-Create your local environment file:
-
-```bash
-cp .env.example .env
-```
-
-Example:
-
-```env
-# ============================================================
-# SMTP
-# ============================================================
-
-SMTP_HOST=smtp.example.com
-SMTP_PORT=587
-
-SMTP_USERNAME=your-email@example.com
-SMTP_PASSWORD=your-smtp-password
-
-SMTP_USE_TLS=true
-
-MAIL_FROM=your-email@example.com
-```
-
-**Never commit `.env` to Git.**
-
-The repository should only contain `.env.example`.
+Then configure the project according to your environment.
 
 ---
 
-# Applicant Configuration
+# Quick Start
 
-Applicant information is stored locally in:
-
-```text
-data/applicant.json
-```
-
-Example:
-
-```json
-{
-  "first_name": "Max",
-  "last_name": "Mustermann",
-
-  "email": "max.mustermann@example.com",
-  "phone": "+49 170 12345678",
-
-  "address": "Musterstraße 1",
-  "zip_code": "10115",
-  "city": "Berlin",
-
-  "github": "https://github.com/example-user",
-
-  "skills": [
-    "Python",
-    "Linux",
-    "Cyber Security",
-    "Networking",
-    "Git",
-    "Web Development"
-  ],
-
-  "experience": [
-    "Python development",
-    "Linux administration",
-    "REST API development",
-    "Web development",
-    "Security testing"
-  ],
-
-  "security_tools": ["Nmap", "Wireshark", "Ghidra"],
-
-  "python_technologies": [
-    "Python",
-    "Django",
-    "Flask",
-    "REST APIs",
-    "SQLite",
-    "Argparse",
-    "Logging"
-  ]
-}
-```
-
-A public repository should only contain an example file:
-
-```text
-data/applicant.json.example
-```
-
-Personal applicant data should remain local.
-
----
-
-# Company Configuration
-
-Companies and job postings are stored in:
-
-```text
-data/companies.json
-```
-
-Example:
-
-```json
-{
-  "companies": [
-    {
-      "id": "example-security",
-      "name": "Example Security GmbH",
-      "email": "jobs@example.com",
-      "type": "cybersecurity",
-      "size": "enterprise",
-      "location": "Berlin",
-
-      "position": "Junior Security Analyst",
-
-      "keywords": [
-        "Cyber Security",
-        "Penetration Testing",
-        "Linux",
-        "Python",
-        "Networking",
-        "Web Security"
-      ],
-
-      "requirements": [
-        "Grundkenntnisse in Cyber Security",
-        "Kenntnisse in Linux",
-        "Python-Kenntnisse",
-        "Netzwerkkenntnisse",
-        "Analytisches Denken"
-      ],
-
-      "description": "Unterstützung bei Security Assessments, Schwachstellenanalysen und technischen Sicherheitsprüfungen."
-    }
-  ]
-}
-```
-
-For public repositories, use:
-
-```text
-data/companies.json.example
-```
-
-with fictional data.
-
----
-
-# Documents
-
-ApplicationForge can collect documents from a configurable directory.
-
-For example:
-
-```text
-Documents/
-├── cv.pdf
-├── zeugnis.pdf
-├── arbeitszeugnis.pdf
-├── ausbildungszeugnis.pdf
-├── zertifikate.pdf
-└── weiterbildungen.pdf
-```
-
-The default document directory is:
-
-```text
-Documents/
-```
-
-You can specify another directory using:
-
-```bash
-python main.py \
-    --company example-security \
-    --documents "/path/to/Documents"
-```
-
----
-
-# CLI
-
-ApplicationForge is primarily controlled through the command line.
-
-Basic syntax:
-
-```bash
-python main.py [OPTIONS]
-```
-
----
-
-## Show Help
-
-```bash
-python main.py --help
-```
-
----
-
-## List Companies
-
-Display all configured companies:
+## 1. List available companies
 
 ```bash
 python main.py --list-companies
 ```
 
-This shows information such as:
-
-- Company ID
-- Company name
-- Position
-- Email
-- Location
-- Job type
-- Seniority
-- Employment type
-- Remote model
-- Keywords
-
 ---
 
-# Generate an Application
-
-Generate an application for a specific company:
-
-```bash
-python main.py --company example-security
-```
-
-The application pipeline will:
-
-1. Load the applicant profile
-2. Load the company
-3. Check the document directory
-4. Calculate the job match
-5. Generate the cover letter
-6. Create a PDF
-7. Create the application ZIP
-8. Store the application in history
-
-No email is sent unless `--send` is explicitly specified.
-
----
-
-# Preview a Cover Letter
-
-To generate and display the cover letter:
-
-```bash
-python main.py \
-    --company example-security \
-    --preview
-```
-
-This is useful for checking the generated application before sending it.
-
----
-
-# Matching
-
-ApplicationForge includes a job matching system.
-
-Run matching without generating documents:
+## 2. Check job compatibility
 
 ```bash
 python main.py \
@@ -473,128 +256,43 @@ python main.py \
     --match-only
 ```
 
-Example output:
-
-```text
-================================================================================
-MATCHING
-================================================================================
-
-Match Score:       87.5%
-Confidence Score:  91.0%
-
-Gematchte Kenntnisse:
-  ✓ Python
-  ✓ Linux
-  ✓ Networking
-  ✓ Cyber Security
-  ✓ Web Security
-
-Fehlende Kenntnisse:
-  ✗ Vulnerability Assessment
-```
-
-The matching result can contain:
-
-- Match score
-- Confidence score
-- Matched keywords
-- Missing keywords
-- Job type
-- Seniority
-- Employment type
-- Remote model
+This performs the matching process without creating or sending an application.
 
 ---
 
-# Templates
+## 3. Generate an application
 
-You can explicitly select a template:
+```bash
+python main.py \
+    --company example-security
+```
+
+No email is sent unless `--send` is explicitly specified.
+
+---
+
+## 4. Preview the application
 
 ```bash
 python main.py \
     --company example-security \
-    --template cybersecurity
-```
-
-You can also select a writing style:
-
-```bash
-python main.py \
-    --company example-security \
-    --template cybersecurity \
-    --style technical
-```
-
-Possible template/style names depend on the installed generator configuration.
-
-Examples:
-
-```text
-cybersecurity
-it
-software
-formal
-technical
-modern
+    --preview
 ```
 
 ---
 
-# Languages
-
-ApplicationForge supports multiple application languages.
-
-German:
+## 5. Test the complete sending workflow
 
 ```bash
 python main.py \
     --company example-security \
-    --language de
-```
-
-English:
-
-```bash
-python main.py \
-    --company example-security \
-    --language en
-```
-
-The default language is:
-
-```text
-de
+    --send \
+    --dry-run
 ```
 
 ---
 
-# Reproducible Generation
-
-ApplicationForge supports deterministic generation through a seed.
-
-Example:
-
-```bash
-python main.py \
-    --company example-security \
-    --seed 12345
-```
-
-Using the same seed and input data allows template selection and other randomized behavior to be reproduced.
-
-This is useful for:
-
-- Debugging
-- Testing
-- Development
-- Reproducing application output
-
----
-
-# Email Sending
-
-To send an application:
+## 6. Send the application
 
 ```bash
 python main.py \
@@ -602,33 +300,11 @@ python main.py \
     --send
 ```
 
-By default, ApplicationForge asks for confirmation before sending.
-
-Example:
-
-```text
-!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-ACHTUNG: E-MAIL WIRD VERSENDET
-!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-
-Bewerber:    Max Mustermann
-Unternehmen: Example Security GmbH
-Position:    Junior Security Analyst
-Empfänger:   jobs@example.com
-Anhang:      generated/Application_Example_Security.zip
-
-Bewerbung wirklich versenden? [y/N]:
-```
-
-This confirmation step is intentional.
-
-It prevents accidental email delivery.
+The tool asks for confirmation before sending.
 
 ---
 
-# Automatic Sending
-
-To skip the confirmation:
+## 7. Send automatically
 
 ```bash
 python main.py \
@@ -637,15 +313,431 @@ python main.py \
     --yes
 ```
 
-Use this option carefully.
+---
 
-`--yes` should primarily be used when the sending process is already verified and trusted.
+# Matching Engine
+
+The matching system evaluates the compatibility between the applicant and the job.
+
+Example output:
+
+```text
+================================================================================
+
+MATCHING
+
+================================================================================
+
+Match Score:       82.5%
+Confidence Score:  91.0%
+
+Matched Skills:
+
+  ✓ Python
+  ✓ Linux
+  ✓ Cybersecurity
+  ✓ Networking
+
+Missing Skills:
+
+  ✗ Kubernetes
+
+Job Type:          Full-Time
+Seniority:         Junior
+Employment:        Employment
+Work Model:        Remote
+
+================================================================================
+```
+
+The system separates:
+
+### Match Score
+
+Represents how closely the applicant's profile matches the position.
+
+### Confidence Score
+
+Represents how confident the matching system is in the resulting evaluation.
 
 ---
 
-# Dry Run
+# Template System
 
-ApplicationForge provides a dry-run mode.
+One of the core design principles is **data-driven template discovery**.
+
+Templates are organized by language:
+
+```text
+data/
+│
+├── de/
+│   ├── cybersecurity.json
+│   ├── it.json
+│   └── software.json
+│
+└── en/
+    ├── cybersecurity.json
+    ├── it.json
+    └── software.json
+```
+
+The generator automatically scans the selected language directory for template files.
+
+There is no need to maintain a hard-coded list inside `generator.py`.
+
+---
+
+# Automatic Template Discovery
+
+For example:
+
+```text
+data/en/
+
+├── cybersecurity.json
+├── it.json
+├── software.json
+├── cloud-security.json
+└── system-administration.json
+```
+
+The generator automatically discovers:
+
+```text
+cybersecurity
+it
+software
+cloud-security
+system-administration
+```
+
+Certain non-template data files are ignored, including:
+
+```text
+applicant.json
+companies.json
+history.json
+templates.json
+```
+
+The filename becomes the template type.
+
+Therefore, adding:
+
+```text
+data/en/cloud-security.json
+```
+
+automatically makes:
+
+```text
+cloud-security
+```
+
+available as a template.
+
+No Python code needs to be modified.
+
+---
+
+# Template Selection
+
+If no template is explicitly specified, the generator determines the template automatically.
+
+The process is:
+
+```text
+Language
+    │
+    ▼
+Discover Templates
+    │
+    ▼
+Validate Templates
+    │
+    ▼
+Analyze Job
+    │
+    ▼
+Select Template
+    │
+    ▼
+Select Style
+    │
+    ▼
+Generate Cover Letter
+```
+
+The automatic selection happens inside `generate_application()`.
+
+---
+
+# Explicit Template Selection
+
+A template can be forced using:
+
+```bash
+python main.py \
+    --company example-security \
+    --template cybersecurity
+```
+
+An explicit template always overrides automatic template selection.
+
+For example:
+
+```text
+--template cybersecurity
+--template it
+--template software
+--template cloud-security
+```
+
+The available templates depend on the JSON files present in the selected language directory.
+
+---
+
+# Styles
+
+Templates can contain multiple styles.
+
+For example:
+
+```text
+formal
+technical
+modern
+```
+
+A specific style can be selected:
+
+```bash
+python main.py \
+    --company example-security \
+    --template cybersecurity \
+    --style technical
+```
+
+The selection process is:
+
+```text
+Template
+    │
+    ▼
+Available Styles
+    │
+    ▼
+Explicit Style?
+   / \
+ Yes  No
+  │    │
+  ▼    ▼
+Use   Automatic
+      Selection
+```
+
+If `--style` is not provided, the generator selects a style automatically.
+
+---
+
+# Languages
+
+Currently supported:
+
+```text
+de
+en
+```
+
+Default language:
+
+```text
+de
+```
+
+### German
+
+```bash
+python main.py \
+    --company example-security \
+    --language de
+```
+
+Loads templates from:
+
+```text
+data/de/
+```
+
+### English
+
+```bash
+python main.py \
+    --company example-security \
+    --language en
+```
+
+Loads templates from:
+
+```text
+data/en/
+```
+
+The selected language is also used during document generation.
+
+---
+
+# Reproducible Generation
+
+The `--seed` option allows deterministic template and style selection.
+
+Example:
+
+```bash
+python main.py \
+    --company example-security \
+    --language en \
+    --seed 12345
+```
+
+Using the same inputs and seed allows the selection process to be reproduced.
+
+This is useful for:
+
+- Testing
+- Debugging
+- Re-generating an application
+- Comparing output
+- Reproducing previous runs
+
+---
+
+# Documents
+
+The tool supports a dedicated application document directory.
+
+For example:
+
+```text
+Documents/
+
+├── Resume.pdf
+├── Certificates.pdf
+└── References.pdf
+```
+
+A custom directory can be supplied:
+
+```bash
+python main.py \
+    --company example-security \
+    --documents "/Users/max/Documents/Application"
+```
+
+The tool validates the directory and collects usable application documents.
+
+These files are included in the generated ZIP archive.
+
+---
+
+# Generated Output
+
+A completed application produces the required documents and archive.
+
+A typical output may look like:
+
+```text
+generated/
+
+└── example-security/
+
+    ├── cover-letter.pdf
+    └── application.zip
+```
+
+The ZIP archive contains the generated cover letter together with the selected application documents.
+
+---
+
+# Email Delivery
+
+Email delivery is performed through the configured SMTP server.
+
+A normal application generation does **not** send an email.
+
+Email sending requires:
+
+```text
+--send
+```
+
+Example:
+
+```bash
+python main.py \
+    --company example-security \
+    --send
+```
+
+Before sending, the user receives a confirmation:
+
+```text
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+WARNING: EMAIL WILL BE SENT
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+Applicant:   Max Mustermann
+Company:     Example Security GmbH
+Position:    Junior Security Engineer
+Recipient:   jobs@example.com
+Attachment:  generated/...
+
+Send application? [y/N]:
+```
+
+Accepted confirmations include:
+
+```text
+y
+yes
+j
+ja
+```
+
+Anything else cancels the operation.
+
+---
+
+# Automated Sending
+
+The confirmation can be skipped using:
+
+```bash
+python main.py \
+    --company example-security \
+    --send \
+    --yes
+```
+
+Short form:
+
+```bash
+python main.py \
+    --company example-security \
+    --send \
+    -y
+```
+
+> ⚠️ `--yes` should only be used when the complete workflow has already been verified.
+
+---
+
+# Dry-Run Mode
+
+Dry-run mode allows the complete workflow to be tested without sending an email.
 
 ```bash
 python main.py \
@@ -654,74 +746,176 @@ python main.py \
     --dry-run
 ```
 
-A dry run:
-
-- Creates the application
-- Runs matching
-- Generates the cover letter
-- Creates the PDF
-- Creates the ZIP
-- Does **not** send an email
-- Does **not** modify JSON data
-
-Example:
+The tool still performs:
 
 ```text
-================================================================================
-DRY-RUN – KEINE E-MAIL WIRD VERSENDET
-================================================================================
-
-Empfänger: jobs@example.com
-Betreff: Bewerbung als Junior Security Analyst
-Anhang: generated/Application_Example_Security.zip
-
-→ Keine JSON-Datei wird verändert.
-→ Keine E-Mail wurde versendet.
+Applicant loading
+       ↓
+Company loading
+       ↓
+Document validation
+       ↓
+Matching
+       ↓
+Template discovery
+       ↓
+Template selection
+       ↓
+Style selection
+       ↓
+Cover letter generation
+       ↓
+PDF generation
+       ↓
+ZIP generation
 ```
 
-Dry-run mode is strongly recommended before using automated sending.
+But:
+
+```text
+                 ✕
+          EMAIL DELIVERY
+                 ✕
+```
+
+No email is sent.
+
+No company is removed from the sending queue.
 
 ---
 
-# Batch Processing
+# Bulk Sending
 
-ApplicationForge can process all companies automatically:
+The entire application queue can be processed using:
 
 ```bash
 python main.py --send-all
 ```
 
-The companies are processed sequentially.
-
-For every company:
+Each company is processed independently.
 
 ```text
-Load company
-     ↓
-Check history
-     ↓
-Match job
-     ↓
-Generate application
-     ↓
-Create PDF
-     ↓
-Create ZIP
-     ↓
-Send email
-     ↓
-Save history
-     ↓
-Remove company
+Company
+   │
+   ▼
+Duplicate Detection
+   │
+   ▼
+Matching
+   │
+   ▼
+Template Selection
+   │
+   ▼
+Cover Letter
+   │
+   ▼
+PDF + ZIP
+   │
+   ▼
+Email
+   │
+   ▼
+History
+   │
+   ▼
+Remove from Queue
 ```
 
-A company is only removed from `companies.json` after the email delivery succeeds.
+A company is only removed after successful email delivery.
 
 ---
 
-# Batch Dry Run
+# Bulk Sending Safety
 
-Before using the batch sender, it is recommended to test the entire process:
+If application generation fails:
+
+```text
+✗ Application generation failed
+
+→ Company remains in companies.json
+```
+
+If email delivery fails:
+
+```text
+✗ Email delivery failed
+
+→ Company remains in companies.json
+```
+
+If sending succeeds but queue removal fails:
+
+```text
+⚠ Email was sent,
+
+but the company could not be removed from companies.json.
+```
+
+This prevents failed applications from silently disappearing from the queue.
+
+---
+
+# Bulk Template Selection
+
+`--send-all` uses the same application generator as an individual application.
+
+Therefore, each company is evaluated independently.
+
+For example:
+
+```bash
+python main.py --send-all
+```
+
+can perform:
+
+```text
+Company A
+   → Cybersecurity template
+
+Company B
+   → Software template
+
+Company C
+   → IT template
+```
+
+depending on the available templates and job information.
+
+A fixed template can still be forced:
+
+```bash
+python main.py \
+    --send-all \
+    --template cybersecurity
+```
+
+---
+
+# Bulk Language Selection
+
+Send all applications in English:
+
+```bash
+python main.py \
+    --send-all \
+    --language en
+```
+
+Send all applications in German:
+
+```bash
+python main.py \
+    --send-all \
+    --language de
+```
+
+---
+
+# Bulk Dry-Run
+
+Before a real bulk send, the recommended approach is:
 
 ```bash
 python main.py \
@@ -729,147 +923,143 @@ python main.py \
     --dry-run
 ```
 
-This allows the complete application-generation pipeline to be tested without sending email.
+This executes the application pipeline without sending emails or removing companies from the queue.
 
-Companies remain in `companies.json`.
+Once the result has been verified:
 
----
-
-# Batch Output
-
-Example:
-
-```text
-================================================================================
-AUTOMATISCHER BEWERBUNGSVERSAND
-================================================================================
-
-3 Unternehmen gefunden.
-Die Bewerbungen werden nacheinander verarbeitet.
-Eine Company wird erst nach erfolgreichem Versand entfernt.
-
-================================================================================
-
-[1/3] Example Security GmbH
-Position: Junior Security Analyst
-E-Mail:   jobs@example.com
-
-✓ Bewerbung erfolgreich versendet.
-✓ Company aus companies.json entfernt.
-
-================================================================================
-
-[2/3] Example Software AG
-Position: Junior Python Developer
-E-Mail:   careers@example.com
-
-✓ Bewerbung erfolgreich versendet.
-✓ Company aus companies.json entfernt.
-
-================================================================================
-
-[3/3] Example IT Services GmbH
-Position: Junior System Administrator
-E-Mail:   jobs@example.com
-
-✗ Versand fehlgeschlagen.
-→ Company bleibt erhalten.
-```
-
-At the end, a summary is displayed:
-
-```text
-================================================================================
-AUTOMATISCHER VERSAND ABGESCHLOSSEN
-================================================================================
-
-Gesamt:      3
-Erfolgreich: 2
-Übersprungen:0
-Fehlgeschl.: 1
+```bash
+python main.py \
+    --send-all \
+    --yes
 ```
 
 ---
 
 # Application History
 
-ApplicationForge stores application history in:
+The application history is stored in:
 
 ```text
 data/history.json
 ```
 
-View the history:
+View it with:
 
 ```bash
 python main.py --history
 ```
 
-The history can contain information such as:
+The history can contain:
 
 - Company
 - Company ID
 - Position
-- Recipient
+- Email
+- URL
 - Job ID
 - Applicant
 - Status
 - Creation timestamp
 - Sending timestamp
-- Match score
-- Confidence score
-- Template
-- Style
-- Generated ZIP
+- Match Score
+- Confidence Score
+- Template type
+- Template style
+- Generated ZIP file
 
 Example:
 
-```json
-{
-  "applications": [
-    {
-      "history_key": "company:example-security:junior security analyst:jobs@example.com",
-      "company": "Example Security GmbH",
-      "company_id": "example-security",
-      "position": "Junior Security Analyst",
-      "email": "jobs@example.com",
-      "status": "sent",
-      "match_score": 87.5,
-      "confidence_score": 91.0,
-      "template_type": "cybersecurity",
-      "template_style": "technical"
-    }
-  ]
-}
+```text
+================================================================================
+
+APPLICATION HISTORY
+
+================================================================================
+
+[1] Example Security GmbH
+
+    Position:   Junior Security Engineer
+    Email:      jobs@example.com
+    Status:     sent
+
+    Created:    2026-09-09T02:30:00+00:00
+    Sent:       2026-09-09T02:31:00+00:00
+
+    Match:      82.5%
+    Confidence: 91.0%
+
+================================================================================
 ```
+
+---
+
+# History Statuses
+
+Possible application states include:
+
+```text
+generated
+sent
+failed
+cancelled
+```
+
+A `sent` entry represents an application that was actually sent.
+
+---
+
+# Duplicate Detection
+
+The tool uses a stable identifier to detect previously processed jobs.
+
+The priority is:
+
+```text
+1. job_id
+
+2. company_id + position + email
+
+3. company_name + position + email
+```
+
+This allows the system to recognize the same application even if other job information changes.
 
 ---
 
 # Duplicate Protection
 
-ApplicationForge checks the application history before sending.
+If an existing history entry is detected, the tool displays a warning.
 
-This helps prevent accidentally sending the same application multiple times.
+During normal generation, the application can still be generated.
 
-A history key is generated using identifiers such as:
+During sending, previously sent applications are blocked by default.
 
-```text
-job_id
-```
-
-or:
+Example:
 
 ```text
-company_id + position + email
-```
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
-If a previously sent application is detected, the normal sending process is stopped.
+WARNING: POSSIBLE DUPLICATE APPLICATION
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+Company:     Example Security GmbH
+Position:    Junior Security Engineer
+Status:      sent
+
+Created:     2026-09-09T02:30:00+00:00
+Sent:        2026-09-09T02:31:00+00:00
+
+Sending has been prevented.
+
+Use --force if you intentionally want to send this application again.
+```
 
 ---
 
-# Force Resend
+# Force Resending
 
-If an application intentionally needs to be sent again:
+A previously sent application can intentionally be sent again:
 
 ```bash
 python main.py \
@@ -878,30 +1068,30 @@ python main.py \
     --force
 ```
 
-`--force` bypasses the duplicate protection.
+Combine it with `--yes` for automated sending:
 
-Use it intentionally.
+```bash
+python main.py \
+    --company example-security \
+    --send \
+    --force \
+    --yes
+```
+
+`--force` disables duplicate protection for the current execution.
 
 ---
 
 # Logging
 
-ApplicationForge uses Python's logging framework.
+The application provides structured logging for important processing steps.
 
-Logs contain information about:
+Normal logging is written to:
 
-- Application startup
-- Configuration loading
-- Document discovery
-- Matching
-- Generation
-- PDF creation
-- ZIP creation
-- Email delivery
-- History updates
-- Errors
+- Terminal
+- Configured log file
 
-Verbose logging can be enabled with:
+Enable verbose logging:
 
 ```bash
 python main.py \
@@ -909,433 +1099,112 @@ python main.py \
     --verbose
 ```
 
----
-
-# Exit Codes
-
-ApplicationForge uses standard CLI exit codes.
-
-|  Code | Meaning                                           |
-| ----: | ------------------------------------------------- |
-|   `0` | Successful execution                              |
-|   `1` | Processing/configuration/generation/sending error |
-| `130` | Interrupted with `Ctrl+C`                         |
-
-This makes ApplicationForge suitable for shell scripts and automation.
-
----
-
-# Security
-
-ApplicationForge handles potentially sensitive information.
-
-This includes:
-
-- Personal contact information
-- Email addresses
-- Application documents
-- SMTP credentials
-- Application history
-
-### Never commit:
-
-```text
-.env
-data/applicant.json
-data/history.json
-Documents/
-generated/
-```
-
-The public repository should contain only example configuration and fictional data.
-
-Recommended:
-
-```text
-.env.example
-data/applicant.json.example
-data/companies.json.example
-```
-
----
-
-# `.gitignore`
-
-A recommended `.gitignore`:
-
-```gitignore
-# ============================================================
-# ENVIRONMENT
-# ============================================================
-
-.env
-.env.*
-
-# ============================================================
-# PERSONAL DATA
-# ============================================================
-
-data/applicant.json
-data/history.json
-
-Documents/
-
-# ============================================================
-# GENERATED DATA
-# ============================================================
-
-generated/
-
-# ============================================================
-# PYTHON
-# ============================================================
-
-__pycache__/
-*.py[cod]
-*.so
-
-.venv/
-venv/
-env/
-
-# ============================================================
-# IDE
-# ============================================================
-
-.vscode/
-.idea/
-
-# ============================================================
-# MACOS / WINDOWS
-# ============================================================
-
-.DS_Store
-Thumbs.db
-
-# ============================================================
-# LOGS
-# ============================================================
-
-*.log
-```
-
----
-
-# Recommended Public Repository Layout
-
-For a public GitHub repository, the recommended structure is:
-
-```text
-ApplicationForge/
-│
-├── app/
-│   ├── application/
-│   ├── documents/
-│   ├── mail/
-│   └── matching/
-│
-├── data/
-│   ├── applicant.json.example
-│   ├── companies.json.example
-│   └── history.json.example
-│
-├── Documents/
-│   └── .gitkeep
-│
-├── generated/
-│   └── .gitkeep
-│
-├── tests/
-│   └── ...
-│
-├── config.py
-├── main.py
-│
-├── .env.example
-├── .gitignore
-├── requirements.txt
-├── LICENSE
-└── README.md
-```
-
-Personal data should never be required for cloning or understanding the project.
-
----
-
-# Architecture
-
-ApplicationForge is designed around separated responsibilities.
-
-```text
-main.py
-   │
-   ├── CLI
-   │
-   ├── Application Generator
-   │
-   ├── Matching
-   │
-   ├── Documents
-   │
-   ├── Mail
-   │
-   └── History
-```
-
-### Application
-
-Responsible for generating individualized application text.
-
-```text
-app/application/
-```
-
-### Matching
-
-Responsible for comparing applicant capabilities with job requirements.
-
-```text
-app/matching/
-```
-
-### Documents
-
-Responsible for:
-
-- Collecting documents
-- Creating PDFs
-- Creating ZIP archives
-
-```text
-app/documents/
-```
-
-### Mail
-
-Responsible for SMTP email delivery.
-
-```text
-app/mail/
-```
-
-### CLI
-
-The `main.py` module coordinates the complete workflow.
-
----
-
-# Design Principles
-
-ApplicationForge follows several design principles.
-
-### Explicit over implicit
-
-Sending email is never performed simply by generating an application.
-
-The user must explicitly use:
-
-```bash
---send
-```
-
----
-
-### Safe by default
-
-The default workflow generates an application but does not send it.
-
-Preview and dry-run modes provide additional safety.
-
----
-
-### Modular architecture
-
-Different components should be replaceable without rewriting the entire application.
-
-For example, the SMTP implementation can be changed independently of the matching engine.
-
----
-
-### Structured data
-
-Applicant and company information is stored in JSON.
-
-This keeps the data human-readable and easy to modify.
-
----
-
-### Reproducibility
-
-Generation can be controlled through a seed:
-
-```bash
---seed 12345
-```
-
-This makes debugging and testing easier.
-
----
-
-### Automation without losing control
-
-Batch processing is supported:
-
-```bash
---send-all
-```
-
-while individual sending remains explicitly controllable.
-
----
-
-# Development
-
-Create a development environment:
-
-```bash
-python3 -m venv .venv
-source .venv/bin/activate
-```
-
-Install dependencies:
-
-```bash
-pip install -r requirements.txt
-```
-
-Run the CLI:
-
-```bash
-python main.py --help
-```
-
-Run a basic application generation:
-
-```bash
-python main.py \
-    --company example-security
-```
-
-Test matching:
+or:
 
 ```bash
 python main.py \
     --company example-security \
-    --match-only
+    -v
 ```
 
-Test batch processing without sending:
+Verbose mode enables `DEBUG` logging.
+
+It can also be combined with dry-run:
 
 ```bash
 python main.py \
-    --send-all \
-    --dry-run
+    --company example-security \
+    --send \
+    --dry-run \
+    --verbose
 ```
 
 ---
 
-# Testing
+# Atomic Data Updates
 
-Tests should be added under:
+Important JSON files are updated using an atomic write strategy.
 
-```text
-tests/
-```
-
-Recommended test areas:
+Instead of directly overwriting a file:
 
 ```text
-tests/
-├── test_matching.py
-├── test_generator.py
-├── test_archive.py
-├── test_history.py
-├── test_cli.py
-└── test_mail.py
+JSON
+ │
+ └── overwrite
 ```
 
-Particular attention should be given to:
+the tool uses:
 
-- Duplicate detection
-- History handling
-- JSON validation
-- PDF generation
-- ZIP generation
-- Failed email delivery
-- Batch processing
-- Dry-run behavior
-- Atomic JSON updates
+```text
+JSON
+ │
+ ▼
+Temporary File
+ │
+ ▼
+Successful Write
+ │
+ ▼
+Atomic Replacement
+```
+
+This reduces the risk of leaving important application data partially written after a failure.
 
 ---
 
-# Roadmap
+# CLI Reference
 
-Potential future improvements include:
-
-- [ ] Comprehensive automated test suite
-- [ ] Better JSON schema validation
-- [ ] Configuration file support
-- [ ] More application templates
-- [ ] More languages
-- [ ] Richer matching algorithms
-- [ ] Job URL/source tracking
-- [ ] Application status management
-- [ ] Statistics dashboard
-- [ ] CSV import/export
-- [ ] Interactive CLI mode
-- [ ] `--version` support
-- [ ] Package installation via PyPI
-- [ ] Global `applicationforge` command
-- [ ] Improved PDF templates
-- [ ] Unit and integration test coverage
-- [ ] CI/CD with GitHub Actions
+| Option                | Description                                 |
+| --------------------- | ------------------------------------------- |
+| `--company COMPANY`   | Company ID from `companies.json`            |
+| `--send-all`          | Process all companies sequentially          |
+| `--documents PATH`    | Use a custom application document directory |
+| `--template TEMPLATE` | Force a template type                       |
+| `--style STYLE`       | Force a template style                      |
+| `--language {de,en}`  | Select application language                 |
+| `--seed SEED`         | Use a deterministic selection seed          |
+| `--match-only`        | Run matching only                           |
+| `--preview`           | Display the generated cover letter          |
+| `--send`              | Send the application by email               |
+| `--dry-run`           | Simulate the sending workflow               |
+| `--yes`, `-y`         | Skip sending confirmation                   |
+| `--list-companies`    | List available companies                    |
+| `--history`           | Display application history                 |
+| `--force`             | Override duplicate protection               |
+| `--verbose`, `-v`     | Enable debug logging                        |
+| `--help`              | Display CLI help                            |
 
 ---
 
-# Example Workflow
+# Command Examples
 
-A typical workflow looks like this.
-
-### 1. Configure applicant
-
-```text
-data/applicant.json
-```
-
-### 2. Add companies
-
-```text
-data/companies.json
-```
-
-### 3. Add application documents
-
-```text
-Documents/
-```
-
-### 4. Check available jobs
+### List companies
 
 ```bash
 python main.py --list-companies
 ```
 
-### 5. Test matching
+### Match a position
+
+```bash
+python main.py --company example-security --match-only
+```
+
+### Generate an application
+
+```bash
+python main.py --company example-security
+```
+
+### Generate in English
 
 ```bash
 python main.py \
     --company example-security \
-    --match-only
+    --language en
 ```
 
-### 6. Generate application
-
-```bash
-python main.py \
-    --company example-security
-```
-
-### 7. Preview
+### Preview
 
 ```bash
 python main.py \
@@ -1343,7 +1212,32 @@ python main.py \
     --preview
 ```
 
-### 8. Test sending
+### Specific template
+
+```bash
+python main.py \
+    --company example-security \
+    --template cybersecurity
+```
+
+### Specific template and style
+
+```bash
+python main.py \
+    --company example-security \
+    --template cybersecurity \
+    --style technical
+```
+
+### Reproducible generation
+
+```bash
+python main.py \
+    --company example-security \
+    --seed 12345
+```
+
+### Dry-run
 
 ```bash
 python main.py \
@@ -1352,7 +1246,7 @@ python main.py \
     --dry-run
 ```
 
-### 9. Send
+### Send
 
 ```bash
 python main.py \
@@ -1360,23 +1254,16 @@ python main.py \
     --send
 ```
 
-### 10. Check history
+### Automated send
 
 ```bash
-python main.py --history
+python main.py \
+    --company example-security \
+    --send \
+    --yes
 ```
 
----
-
-# Batch Workflow
-
-For multiple companies:
-
-```bash
-python main.py --list-companies
-```
-
-Then test the complete batch:
+### Bulk dry-run
 
 ```bash
 python main.py \
@@ -1384,14 +1271,33 @@ python main.py \
     --dry-run
 ```
 
-If everything looks correct:
+### Bulk send
 
 ```bash
 python main.py \
-    --send-all
+    --send-all \
+    --yes
 ```
 
-After processing:
+### English bulk send
+
+```bash
+python main.py \
+    --send-all \
+    --language en \
+    --yes
+```
+
+### Resend
+
+```bash
+python main.py \
+    --company example-security \
+    --send \
+    --force
+```
+
+### History
 
 ```bash
 python main.py --history
@@ -1399,149 +1305,587 @@ python main.py --history
 
 ---
 
-# Why ApplicationForge?
+# CLI Conflicts
 
-Traditional application workflows often require manually repeating the same steps:
+The CLI validates incompatible options before starting the application workflow.
 
-```text
-Find job
-   ↓
-Read requirements
-   ↓
-Adapt application
-   ↓
-Write cover letter
-   ↓
-Collect documents
-   ↓
-Create PDF
-   ↓
-Create archive
-   ↓
-Write email
-   ↓
-Send
-   ↓
-Track application
+### `--company` + `--send-all`
+
+Not allowed:
+
+```bash
+python main.py \
+    --company example-security \
+    --send-all
 ```
 
-ApplicationForge turns this into a structured pipeline:
+Use either a specific company:
 
-```text
-Job Data
-   ↓
-Matching
-   ↓
-Generation
-   ↓
-PDF
-   ↓
-ZIP
-   ↓
-Email
-   ↓
-History
+```bash
+python main.py --company example-security
 ```
 
-The goal is not to replace the applicant.
+or the complete queue:
 
-The goal is to **remove repetitive administrative work** so more time can be spent on the actual job search and preparation.
+```bash
+python main.py --send-all
+```
 
 ---
 
-# Disclaimer
+### `--preview` + `--send`
 
-ApplicationForge is an automation tool for managing job applications.
+Not allowed.
 
-The user is responsible for:
+Preview is explicitly a non-sending mode.
 
-- Reviewing generated applications
-- Verifying recipient addresses
-- Checking attached documents
-- Confirming application content
-- Ensuring that applications are appropriate
-- Complying with applicable laws and company/job-platform terms
-- Configuring SMTP credentials securely
+---
 
-Automated email delivery should always be tested with `--dry-run` before real use.
+### `--match-only` + `--send`
+
+Not allowed.
+
+Matching-only mode does not generate or send applications.
+
+---
+
+### `--match-only` + `--preview`
+
+Not allowed.
+
+---
+
+### `--send-all` + `--preview`
+
+Not allowed.
+
+---
+
+### `--send-all` + `--match-only`
+
+Not allowed.
+
+---
+
+### `--yes` without `--send`
+
+Not allowed.
+
+Incorrect:
+
+```bash
+python main.py \
+    --company example-security \
+    --yes
+```
+
+Correct:
+
+```bash
+python main.py \
+    --company example-security \
+    --send \
+    --yes
+```
+
+---
+
+# Exit Codes
+
+|  Code | Meaning                            |
+| ----: | ---------------------------------- |
+|   `0` | Successful execution               |
+|   `1` | Processing or application error    |
+| `130` | Program interrupted, e.g. `Ctrl+C` |
+
+Exit code `1` can represent errors involving:
+
+- Matching
+- Template loading
+- Template validation
+- Document validation
+- PDF generation
+- ZIP generation
+- Email delivery
+- History
+- Other processing operations
+
+---
+
+# Adding a New Template
+
+Adding a new template does not require modifying the generator.
+
+For English:
+
+```text
+data/en/cloud-security.json
+```
+
+For German:
+
+```text
+data/de/cloud-security.json
+```
+
+The template can then be explicitly selected:
+
+```bash
+python main.py \
+    --company example-security \
+    --language en \
+    --template cloud-security
+```
+
+The important part is simply the filename:
+
+```text
+cloud-security.json
+       │
+       ▼
+cloud-security
+```
+
+The generator discovers it automatically.
+
+This makes the template system **data-driven and extensible**.
+
+---
+
+# Template Validation
+
+Before a template is used, the generator performs validation.
+
+The process is:
+
+```text
+Language Directory
+       │
+       ▼
+Template Discovery
+       │
+       ▼
+JSON Loading
+       │
+       ▼
+JSON Validation
+       │
+       ▼
+Template Structure Validation
+       │
+       ▼
+Template Selection
+       │
+       ▼
+Style Selection
+       │
+       ▼
+Generation
+```
+
+Invalid or missing templates result in an error.
+
+The available templates for the selected language can then be displayed to help identify the problem.
+
+---
+
+# Recommended Workflow
+
+For an individual application:
+
+```text
+1. Match
+   ↓
+2. Generate
+   ↓
+3. Preview
+   ↓
+4. Dry-Run
+   ↓
+5. Send
+```
+
+Example:
+
+```bash
+# 1. Match
+
+python main.py \
+    --company example-security \
+    --match-only
+
+# 2. Generate
+
+python main.py \
+    --company example-security
+
+# 3. Preview
+
+python main.py \
+    --company example-security \
+    --preview
+
+# 4. Dry-run
+
+python main.py \
+    --company example-security \
+    --send \
+    --dry-run
+
+# 5. Send
+
+python main.py \
+    --company example-security \
+    --send
+```
+
+For a bulk workflow:
+
+```bash
+# Test the complete queue
+
+python main.py \
+    --send-all \
+    --dry-run
+
+# Send after verification
+
+python main.py \
+    --send-all \
+    --yes
+```
+
+---
+
+# Architecture
+
+The application follows a modular architecture:
+
+```text
+                         main.py
+                            │
+            ┌───────────────┼────────────────┐
+            │               │                │
+            ▼               ▼                ▼
+     Application         Matching         Documents
+      Generator           Engine           System
+            │               │                │
+            │               │         ┌──────┴──────┐
+            │               │         │             │
+            ▼               ▼         ▼             ▼
+      Templates        Match Score    PDF           ZIP
+      + Styles         + Confidence
+            │
+            ▼
+       Cover Letter
+            │
+            └──────────────────────┐
+                                   ▼
+                              Mail Sender
+                                   │
+                                   ▼
+                              Email Delivery
+                                   │
+                                   ▼
+                               History
+```
+
+Core modules:
+
+```text
+app/application/generator.py
+```
+
+Responsible for application generation, template discovery, selection, styles, and cover letters.
+
+```text
+app/matching/matcher.py
+```
+
+Responsible for job matching and scoring.
+
+```text
+app/documents/converter.py
+```
+
+Responsible for PDF generation.
+
+```text
+app/documents/archive.py
+```
+
+Responsible for creating application ZIP archives.
+
+```text
+app/mail/sender.py
+```
+
+Responsible for email construction and SMTP delivery.
+
+---
+
+# Design Principles
+
+The project follows several important principles.
+
+### Modular
+
+Each major responsibility is separated into its own module.
+
+### Data-driven
+
+Templates are discovered from the filesystem instead of being hard-coded.
+
+### Reproducible
+
+Seeds allow deterministic template and style selection.
+
+### Safe by default
+
+Generating an application does not automatically send an email.
+
+### Traceable
+
+Important operations are recorded in application history and logs.
+
+### Failure-resistant
+
+Failed applications remain in the queue during bulk processing.
+
+### Extensible
+
+New template types can be added without changing the generator.
+
+---
+
+# Complete Workflow
+
+The complete system can be summarized as:
+
+```text
+                    APPLICATION TOOL
+
+                           │
+                           ▼
+
+                    Applicant Data
+                           +
+                    Job Information
+                           │
+                           ▼
+                    Duplicate Check
+                           │
+                           ▼
+                     Job Matching
+                           │
+                    ┌──────┴──────┐
+                    ▼             ▼
+               Match Score   Confidence
+                    │             │
+                    └──────┬──────┘
+                           ▼
+                  Template Discovery
+                           │
+                           ▼
+                  Template Selection
+                           │
+                           ▼
+                    Style Selection
+                           │
+                           ▼
+                 Cover Letter Generation
+                           │
+                    ┌──────┴──────┐
+                    ▼             ▼
+                   PDF           ZIP
+                    │             │
+                    └──────┬──────┘
+                           ▼
+                    Email Delivery
+                           │
+                           ▼
+                  Application History
+```
+
+---
+
+# Safety Model
+
+The tool deliberately separates **generation** from **sending**.
+
+```text
+python main.py --company ID
+```
+
+means:
+
+```text
+GENERATE
+```
+
+while:
+
+```text
+python main.py --company ID --send
+```
+
+means:
+
+```text
+GENERATE + SEND
+```
+
+And:
+
+```text
+python main.py --company ID --send --dry-run
+```
+
+means:
+
+```text
+GENERATE + SIMULATE SEND
+```
+
+This distinction prevents a normal application-generation command from accidentally sending an email.
+
+---
+
+# Bulk Processing Model
+
+The bulk processor follows the same safety principle.
+
+```text
+companies.json
+      │
+      ▼
+   Company 1
+      │
+      ├── Generate
+      ├── Match
+      ├── Template
+      ├── PDF
+      ├── ZIP
+      ├── Send
+      ├── History
+      └── Remove from queue
+      │
+      ▼
+   Company 2
+      │
+      └── ...
+```
+
+A company is removed only after successful sending.
+
+Therefore:
+
+```text
+Generation failed  → Keep company
+Email failed       → Keep company
+Email succeeded    → Remove company
+```
+
+---
+
+# Quick Reference
+
+```text
+LIST
+python main.py --list-companies
+
+MATCH
+python main.py --company ID --match-only
+
+CREATE
+python main.py --company ID
+
+PREVIEW
+python main.py --company ID --preview
+
+ENGLISH
+python main.py --company ID --language en
+
+TEMPLATE
+python main.py --company ID --template cybersecurity
+
+STYLE
+python main.py --company ID --template cybersecurity --style technical
+
+SEED
+python main.py --company ID --seed 12345
+
+DRY-RUN
+python main.py --company ID --send --dry-run
+
+SEND
+python main.py --company ID --send
+
+AUTOMATED SEND
+python main.py --company ID --send --yes
+
+BULK DRY-RUN
+python main.py --send-all --dry-run
+
+BULK SEND
+python main.py --send-all --yes
+
+HISTORY
+python main.py --history
+
+FORCE RESEND
+python main.py --company ID --send --force
+
+VERBOSE
+python main.py --company ID --verbose
+
+HELP
+python main.py --help
+```
+
+---
+
+# Extending the System
+
+The architecture is designed to allow additional functionality without restructuring the entire application.
+
+Potential extensions include:
+
+- Additional languages
+- Additional template categories
+- Additional document formats
+- More advanced matching algorithms
+- Additional email providers
+- Application analytics
+- Additional scoring systems
+- Job board integrations
+- More granular history tracking
+- Additional output formats
+
+The template architecture in particular is intentionally designed around filesystem discovery, allowing new templates to be introduced through data rather than Python code.
 
 ---
 
 # License
 
-This project is licensed under the **MIT License**.
+Add your project license here.
 
-See:
-
-```text
-LICENSE
-```
-
-for the complete license text.
-
----
-
-# Contributing
-
-Contributions are welcome.
-
-Typical contribution workflow:
-
-```bash
-git clone https://github.com/your-username/ApplicationForge.git
-cd ApplicationForge
-
-python3 -m venv .venv
-source .venv/bin/activate
-
-pip install -r requirements.txt
-```
-
-Create a feature branch:
-
-```bash
-git checkout -b feature/my-feature
-```
-
-Make your changes, test them, and create a pull request.
-
-When contributing, please avoid committing:
-
-- Personal applicant data
-- Real company contact information
-- SMTP credentials
-- Private documents
-- Generated application archives
-- Application history
-
----
-
-# Project Status
-
-ApplicationForge is an actively developed project.
-
-The current version focuses on the core application pipeline:
+For example:
 
 ```text
-JSON
- ↓
-Matching
- ↓
-Cover Letter
- ↓
-PDF
- ↓
-ZIP
- ↓
-Email
- ↓
-History
+MIT License
 ```
 
-The architecture is intentionally designed so additional functionality can be added without replacing the existing core workflow.
+or:
+
+```text
+Proprietary
+```
 
 ---
 
-## ApplicationForge
+# Status
 
-**Build applications. Match opportunities. Automate the repetitive work.**
+This project is actively developed.
+
+The architecture is designed around modularity, automation, reproducibility, and safe application delivery.
