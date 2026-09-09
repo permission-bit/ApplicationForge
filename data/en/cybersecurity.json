@@ -1,0 +1,182 @@
+{
+    "cybersecurity": {
+        "formal": {
+            "order": [
+                "subject",
+                "salutation",
+                "opening",
+                "background",
+                "technical_approach",
+                "job_connection",
+                "motivation",
+                "closing"
+            ],
+
+            "subject": [
+                "Application for the {position} position"
+            ],
+
+            "salutation": [
+                "Dear Hiring Team,",
+                "Dear {company_name} Recruitment Team,",
+                "Dear Hiring Manager,",
+                "Dear {company_name} Team,"
+            ],
+
+            "opening": [
+                "I am writing to apply for the {position} position at {company_name}. The role immediately caught my attention because it combines technical problem-solving with information security, an area in which I am building my long-term professional focus. I am particularly interested in opportunities where I can apply my existing technical knowledge to practical challenges while continuing to develop within a professional environment.",
+
+                "I would like to apply for the {position} position at {company_name}. Cybersecurity is the technical field in which I want to develop my professional career, and I am particularly interested in roles that involve analysing systems, understanding technical risks and solving problems in a structured way. The responsibilities associated with this position therefore strongly match the direction of my current technical development.",
+
+                "The {position} position at {company_name} particularly interests me because of its connection between technical work and information security. My current focus is on developing a strong practical understanding of systems, software, networks and security-related technologies. I am now looking for an opportunity to bring this foundation into a professional environment and continue developing it through real-world work.",
+
+                "I am pleased to submit my application for the {position} position at {company_name}. What particularly appeals to me about this opportunity is the possibility of working on technical challenges where security, careful analysis and practical problem-solving are important. These are areas that closely reflect both my current technical interests and the professional direction I want to pursue.",
+
+                "I am applying for the {position} position at {company_name} with a strong interest in developing my career in cybersecurity. I enjoy working with technology at a technical level, investigating how systems behave and approaching unfamiliar problems systematically. The opportunity to apply this mindset within a professional security environment is therefore particularly appealing to me."
+            ],
+
+            "background": [
+                "My technical background is centred around {relevant_keywords}. I have developed my knowledge through practical projects, independent learning and hands-on work with different technical concepts. This approach has given me a strong interest in understanding not only how technologies are used, but also how the underlying components interact and where technical problems or security weaknesses can arise.",
+
+                "Through my previous technical work and projects, I have developed knowledge in {relevant_keywords}. I approach technical subjects with a strong focus on practical understanding. When working with a new technology, I prefer to investigate how it functions, test it in practice and understand the underlying mechanisms rather than relying solely on high-level explanations.",
+
+                "My current technical development includes {relevant_keywords}. Working on practical technical projects has allowed me to strengthen my understanding of software, systems and security-related concepts while also improving my ability to troubleshoot problems independently. I consider this hands-on approach an important part of developing reliable technical skills.",
+
+                "I have built my technical foundation around areas including {relevant_keywords}. A significant part of my learning has come from working independently on technical projects and investigating problems in practice. This has taught me to approach unfamiliar subjects systematically, research possible solutions and continue working until I understand the underlying issue.",
+
+                "My technical interests cover {relevant_keywords}, with a particular focus on understanding systems and security from a technical perspective. Practical experimentation and project-based learning have played an important role in developing these skills. They have also strengthened my ability to work independently and to break complex technical problems into smaller, manageable parts."
+            ],
+
+            "technical_approach": [
+                "One aspect of cybersecurity that particularly interests me is the process of analysing a system from different perspectives. Understanding how applications, operating systems and networks interact makes it possible to identify weaknesses more effectively and to evaluate technical risks in a structured manner. I therefore value a methodical approach in which problems are investigated carefully, findings are verified and solutions are developed based on a clear technical understanding.",
+
+                "My approach to technical problems is strongly analytical and hands-on. I generally begin by understanding the relevant system or component, identifying the actual source of a problem and then testing possible solutions rather than making assumptions. In a security context, I consider this particularly important because reliable analysis requires both technical curiosity and attention to detail.",
+
+                "I am particularly interested in the technical foundations behind cybersecurity. Rather than viewing security as an isolated discipline, I see it as closely connected to software, operating systems, networking and system architecture. Developing knowledge across these areas helps me understand why vulnerabilities occur and how systems can be analysed and protected more effectively.",
+
+                "Practical problem-solving is an important part of how I develop my technical skills. I enjoy investigating unfamiliar behaviour, analysing possible causes and using practical testing to confirm my understanding. This way of working has helped me become more comfortable with technically demanding subjects and has strengthened my ability to learn independently.",
+
+                "I approach security-related technical problems with a strong emphasis on understanding the underlying system before drawing conclusions. This includes examining how components communicate, how software behaves and how configuration or implementation decisions can affect security. I believe this combination of technical curiosity and structured analysis provides a strong foundation for further professional development in cybersecurity."
+            ],
+
+            "job_connection": [
+                "The responsibilities of the {position} position provide a strong connection to my current technical focus. In particular, the relevance of {relevant_keywords} makes the role an opportunity to apply knowledge that I have already been developing while gaining experience with professional processes and environments. I would approach this opportunity with the willingness to learn quickly, contribute where my current skills are applicable and gradually take on more responsibility.",
+
+                "I see a clear connection between my current technical background and the requirements of the {position} position. My knowledge of {relevant_keywords} gives me a useful foundation for approaching the technical aspects of the role, while the position itself would allow me to develop a deeper understanding of how security work is performed in a professional environment.",
+
+                "What makes this position particularly relevant to me is the combination of the technical areas I am currently developing and the practical responsibilities described for the role. My background in {relevant_keywords} provides a starting point from which I can continue learning while contributing to the team. I am particularly interested in gaining experience with established security processes, professional tooling and real-world technical challenges.",
+
+                "The technical requirements of the {position} position align well with my current development, especially in the areas of {relevant_keywords}. I would see the role not simply as an opportunity to apply existing knowledge, but also as a chance to develop a more complete understanding of professional cybersecurity practices and to learn from people with practical industry experience.",
+
+                "I believe my existing technical foundation in {relevant_keywords} gives me a solid starting point for the responsibilities associated with this position. At the same time, I recognise the importance of continuing to develop technically, particularly when working with real-world systems and professional security requirements. This combination of contributing with existing skills and continuously learning is one of the main reasons I am interested in the role."
+            ],
+
+            "motivation": [
+                "My long-term goal is to build strong practical expertise in cybersecurity and to gradually take on more demanding technical responsibilities. I am particularly motivated by environments in which continuous learning, careful technical analysis and practical problem-solving are valued. I would therefore welcome the opportunity to develop within a professional team while contributing with the knowledge and skills I have already built.",
+
+                "I am looking for a professional environment in which I can continue to deepen my technical knowledge while gaining experience with real-world security challenges. Working alongside experienced professionals would allow me to learn established approaches and best practices while also giving me the opportunity to contribute through my own technical abilities and independent approach to problem-solving.",
+
+                "What motivates me most about a career in cybersecurity is the combination of continuous learning and practical technical work. Technology and security challenges are constantly evolving, which makes the field particularly interesting to me. I want to develop the depth of knowledge required to analyse these challenges effectively while becoming a reliable member of a professional security team.",
+
+                "I am particularly motivated by the opportunity to turn technical knowledge into practical value. Whether investigating a problem, understanding a system or analysing a potential security issue, I enjoy the process of working from an initial question towards a technically sound conclusion. Developing these abilities further in a professional environment is an important next step for me.",
+
+                "For me, professional development in cybersecurity means continuously improving both technical depth and practical judgement. I want to work in an environment where I can learn from experienced colleagues, take responsibility for technical tasks and steadily expand the complexity of the problems I am able to solve. The {position} position represents an opportunity to take that next step."
+            ],
+
+            "closing": [
+                "Thank you for taking the time to consider my application. I would welcome the opportunity to discuss my technical background, motivation and interest in the {position} position in more detail. I look forward to hearing from you.",
+
+                "I would be pleased to discuss my technical background and motivation with you and to explain how I could contribute to {company_name}. Thank you for your time and consideration. I look forward to the opportunity to introduce myself personally.",
+
+                "Thank you for considering my application. I would appreciate the opportunity to discuss the position, my technical background and my motivation in more detail. I look forward to hearing from you and learning more about the team and the role.",
+
+                "I would welcome the opportunity to discuss how my current technical skills and motivation could contribute to your team. Thank you for your time and consideration. I look forward to hearing from you.",
+
+                "Thank you for considering my application for the {position} position. I would be glad to discuss my background and technical interests with you in a personal interview and look forward to the opportunity to learn more about {company_name}."
+            ]
+        },
+
+        "modern": {
+            "order": [
+                "subject",
+                "salutation",
+                "opening",
+                "background",
+                "technical_approach",
+                "job_connection",
+                "motivation",
+                "closing"
+            ],
+
+            "subject": [
+                "Application for the {position} position"
+            ],
+
+            "salutation": [
+                "Dear Hiring Team,",
+                "Dear {company_name} Team,",
+                "Dear Hiring Manager,"
+            ],
+
+            "opening": [
+                "I am applying for the {position} position at {company_name} because the role combines two areas that strongly define my current technical focus: cybersecurity and practical problem-solving. I am particularly interested in understanding how systems work, where weaknesses can occur and how technical issues can be analysed in a structured way. I am now looking to bring this mindset into a professional environment.",
+
+                "The {position} position caught my attention because it offers the kind of technical environment I am looking for: real systems, real challenges and the opportunity to keep learning. My current focus is on {relevant_keywords}, and I want to continue turning that knowledge into practical experience within a professional cybersecurity team.",
+
+                "I would like to apply for the {position} position at {company_name}. Cybersecurity is the area in which I want to build my professional future, and I am particularly drawn to work that requires technical curiosity, careful analysis and a willingness to investigate problems rather than simply work around them.",
+
+                "What attracted me to the {position} position is the technical depth behind cybersecurity work. My interests currently include {relevant_keywords}, and I enjoy exploring how systems operate, how components interact and how technical weaknesses can be identified. I am looking for an opportunity to develop these interests further through professional experience."
+            ],
+
+            "background": [
+                "My technical development has focused on {relevant_keywords}. I have built this knowledge through practical projects and independent learning, which has given me experience approaching technical problems without always having an existing solution available. This has made independent research, testing and troubleshooting an important part of the way I work.",
+
+                "I have developed a broad technical foundation around {relevant_keywords}. What matters most to me is not simply knowing individual technologies, but understanding how they work together. Working on practical projects has helped me develop this perspective and has strengthened my ability to investigate unfamiliar technical topics independently.",
+
+                "My current technical background includes {relevant_keywords}. I regularly use practical projects and experimentation to deepen my understanding, particularly when dealing with systems, software or security-related topics. This has taught me to approach problems methodically and to verify my assumptions through practical testing.",
+
+                "Through hands-on technical work, I have developed knowledge in {relevant_keywords}. I enjoy taking a technical problem, breaking it down into its individual components and working towards a solution step by step. This approach has become an important part of how I learn and how I handle unfamiliar technologies."
+            ],
+
+            "technical_approach": [
+                "I am especially interested in the analytical side of cybersecurity. A security issue rarely exists in isolation; understanding it often requires knowledge of the application, operating system, network and surrounding infrastructure. This is why I focus on developing a broad technical foundation rather than limiting my learning to individual security tools.",
+
+                "When I encounter a technical problem, I prefer to understand the cause rather than only address the visible symptom. I research the relevant technology, reproduce the behaviour where possible and test potential solutions. I believe this approach is particularly useful in cybersecurity, where accurate analysis and careful verification are essential.",
+
+                "My interest in cybersecurity comes largely from the technical investigation involved. I enjoy understanding why a system behaves in a certain way, identifying unexpected behaviour and determining what that means from a security perspective. This analytical mindset is something I want to continue developing through professional work.",
+
+                "I approach cybersecurity as a discipline that requires a strong understanding of technology as a whole. Knowledge of software, systems and networks creates the foundation for understanding security problems properly. This is the perspective I bring to my technical projects and the perspective I would like to develop further in a professional role."
+            ],
+
+            "job_connection": [
+                "The {position} position is a strong match for this direction. The focus on {relevant_keywords} connects directly with areas I have already been developing, while the professional environment would give me the opportunity to learn how these skills are applied to real systems and established security processes.",
+
+                "I see the role as a good opportunity to bridge the gap between my current technical knowledge and professional cybersecurity work. My background in {relevant_keywords} gives me a foundation to contribute, while the responsibilities of the position would challenge me to develop further and become more effective in a professional environment.",
+
+                "The technical focus of this position aligns closely with the areas I am currently developing. In particular, {relevant_keywords} provide a useful foundation for the role. I am interested in applying these skills in practice while learning how experienced security professionals approach larger and more complex technical challenges.",
+
+                "I believe the position would allow me to make practical use of my current technical foundation while continuing to expand it. The connection to {relevant_keywords} is particularly relevant to me because these are areas I want to develop into stronger professional capabilities."
+            ],
+
+            "motivation": [
+                "I want to build my career around solving technical security problems and continuously improving my understanding of modern systems. I am comfortable learning independently, but I also value the opportunity to work with experienced professionals and learn from established processes. That combination is what I am looking for in my next professional step.",
+
+                "The part of cybersecurity I find most interesting is that there is always more to understand. New technologies introduce new challenges, and solving them requires continuous learning. I want to develop in an environment where I can contribute with my existing knowledge while becoming more capable through practical experience.",
+
+                "My goal is to develop from a technically interested learner into a dependable cybersecurity professional with strong practical skills. I am therefore looking for opportunities where I can take on real responsibilities, learn from experienced colleagues and continuously improve the quality of my technical work.",
+
+                "I am motivated by technically challenging work where careful analysis makes a real difference. I want to continue expanding my knowledge while developing the professional discipline required to work reliably with security-related systems and information."
+            ],
+
+            "closing": [
+                "Thank you for considering my application. I would be happy to discuss my technical background and motivation for the role in more detail and look forward to hearing from you.",
+
+                "I would welcome the opportunity to discuss the position and my technical background with you. Thank you for your time and consideration. I look forward to hearing from you.",
+
+                "Thank you for taking the time to review my application. I would appreciate the opportunity to introduce myself personally and discuss how I could contribute to {company_name}.",
+
+                "I would be glad to discuss my technical interests, current skills and motivation for the {position} position with you. Thank you for your consideration, and I look forward to hearing from you."
+            ]
+        }
+    }
+}

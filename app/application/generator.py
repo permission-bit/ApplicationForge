@@ -3,7 +3,6 @@ from __future__ import annotations
 import json
 import random
 import re
-
 from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any
@@ -25,8 +24,11 @@ SUPPORTED_LANGUAGES = {
 DEFAULT_TEMPLATE_STYLE = "formal"
 
 DEFAULT_SECTION_ORDER = [
+    "subject",
     "salutation",
     "opening",
+    "background",
+    "technical_approach",
     "experience",
     "job_connection",
     "motivation",
@@ -34,18 +36,14 @@ DEFAULT_SECTION_ORDER = [
 ]
 
 SUPPORTED_PLACEHOLDERS = {
-    # --------------------------------------------------------
     # Company
-    # --------------------------------------------------------
     "company_name",
     "company_type",
     "company_size",
     "company_id",
     "relevant_keywords",
 
-    # --------------------------------------------------------
     # Job
-    # --------------------------------------------------------
     "position",
     "location",
     "job_id",
@@ -55,9 +53,7 @@ SUPPORTED_PLACEHOLDERS = {
     "remote_type",
     "source_url",
 
-    # --------------------------------------------------------
     # Applicant
-    # --------------------------------------------------------
     "first_name",
     "last_name",
     "full_name",
@@ -68,31 +64,45 @@ SUPPORTED_PLACEHOLDERS = {
     "city",
     "github",
 
-    # --------------------------------------------------------
     # Keywords
-    # --------------------------------------------------------
     "applicant_keywords",
     "job_keywords",
     "matched_keywords",
     "missing_keywords",
 
-    # --------------------------------------------------------
     # Matching
-    # --------------------------------------------------------
     "match_score",
     "confidence_score",
 
-    # --------------------------------------------------------
     # Experience
-    # --------------------------------------------------------
     "experience",
 }
 
-DEFAULT_APPLICATION_SKILLS = [
-    "Python",
-    "Linux",
-    "IT-Sicherheit",
-]
+
+# Fallback values used when the job/company data does not
+# provide enough relevant technical keywords.
+DEFAULT_APPLICATION_SKILLS = {
+    "de": [
+        "Python",
+        "Linux",
+        "IT-Sicherheit",
+    ],
+    "en": [
+        "Python",
+        "Linux",
+        "Cyber Security",
+    ],
+}
+
+
+# These files live in data/ or may accidentally be placed
+# inside a language directory, but they are not templates.
+IGNORED_TEMPLATE_FILES = {
+    "applicant.json",
+    "companies.json",
+    "history.json",
+    "templates.json",
+}
 
 
 # ============================================================
@@ -102,10 +112,7 @@ DEFAULT_APPLICATION_SKILLS = [
 @dataclass
 class JobContext:
     """
-    Enthält alle Informationen zur ausgeschriebenen Stelle.
-
-    Die Daten kommen ausschließlich aus dem manuell gepflegten
-    companies.json bzw. aus vorgelagerten Modulen wie matcher.py.
+    Contains all relevant information about the advertised job.
     """
 
     company_name: str
@@ -116,33 +123,18 @@ class JobContext:
     company_size: str = ""
 
     location: str = ""
-
     job_id: str = ""
     job_type: str = ""
     seniority: str = ""
-
     employment_type: str = ""
     remote_type: str = ""
 
-    job_keywords: list[str] = field(
-        default_factory=list
-    )
+    job_keywords: list[str] = field(default_factory=list)
+    matched_keywords: list[str] = field(default_factory=list)
+    relevant_keywords: list[str] = field(default_factory=list)
+    missing_keywords: list[str] = field(default_factory=list)
 
-    matched_keywords: list[str] = field(
-        default_factory=list
-    )
-
-    relevant_keywords: list[str] = field(
-        default_factory=list
-    )
-
-    missing_keywords: list[str] = field(
-        default_factory=list
-    )
-
-    experience: list[str] = field(
-        default_factory=list
-    )
+    experience: list[str] = field(default_factory=list)
 
     source_url: str = ""
 
@@ -152,170 +144,63 @@ class JobContext:
 
 @dataclass
 class ApplicantContext:
+    """
+    Contains applicant information.
+    """
+
     first_name: str
     last_name: str
+
     email: str = ""
     phone: str = ""
+
     address: str = ""
     zip_code: str = ""
     city: str = ""
+
     github: str = ""
-    skills: list[str] = field(
-        default_factory=list
-    )
-    experience: list[str] = field(
-        default_factory=list
-    )
+
+    skills: list[str] = field(default_factory=list)
+    experience: list[str] = field(default_factory=list)
 
 
 @dataclass
 class GeneratedApplication:
     """
-    Ergebnis einer vollständig generierten Bewerbung.
+    Result of a fully generated application.
     """
+
     text: str
+
     company_name: str
     position: str
+
     template_type: str
     template_style: str
     language: str
+
     matched_keywords: list[str]
     missing_keywords: list[str]
+
     variables: dict[str, str]
-    sections: dict[str, str] = field(
-        default_factory=dict
-    )
+
+    sections: dict[str, str] = field(default_factory=dict)
+
     match_score: float = 0.0
     confidence_score: float = 0.0
+
     company_id: str = ""
     job_id: str = ""
     source_url: str = ""
-
-# ============================================================
-# JSON
-# ============================================================
-
-def load_json(
-    filename: str,
-) -> dict[str, Any]:
-    """
-    Lädt eine JSON-Datei aus data/.
-
-    Beispiel:
-
-        data = load_json("applicant.json")
-    """
-
-    path = DATA_DIR / filename
-
-    if not path.exists():
-        raise FileNotFoundError(
-            f"JSON-Datei nicht gefunden: {path}"
-        )
-
-    if not path.is_file():
-        raise ValueError(
-            f"Pfad ist keine Datei: {path}"
-        )
-
-    try:
-        with path.open(
-            "r",
-            encoding="utf-8",
-        ) as file:
-            data = json.load(file)
-
-    except json.JSONDecodeError as exc:
-        raise ValueError(
-            f"Ungültiges JSON in {path}: "
-            f"Zeile {exc.lineno}, Spalte {exc.colno}"
-        ) from exc
-
-    if not isinstance(data, dict):
-        raise ValueError(
-            f"{path} muss ein JSON-Objekt enthalten."
-        )
-
-    return data
-
-
-# ============================================================
-# COMPANY
-# ============================================================
-
-def get_company(
-    company_id: str,
-) -> dict[str, Any]:
-    """
-    Sucht ein Unternehmen anhand seiner ID.
-
-    Wird vom CLI verwendet:
-
-        python main.py --company example-security
-    """
-
-    company_id = clean_text(company_id)
-
-    if not company_id:
-        raise ValueError(
-            "Keine Company-ID angegeben."
-        )
-
-    data = load_json(
-        "companies.json"
-    )
-
-    companies = data.get(
-        "companies",
-        [],
-    )
-
-    if not isinstance(
-        companies,
-        list,
-    ):
-        raise ValueError(
-            "companies.json: "
-            "'companies' muss eine Liste sein."
-        )
-
-    for company in companies:
-
-        if not isinstance(
-            company,
-            dict,
-        ):
-            continue
-
-        current_id = clean_text(
-            company.get("id")
-        )
-
-        if current_id == company_id:
-            return company
-
-    raise ValueError(
-        f"Unternehmen '{company_id}' nicht gefunden."
-    )
 
 
 # ============================================================
 # TEXT HELPERS
 # ============================================================
 
-def clean_text(
-    value: Any,
-) -> str:
+def clean_text(value: Any) -> str:
     """
-    Normalisiert einen Wert zu sauberem Text.
-
-    Eigenschaften:
-
-    - None -> ""
-    - CRLF -> LF
-    - CR -> LF
-    - mehrere Spaces -> ein Space
-    - maximal zwei aufeinanderfolgende Leerzeilen
+    Normalize arbitrary values into clean text.
     """
 
     if value is None:
@@ -323,75 +208,40 @@ def clean_text(
 
     text = str(value)
 
-    text = text.replace(
-        "\r\n",
-        "\n",
-    )
+    text = text.replace("\r\n", "\n")
+    text = text.replace("\r", "\n")
 
-    text = text.replace(
-        "\r",
-        "\n",
-    )
+    # Collapse spaces and tabs.
+    text = re.sub(r"[ \t]+", " ", text)
 
-    # Mehrere Spaces/Tabs reduzieren.
-    text = re.sub(
-        r"[ \t]+",
-        " ",
-        text,
-    )
-
-    # Mehr als zwei Leerzeilen verhindern.
-    text = re.sub(
-        r"\n{3,}",
-        "\n\n",
-        text,
-    )
+    # Maximum two consecutive newlines.
+    text = re.sub(r"\n{3,}", "\n\n", text)
 
     return text.strip()
 
 
-def clean_single_line(
-    value: Any,
-) -> str:
+def clean_single_line(value: Any) -> str:
     """
-    Bereinigt einen Wert und entfernt Zeilenumbrüche.
-
-    Geeignet für:
-
-    - Company Name
-    - Position
-    - Ort
-    - IDs
+    Normalize a value and remove line breaks.
     """
 
     text = clean_text(value)
 
-    text = text.replace(
-        "\n",
-        " ",
-    )
-
-    text = re.sub(
-        r"\s+",
-        " ",
-        text,
-    )
+    text = text.replace("\n", " ")
+    text = re.sub(r"\s+", " ", text)
 
     return text.strip()
 
 
-def unique_strings(
-    values: list[Any],
-) -> list[str]:
+def unique_strings(values: list[Any]) -> list[str]:
     """
-    Entfernt Duplikate und behält die Reihenfolge.
+    Remove duplicate strings while preserving order.
     """
 
     result: list[str] = []
     seen: set[str] = set()
 
     for value in values:
-
         text = clean_text(value)
 
         if not text:
@@ -413,37 +263,29 @@ def ensure_string_list(
     field_name: str,
 ) -> list[str]:
     """
-    Validiert und normalisiert eine String-Liste.
+    Validate and normalize a list of strings.
     """
 
     if value is None:
         return []
 
-    if not isinstance(
-        value,
-        list,
-    ):
+    if not isinstance(value, list):
         raise ValueError(
             f"'{field_name}' muss eine Liste sein."
         )
 
-    return unique_strings(
-        value
-    )
+    return unique_strings(value)
 
 
 def format_list(
     values: list[str],
     language: str = DEFAULT_LANGUAGE,
 ) -> str:
+    """
+    Format a list naturally according to the language.
+    """
 
-    language = clean_single_line(language).casefold()
-
-    if language not in SUPPORTED_LANGUAGES:
-        raise ValueError(
-            f"Nicht unterstützte Sprache: '{language}'."
-        )
-
+    language = normalize_language(language)
     values = unique_strings(values)
 
     if not values:
@@ -452,65 +294,139 @@ def format_list(
     if len(values) == 1:
         return values[0]
 
-    conjunction = (
-        "and"
-        if language == "en"
-        else "und"
-    )
+    conjunction = "and" if language == "en" else "und"
 
     if len(values) == 2:
-        return (
-            f"{values[0]} {conjunction} {values[1]}"
-        )
+        return f"{values[0]} {conjunction} {values[1]}"
 
-    return (
-        ", ".join(values[:-1])
-        + f" {conjunction} {values[-1]}"
-    )
+    return ", ".join(values[:-1]) + f" {conjunction} " + values[-1]
 
 
 def format_keywords(
     keywords: list[str],
     language: str = DEFAULT_LANGUAGE,
 ) -> str:
+    """
+    Format keywords.
+    """
+
     return format_list(
         keywords,
         language=language,
     )
 
 
-def format_score(
-    value: Any,
-) -> str:
+def format_score(value: Any) -> str:
     """
-    Formatiert einen Score für Templates.
-
-    Beispiel:
-
-        82.456
-        -> 82.5 %
-
-        90
-        -> 90.0 %
+    Format a score as percentage.
     """
 
     try:
         score = float(value)
-    except (
-        TypeError,
-        ValueError,
-    ):
+    except (TypeError, ValueError):
         score = 0.0
 
-    score = max(
-        0.0,
-        min(
-            100.0,
-            score,
-        ),
-    )
+    score = max(0.0, min(100.0, score))
 
     return f"{score:.1f} %"
+
+
+# ============================================================
+# JSON
+# ============================================================
+
+def load_json(filename: str) -> dict[str, Any]:
+    """
+    Load a JSON file from data/.
+    """
+
+    filename = clean_single_line(filename)
+
+    if not filename:
+        raise ValueError("Kein JSON-Dateiname angegeben.")
+
+    path = (DATA_DIR / filename).resolve()
+    data_root = DATA_DIR.resolve()
+
+    try:
+        path.relative_to(data_root)
+    except ValueError as exc:
+        raise ValueError(
+            f"Ungültiger JSON-Pfad: {filename}"
+        ) from exc
+
+    if not path.exists():
+        raise FileNotFoundError(
+            f"JSON-Datei nicht gefunden: {path}"
+        )
+
+    if not path.is_file():
+        raise ValueError(
+            f"Pfad ist keine Datei: {path}"
+        )
+
+    try:
+        with path.open(
+            "r",
+            encoding="utf-8",
+        ) as file:
+            data = json.load(file)
+
+    except json.JSONDecodeError as exc:
+        raise ValueError(
+            f"Ungültiges JSON in {path}: "
+            f"Zeile {exc.lineno}, "
+            f"Spalte {exc.colno}"
+        ) from exc
+
+    if not isinstance(data, dict):
+        raise ValueError(
+            f"{path} muss ein JSON-Objekt enthalten."
+        )
+
+    return data
+
+
+# ============================================================
+# COMPANY
+# ============================================================
+
+def get_company(company_id: str) -> dict[str, Any]:
+    """
+    Find a company by ID.
+    """
+
+    company_id = clean_single_line(company_id)
+
+    if not company_id:
+        raise ValueError(
+            "Keine Company-ID angegeben."
+        )
+
+    data = load_json("companies.json")
+
+    companies = data.get("companies", [])
+
+    if not isinstance(companies, list):
+        raise ValueError(
+            "companies.json: "
+            "'companies' muss eine Liste sein."
+        )
+
+    for company in companies:
+        if not isinstance(company, dict):
+            continue
+
+        current_id = clean_single_line(
+            company.get("id")
+        )
+
+        if current_id == company_id:
+            return company
+
+    raise ValueError(
+        f"Unternehmen '{company_id}' nicht gefunden."
+    )
 
 
 # ============================================================
@@ -521,13 +437,10 @@ def build_applicant_context(
     applicant: dict[str, Any],
 ) -> ApplicantContext:
     """
-    Erstellt einen validierten ApplicantContext.
+    Build a validated ApplicantContext.
     """
 
-    if not isinstance(
-        applicant,
-        dict,
-    ):
+    if not isinstance(applicant, dict):
         raise ValueError(
             "Applicant-Daten müssen ein Objekt sein."
         )
@@ -542,29 +455,21 @@ def build_applicant_context(
 
     if not first_name:
         raise ValueError(
-            "applicant.json: "
-            "'first_name' fehlt."
+            "applicant.json: 'first_name' fehlt."
         )
 
     if not last_name:
         raise ValueError(
-            "applicant.json: "
-            "'last_name' fehlt."
+            "applicant.json: 'last_name' fehlt."
         )
 
     skills = ensure_string_list(
-        applicant.get(
-            "skills",
-            [],
-        ),
+        applicant.get("skills", []),
         "skills",
     )
 
     experience = ensure_string_list(
-        applicant.get(
-            "experience",
-            [],
-        ),
+        applicant.get("experience", []),
         "experience",
     )
 
@@ -605,29 +510,19 @@ def build_applicant_context(
 # JOB CONTEXT
 # ============================================================
 
-def _read_score(
-    value: Any,
-) -> float:
+def _read_score(value: Any) -> float:
     """
-    Liest einen numerischen Score.
-
-    Werte außerhalb von 0-100 werden begrenzt.
+    Read and normalize a numeric score.
     """
 
     try:
         score = float(value)
-    except (
-        TypeError,
-        ValueError,
-    ):
+    except (TypeError, ValueError):
         return 0.0
 
     return max(
         0.0,
-        min(
-            100.0,
-            score,
-        ),
+        min(100.0, score),
     )
 
 
@@ -635,25 +530,10 @@ def build_job_context(
     company: dict[str, Any],
 ) -> JobContext:
     """
-    Erstellt einen validierten JobContext.
-
-    Wichtig:
-
-    Das Matching selbst findet NICHT hier statt.
-
-    matched_keywords,
-    missing_keywords,
-    match_score und
-    confidence_score
-
-    können vorher von matcher.py berechnet
-    und anschließend an company angehängt werden.
+    Build a validated JobContext from a company/job record.
     """
 
-    if not isinstance(
-        company,
-        dict,
-    ):
+    if not isinstance(company, dict):
         raise ValueError(
             "Unternehmensdaten müssen ein Objekt sein."
         )
@@ -677,49 +557,32 @@ def build_job_context(
         )
 
     job_keywords = ensure_string_list(
-        company.get(
-            "keywords",
-            [],
-        ),
+        company.get("keywords", []),
         "keywords",
     )
 
     matched_keywords = ensure_string_list(
-        company.get(
-            "matched_keywords",
-            [],
-        ),
+        company.get("matched_keywords", []),
         "matched_keywords",
     )
 
-
     relevant_keywords = ensure_string_list(
-        company.get(
-            "relevant_keywords",
-            [],
-        ),
+        company.get("relevant_keywords", []),
         "relevant_keywords",
     )
 
     missing_keywords = ensure_string_list(
-        company.get(
-            "missing_keywords",
-            [],
-        ),
+        company.get("missing_keywords", []),
         "missing_keywords",
     )
 
     experience = ensure_string_list(
-        company.get(
-            "experience",
-            [],
-        ),
+        company.get("experience", []),
         "experience",
     )
 
     return JobContext(
         company_name=company_name,
-
         position=position,
 
         company_id=clean_single_line(
@@ -759,13 +622,9 @@ def build_job_context(
         ),
 
         job_keywords=job_keywords,
-
         matched_keywords=matched_keywords,
-
         relevant_keywords=relevant_keywords,
-
         missing_keywords=missing_keywords,
-
         experience=experience,
 
         source_url=clean_single_line(
@@ -791,43 +650,85 @@ def build_variables(
     job: JobContext,
     language: str = DEFAULT_LANGUAGE,
 ) -> dict[str, str]:
+    """
+    Build all available template variables.
+
+    Keyword fallback hierarchy:
+
+        1. relevant_keywords
+        2. matched_keywords
+        3. applicant skills
+        4. Python + Linux + Cyber Security / IT-Sicherheit
+    """
+
+    language = normalize_language(language)
 
     full_name = (
         f"{applicant.first_name} "
         f"{applicant.last_name}"
     )
 
-    # ----------------------------------------------------
-    # Matching
-    # ----------------------------------------------------
+    # --------------------------------------------------------
+    # Default technical skills
+    # --------------------------------------------------------
+
+    default_skills = DEFAULT_APPLICATION_SKILLS.get(
+        language,
+        DEFAULT_APPLICATION_SKILLS["de"],
+    )
+
+    # --------------------------------------------------------
+    # Matched keywords
+    # --------------------------------------------------------
 
     matched_keywords = unique_strings(
         job.matched_keywords
     )
 
-    # ----------------------------------------------------
-    # Application Experience
-    # ----------------------------------------------------
-
-    application_experience = (
-        matched_keywords
-        if matched_keywords
-        else DEFAULT_APPLICATION_SKILLS
-    )
-
-    # ----------------------------------------------------
-    # Relevant Keywords
-    # ----------------------------------------------------
+    # --------------------------------------------------------
+    # Relevant keywords
+    #
+    # IMPORTANT:
+    # If relevant_keywords are missing, matched_keywords
+    # become the fallback.
+    # --------------------------------------------------------
 
     relevant_keywords = unique_strings(
         job.relevant_keywords
     )
 
-    application_relevant_keywords = (
-        relevant_keywords
-        if relevant_keywords
-        else application_experience
-    )
+    if relevant_keywords:
+        application_relevant_keywords = (
+            relevant_keywords
+        )
+    elif matched_keywords:
+        application_relevant_keywords = (
+            matched_keywords
+        )
+    elif applicant.skills:
+        application_relevant_keywords = (
+            unique_strings(applicant.skills)
+        )
+    else:
+        application_relevant_keywords = (
+            default_skills
+        )
+
+    # --------------------------------------------------------
+    # Experience fallback
+    #
+    # Keep the old behavior compatible:
+    # matched keywords -> fallback technical skills.
+    # --------------------------------------------------------
+
+    if matched_keywords:
+        application_experience = matched_keywords
+    elif applicant.experience:
+        application_experience = (
+            unique_strings(applicant.experience)
+        )
+    else:
+        application_experience = default_skills
 
     return {
         # ----------------------------------------------------
@@ -859,11 +760,14 @@ def build_variables(
         "first_name": applicant.first_name,
         "last_name": applicant.last_name,
         "full_name": full_name,
+
         "email": applicant.email,
         "phone": applicant.phone,
+
         "address": applicant.address,
         "zip_code": applicant.zip_code,
         "city": applicant.city,
+
         "github": applicant.github,
 
         # ----------------------------------------------------
@@ -880,14 +784,11 @@ def build_variables(
             language=language,
         ),
 
-        # Echte Matchergebnisse
         "matched_keywords": format_list(
             matched_keywords,
             language=language,
         ),
 
-        # Für den Bewerbungstext:
-        # echte relevante Keywords oder kontrollierter Fallback
         "relevant_keywords": format_list(
             application_relevant_keywords,
             language=language,
@@ -898,8 +799,6 @@ def build_variables(
             language=language,
         ),
 
-        # Für {experience}:
-        # echte Matches oder kontrollierter Fallback
         "experience": format_list(
             application_experience,
             language=language,
@@ -932,13 +831,7 @@ def find_placeholders(
     text: str,
 ) -> list[str]:
     """
-    Findet alle Placeholder in einem Template.
-
-    Beispiel:
-
-        "Hallo {first_name}"
-
-    -> ["first_name"]
+    Find all placeholders in a template string.
     """
 
     if not text:
@@ -946,9 +839,7 @@ def find_placeholders(
 
     return list(
         dict.fromkeys(
-            PLACEHOLDER_PATTERN.findall(
-                text
-            )
+            PLACEHOLDER_PATTERN.findall(text)
         )
     )
 
@@ -958,32 +849,21 @@ def validate_placeholders(
     variables: dict[str, str],
 ) -> None:
     """
-    Prüft:
-
-    1. ob Placeholder offiziell unterstützt werden
-    2. ob für jeden Placeholder eine Variable existiert
+    Validate placeholders against the supported variables.
     """
 
-    placeholders = find_placeholders(
-        text
-    )
+    placeholders = find_placeholders(text)
 
     for placeholder in placeholders:
 
-        if (
-            placeholder
-            not in SUPPORTED_PLACEHOLDERS
-        ):
+        if placeholder not in SUPPORTED_PLACEHOLDERS:
             raise ValueError(
                 "Unbekannter "
                 f"Template-Platzhalter: "
                 f"{{{placeholder}}}"
             )
 
-        if (
-            placeholder
-            not in variables
-        ):
+        if placeholder not in variables:
             raise ValueError(
                 "Keine Variable für "
                 f"{{{placeholder}}} vorhanden."
@@ -995,12 +875,10 @@ def render_text(
     variables: dict[str, str],
 ) -> str:
     """
-    Rendert einen einzelnen Template-Text.
+    Render one template text.
     """
 
-    text = clean_text(
-        text
-    )
+    text = clean_text(text)
 
     if not text:
         return ""
@@ -1014,40 +892,708 @@ def render_text(
         rendered = text.format(
             **variables
         )
-
     except (
         KeyError,
         ValueError,
         IndexError,
     ) as exc:
-
         raise ValueError(
             "Template konnte nicht "
             f"gerendert werden: {exc}"
         ) from exc
 
-    return clean_text(
-        rendered
+    return clean_text(rendered)
+
+
+# ============================================================
+# LANGUAGE
+# ============================================================
+
+def normalize_language(
+    language: str,
+) -> str:
+    """
+    Normalize and validate a language.
+    """
+
+    language = clean_single_line(
+        language
+    ).casefold()
+
+    if language not in SUPPORTED_LANGUAGES:
+        raise ValueError(
+            f"Nicht unterstützte Sprache: "
+            f"'{language}'. "
+            f"Verfügbar: "
+            f"{', '.join(sorted(SUPPORTED_LANGUAGES))}"
+        )
+
+    return language
+
+
+# ============================================================
+# TEMPLATE DIRECTORY
+# ============================================================
+
+def get_template_directory(
+    language: str = DEFAULT_LANGUAGE,
+) -> Path:
+    """
+    Return the language-specific template directory.
+
+    Example:
+
+        data/de/
+        data/en/
+    """
+
+    language = normalize_language(language)
+
+    directory = DATA_DIR / language
+
+    if not directory.exists():
+        raise FileNotFoundError(
+            "Template-Verzeichnis nicht gefunden: "
+            f"{directory}"
+        )
+
+    if not directory.is_dir():
+        raise ValueError(
+            "Template-Pfad ist kein Verzeichnis: "
+            f"{directory}"
+        )
+
+    return directory
+
+
+# ============================================================
+# TEMPLATE FILE DISCOVERY
+# ============================================================
+
+def get_available_template_types(
+    language: str = DEFAULT_LANGUAGE,
+) -> list[str]:
+    """
+    Automatically discover all template types.
+
+    Example:
+
+        data/en/cybersecurity.json
+        data/en/it.json
+        data/en/software.json
+
+    becomes:
+
+        [
+            "cybersecurity",
+            "it",
+            "software",
+        ]
+    """
+
+    directory = get_template_directory(language)
+
+    template_types: list[str] = []
+
+    for path in directory.glob("*.json"):
+
+        if not path.is_file():
+            continue
+
+        if path.name.casefold() in IGNORED_TEMPLATE_FILES:
+            continue
+
+        filename = path.stem
+
+        if not re.fullmatch(
+            r"[a-zA-Z0-9_-]+",
+            filename,
+        ):
+            continue
+
+        template_types.append(
+            filename.casefold()
+        )
+
+    return sorted(
+        set(template_types)
+    )
+
+
+def get_template_path(
+    template_type: str,
+    language: str = DEFAULT_LANGUAGE,
+) -> Path:
+    """
+    Resolve a template file path safely.
+    """
+
+    template_type = clean_single_line(
+        template_type
+    ).casefold()
+
+    if not template_type:
+        raise ValueError(
+            "Kein Template-Typ angegeben."
+        )
+
+    if not re.fullmatch(
+        r"[a-zA-Z0-9_-]+",
+        template_type,
+    ):
+        raise ValueError(
+            f"Ungültiger Template-Typ: "
+            f"'{template_type}'"
+        )
+
+    directory = get_template_directory(
+        language
+    )
+
+    directory_resolved = directory.resolve()
+    path = (
+        directory_resolved
+        / f"{template_type}.json"
+    ).resolve()
+
+    # Additional protection against path traversal.
+    try:
+        path.relative_to(
+            directory_resolved
+        )
+    except ValueError as exc:
+        raise ValueError(
+            f"Ungültiger Template-Pfad: {path}"
+        ) from exc
+
+    return path
+
+
+# ============================================================
+# TEMPLATE ROOT HANDLING
+# ============================================================
+
+def _looks_like_direct_style_map(
+    template: dict[str, Any],
+) -> bool:
+    """
+    Determine whether a template is already in direct
+    style-map form:
+
+        {
+            "formal": {...},
+            "modern": {...}
+        }
+
+    This prevents accidentally interpreting:
+
+        {
+            "cybersecurity": {
+                "formal": {...}
+            }
+        }
+
+    as a style map.
+    """
+
+    if not template:
+        return False
+
+    values = list(template.values())
+
+    if not values:
+        return False
+
+    for value in values:
+
+        if not isinstance(value, dict):
+            return False
+
+        # A style normally contains "order" or at least one
+        # known section.
+        if (
+            "order" not in value
+            and not any(
+                section in value
+                for section in DEFAULT_SECTION_ORDER
+            )
+        ):
+            return False
+
+    return True
+
+
+def unwrap_template(
+    template_type: str,
+    template: dict[str, Any],
+) -> dict[str, Any]:
+    """
+    Normalize supported template structures.
+
+    Supported:
+
+        {
+            "cybersecurity": {
+                "formal": {...},
+                "modern": {...}
+            }
+        }
+
+    and:
+
+        {
+            "formal": {...},
+            "modern": {...}
+        }
+    """
+
+    if not isinstance(template, dict):
+        raise ValueError(
+            f"Template '{template_type}' "
+            "muss ein Objekt sein."
+        )
+
+    normalized_type = clean_single_line(
+        template_type
+    ).casefold()
+
+    # --------------------------------------------------------
+    # 1. Wrapped structure
+    # --------------------------------------------------------
+
+    matching_root: str | None = None
+
+    for key in template.keys():
+
+        if not isinstance(key, str):
+            continue
+
+        if key.casefold() == normalized_type:
+            matching_root = key
+            break
+
+    if matching_root is not None:
+
+        root = template[matching_root]
+
+        if not isinstance(root, dict):
+            raise ValueError(
+                f"Template '{template_type}': "
+                f"oberster Schlüssel "
+                f"'{matching_root}' "
+                "muss ein Objekt sein."
+            )
+
+        return root
+
+    # --------------------------------------------------------
+    # 2. Direct style structure
+    # --------------------------------------------------------
+
+    if _looks_like_direct_style_map(template):
+        return template
+
+    raise ValueError(
+        f"Template-Datei für Typ "
+        f"'{template_type}' besitzt keine "
+        f"passende oberste Ebene "
+        f"'{template_type}' und keine "
+        "gültige direkte Style-Struktur."
     )
 
 
 # ============================================================
-# TEMPLATE SELECTION
+# TEMPLATE LOADING
+# ============================================================
+
+def load_template(
+    template_type: str,
+    language: str = DEFAULT_LANGUAGE,
+) -> dict[str, Any]:
+    """
+    Load exactly one template file.
+    """
+
+    language = normalize_language(language)
+
+    template_type = clean_single_line(
+        template_type
+    ).casefold()
+
+    path = get_template_path(
+        template_type,
+        language,
+    )
+
+    if not path.exists():
+
+        available = get_available_template_types(
+            language
+        )
+
+        available_text = (
+            ", ".join(available)
+            if available
+            else "keine"
+        )
+
+        raise FileNotFoundError(
+            f"Template-Datei nicht gefunden: "
+            f"{path}\n"
+            f"Verfügbare Templates für "
+            f"'{language}': "
+            f"{available_text}"
+        )
+
+    if not path.is_file():
+        raise ValueError(
+            f"Template-Pfad ist keine Datei: "
+            f"{path}"
+        )
+
+    try:
+        with path.open(
+            "r",
+            encoding="utf-8",
+        ) as file:
+            template = json.load(file)
+
+    except json.JSONDecodeError as exc:
+        raise ValueError(
+            f"Ungültiges Template-JSON in {path}: "
+            f"Zeile {exc.lineno}, "
+            f"Spalte {exc.colno}."
+        ) from exc
+
+    if not isinstance(template, dict):
+        raise ValueError(
+            f"Template-Datei {path} "
+            "muss ein JSON-Objekt enthalten."
+        )
+
+    # IMPORTANT:
+    # Unwrap first, then validate styles.
+    template = unwrap_template(
+        template_type,
+        template,
+    )
+
+    validate_template(
+        template_type,
+        template,
+    )
+
+    return template
+
+
+def load_templates(
+    language: str = DEFAULT_LANGUAGE,
+) -> dict[str, Any]:
+    """
+    Load ALL automatically discovered templates.
+    """
+
+    language = normalize_language(language)
+
+    template_types = get_available_template_types(
+        language
+    )
+
+    if not template_types:
+        raise ValueError(
+            f"Keine Templates für Sprache "
+            f"'{language}' gefunden."
+        )
+
+    templates: dict[str, Any] = {}
+
+    for template_type in template_types:
+
+        templates[template_type] = load_template(
+            template_type=template_type,
+            language=language,
+        )
+
+    return templates
+
+
+# ============================================================
+# TEMPLATE TYPE AUTOMATIC SELECTION
+# ============================================================
+
+def choose_template_type(
+    company: dict[str, Any],
+    templates: dict[str, Any],
+    requested_type: str | None = None,
+) -> str:
+    """
+    Determine the template type.
+
+    Priority:
+
+        1. Explicit template type
+        2. company.template
+        3. company.type
+        4. Automatic classification
+        5. Generic fallback
+    """
+
+    if not templates:
+        raise ValueError(
+            "Keine Templates verfügbar."
+        )
+
+    available = list(templates.keys())
+
+    available_lower = {
+        clean_single_line(name).casefold(): name
+        for name in available
+    }
+
+    # --------------------------------------------------------
+    # 1. Explicit template type
+    # --------------------------------------------------------
+
+    if requested_type:
+
+        requested = clean_single_line(
+            requested_type
+        ).casefold()
+
+        if requested in available_lower:
+            return available_lower[requested]
+
+        raise ValueError(
+            f"Template-Typ "
+            f"'{requested}' nicht vorhanden. "
+            f"Verfügbar: "
+            f"{', '.join(available)}"
+        )
+
+    # --------------------------------------------------------
+    # 2. Company template override
+    # --------------------------------------------------------
+
+    company_template = clean_single_line(
+        company.get("template")
+    ).casefold()
+
+    if company_template in available_lower:
+        return available_lower[
+            company_template
+        ]
+
+    # --------------------------------------------------------
+    # 3. Company type
+    #
+    # This is especially important for --send-all.
+    # --------------------------------------------------------
+
+    company_type = clean_single_line(
+        company.get("type")
+    ).casefold()
+
+    if company_type in available_lower:
+        return available_lower[
+            company_type
+        ]
+
+    # --------------------------------------------------------
+    # 4. Automatic classification
+    # --------------------------------------------------------
+
+    position = clean_text(
+        company.get("position")
+    ).casefold()
+
+    keywords = company.get(
+        "keywords",
+        [],
+    )
+
+    if isinstance(keywords, list):
+        keyword_text = " ".join(
+            clean_single_line(
+                keyword
+            ).casefold()
+            for keyword in keywords
+        )
+    else:
+        keyword_text = ""
+
+    text = " ".join(
+        [
+            position,
+            company_type,
+            keyword_text,
+        ]
+    )
+
+    # --------------------------------------------------------
+    # Cybersecurity
+    # --------------------------------------------------------
+
+    cybersecurity_words = [
+        "security",
+        "cybersecurity",
+        "cyber security",
+        "cyber-security",
+        "penetration testing",
+        "penetration tester",
+        "pentest",
+        "pentester",
+        "soc",
+        "siem",
+        "incident response",
+        "ethical hacking",
+        "vulnerability",
+        "vulnerability management",
+        "threat detection",
+        "threat intelligence",
+        "malware analysis",
+        "reverse engineering",
+        "digital forensics",
+        "security analyst",
+        "security engineer",
+        "security specialist",
+        "it security",
+        "it-sicherheit",
+        "information security",
+        "infosec",
+    ]
+
+    if any(
+        word in text
+        for word in cybersecurity_words
+    ):
+        if "cybersecurity" in available_lower:
+            return available_lower[
+                "cybersecurity"
+            ]
+
+    # --------------------------------------------------------
+    # Software
+    # --------------------------------------------------------
+
+    software_words = [
+        "developer",
+        "software developer",
+        "software engineer",
+        "software",
+        "python developer",
+        "django",
+        "flask",
+        "fastapi",
+        "backend",
+        "backend developer",
+        "frontend",
+        "frontend developer",
+        "full stack",
+        "fullstack",
+        "programming",
+        "software development",
+        "softwareentwicklung",
+        "application developer",
+    ]
+
+    if any(
+        word in text
+        for word in software_words
+    ):
+        if "software" in available_lower:
+            return available_lower[
+                "software"
+            ]
+
+    # --------------------------------------------------------
+    # DevOps
+    # --------------------------------------------------------
+
+    devops_words = [
+        "devops",
+        "dev ops",
+        "ci/cd",
+        "cicd",
+        "continuous integration",
+        "continuous deployment",
+        "docker",
+        "kubernetes",
+        "terraform",
+        "ansible",
+        "jenkins",
+        "gitlab ci",
+        "github actions",
+        "cloud engineer",
+        "platform engineer",
+        "site reliability",
+        "sre",
+    ]
+
+    if any(
+        word in text
+        for word in devops_words
+    ):
+        if "devops" in available_lower:
+            return available_lower[
+                "devops"
+            ]
+
+    # --------------------------------------------------------
+    # IT
+    # --------------------------------------------------------
+
+    it_words = [
+        "systemadministrator",
+        "system administrator",
+        "system administration",
+        "administrator",
+        "network administrator",
+        "it administrator",
+        "it systemadministrator",
+        "it administration",
+        "windows server",
+        "active directory",
+        "infrastructure",
+        "system engineer",
+        "it support",
+        "helpdesk",
+        "service desk",
+        "technical support",
+        "it technician",
+        "network engineer",
+        "netzwerkadministrator",
+        "fachinformatiker",
+    ]
+
+    if any(
+        word in text
+        for word in it_words
+    ):
+        if "it" in available_lower:
+            return available_lower["it"]
+
+    # --------------------------------------------------------
+    # Generic fallback
+    # --------------------------------------------------------
+
+    if "it" in available_lower:
+        return available_lower["it"]
+
+    return available[0]
+
+
+# ============================================================
+# TEMPLATE STYLE SELECTION
 # ============================================================
 
 def get_available_styles(
     template: dict[str, Any],
 ) -> list[str]:
     """
-    Gibt alle verfügbaren Styles eines Template-Typs zurück.
-
-    Der Schlüssel 'order' wird ignoriert.
+    Return all available styles.
     """
 
-    if not isinstance(
-        template,
-        dict,
-    ):
+    if not isinstance(template, dict):
         return []
 
     styles: list[str] = []
@@ -1057,13 +1603,8 @@ def get_available_styles(
         if name == "order":
             continue
 
-        if isinstance(
-            value,
-            dict,
-        ):
-            styles.append(
-                name
-            )
+        if isinstance(value, dict):
+            styles.append(name)
 
     return styles
 
@@ -1074,15 +1615,7 @@ def choose_style(
     requested_style: str | None = None,
 ) -> str:
     """
-    Entscheidet, welcher Template-Stil verwendet wird.
-
-    Priorität:
-
-    1. explizit angegebener Style
-    2. company.template_style
-    3. company.size
-    4. formal
-    5. erster verfügbarer Style
+    Select the template style.
     """
 
     available = get_available_styles(
@@ -1094,18 +1627,22 @@ def choose_style(
             "Template enthält keine Styles."
         )
 
+    available_map = {
+        style.casefold(): style
+        for style in available
+    }
+
     # --------------------------------------------------------
-    # 1. Manuell angefordert
+    # 1. Explicit style
     # --------------------------------------------------------
 
     if requested_style:
 
-        requested_style = clean_text(
+        requested_style = clean_single_line(
             requested_style
-        )
+        ).casefold()
 
-        if requested_style not in available:
-
+        if requested_style not in available_map:
             raise ValueError(
                 f"Template-Stil "
                 f"'{requested_style}' "
@@ -1114,26 +1651,28 @@ def choose_style(
                 f"{', '.join(available)}"
             )
 
-        return requested_style
+        return available_map[
+            requested_style
+        ]
 
     # --------------------------------------------------------
     # 2. Company override
     # --------------------------------------------------------
 
-    company_style = clean_text(
-        company.get(
-            "template_style"
-        )
-    )
+    company_style = clean_single_line(
+        company.get("template_style")
+    ).casefold()
 
-    if company_style in available:
-        return company_style
+    if company_style in available_map:
+        return available_map[
+            company_style
+        ]
 
     # --------------------------------------------------------
-    # 3. Automatische Auswahl nach Größe
+    # 3. Automatic selection by company size
     # --------------------------------------------------------
 
-    company_size = clean_text(
+    company_size = clean_single_line(
         company.get("size")
     ).casefold()
 
@@ -1144,26 +1683,25 @@ def choose_style(
             "technical",
             "formal",
         ],
-
         "small": [
             "modern",
             "formal",
+            "technical",
         ],
-
         "medium": [
             "formal",
             "technical",
             "modern",
         ],
-
         "large": [
             "formal",
             "technical",
+            "modern",
         ],
-
         "enterprise": [
             "formal",
             "technical",
+            "modern",
         ],
     }
 
@@ -1171,19 +1709,17 @@ def choose_style(
         company_size,
         [],
     ):
-
-        if candidate in available:
-            return candidate
+        if candidate in available_map:
+            return available_map[candidate]
 
     # --------------------------------------------------------
-    # 4. Formal bevorzugen
+    # 4. Formal preferred
     # --------------------------------------------------------
 
-    if (
-        DEFAULT_TEMPLATE_STYLE
-        in available
-    ):
-        return DEFAULT_TEMPLATE_STYLE
+    if DEFAULT_TEMPLATE_STYLE in available_map:
+        return available_map[
+            DEFAULT_TEMPLATE_STYLE
+        ]
 
     # --------------------------------------------------------
     # 5. Fallback
@@ -1200,26 +1736,16 @@ def get_section_order(
     style: dict[str, Any],
 ) -> list[str]:
     """
-    Ermittelt die Reihenfolge der Abschnitte.
-
-    Wenn das Template 'order' definiert,
-    wird diese verwendet.
-
-    Sonst DEFAULT_SECTION_ORDER.
+    Determine section order.
     """
 
-    if not isinstance(
-        style,
-        dict,
-    ):
+    if not isinstance(style, dict):
         raise ValueError(
             "Template-Style muss "
             "ein Objekt sein."
         )
 
-    custom_order = style.get(
-        "order"
-    )
+    custom_order = style.get("order")
 
     if custom_order is not None:
 
@@ -1236,14 +1762,19 @@ def get_section_order(
 
         for section in custom_order:
 
+            if not isinstance(section, str):
+                raise ValueError(
+                    "Alle Einträge in "
+                    "Template 'order' "
+                    "müssen Strings sein."
+                )
+
             section = clean_single_line(
                 section
             )
 
             if section:
-                result.append(
-                    section
-                )
+                result.append(section)
 
         if result:
             return result
@@ -1256,14 +1787,10 @@ def get_section(
     section_name: str,
 ) -> Any:
     """
-    Holt einen Abschnitt aus dem Template.
-
-    Fehlende Abschnitte sind erlaubt.
+    Get one section from a template style.
     """
 
-    return style.get(
-        section_name
-    )
+    return style.get(section_name)
 
 
 # ============================================================
@@ -1274,36 +1801,16 @@ def normalize_options(
     value: Any,
 ) -> list[str]:
     """
-    Macht aus unterschiedlichen Template-Formaten
-    immer eine Liste.
-
-    Erlaubt:
-
-        "Text"
-
-    oder:
-
-        [
-            "Text 1",
-            "Text 2"
-        ]
+    Normalize supported template formats into a list.
     """
 
     if value is None:
         return []
 
-    if isinstance(
-        value,
-        str,
-    ):
-        value = [
-            value
-        ]
+    if isinstance(value, str):
+        value = [value]
 
-    if not isinstance(
-        value,
-        list,
-    ):
+    if not isinstance(value, list):
         raise ValueError(
             "Template-Abschnitt "
             "muss String oder Liste sein."
@@ -1313,23 +1820,16 @@ def normalize_options(
 
     for item in value:
 
-        if not isinstance(
-            item,
-            str,
-        ):
+        if not isinstance(item, str):
             raise ValueError(
                 "Template-Varianten "
                 "müssen Strings sein."
             )
 
-        item = clean_text(
-            item
-        )
+        item = clean_text(item)
 
         if item:
-            result.append(
-                item
-            )
+            result.append(item)
 
     return result
 
@@ -1340,15 +1840,13 @@ def choose_sentence(
     rng: random.Random,
 ) -> str:
     """
-    Wählt zufällig eine Variante und rendert sie.
+    Choose one sentence variant and render it.
     """
 
     if not sentences:
         return ""
 
-    sentence = rng.choice(
-        sentences
-    )
+    sentence = rng.choice(sentences)
 
     return render_text(
         sentence,
@@ -1367,43 +1865,14 @@ def generate_section(
     rng: random.Random,
 ) -> str:
     """
-    Generiert einen einzelnen Abschnitt.
-
-    Unterstützte Formen:
-
-        "opening": "Text"
-
-    oder:
-
-        "opening": [
-            "Text 1",
-            "Text 2"
-        ]
-
-    oder:
-
-        "opening": {
-            "variants": [
-                "Text 1",
-                "Text 2"
-            ]
-        }
-
-    oder:
-
-        "opening": {
-            "required": true,
-            "variants": [
-                "Text 1"
-            ]
-        }
+    Generate one template section.
     """
 
     if section_definition is None:
         return ""
 
     # --------------------------------------------------------
-    # Einfacher String
+    # String
     # --------------------------------------------------------
 
     if isinstance(
@@ -1416,14 +1885,13 @@ def generate_section(
         )
 
     # --------------------------------------------------------
-    # Liste
+    # List
     # --------------------------------------------------------
 
     if isinstance(
         section_definition,
         list,
     ):
-
         options = normalize_options(
             section_definition
         )
@@ -1435,14 +1903,13 @@ def generate_section(
         )
 
     # --------------------------------------------------------
-    # Objekt
+    # Object
     # --------------------------------------------------------
 
     if isinstance(
         section_definition,
         dict,
     ):
-
         variants = section_definition.get(
             "variants"
         )
@@ -1481,8 +1948,7 @@ def assemble_application(
     section_order: list[str],
 ) -> str:
     """
-    Baut die einzelnen Abschnitte
-    zu einem Bewerbungstext zusammen.
+    Assemble generated sections into the final application.
     """
 
     paragraphs: list[str] = []
@@ -1499,15 +1965,11 @@ def assemble_application(
         if not text:
             continue
 
-        paragraphs.append(
-            text
-        )
+        paragraphs.append(text)
 
-    return (
-        "\n\n".join(
-            paragraphs
-        ).strip()
-    )
+    return "\n\n".join(
+        paragraphs
+    ).strip()
 
 
 # ============================================================
@@ -1519,7 +1981,7 @@ def validate_template(
     template: dict[str, Any],
 ) -> None:
     """
-    Prüft einen kompletten Template-Typ.
+    Validate a complete template type.
     """
 
     if not isinstance(
@@ -1543,9 +2005,7 @@ def validate_template(
 
     for style_name in styles:
 
-        style = template[
-            style_name
-        ]
+        style = template[style_name]
 
         if not isinstance(
             style,
@@ -1561,6 +2021,14 @@ def validate_template(
         order = get_section_order(
             style
         )
+
+        if not order:
+            raise ValueError(
+                f"Template "
+                f"'{template_type}' "
+                f"Style '{style_name}' "
+                "besitzt keine Sections."
+            )
 
         for section_name in order:
 
@@ -1581,12 +2049,10 @@ def validate_template(
                 definition,
                 str,
             ):
-                options = [
-                    definition
-                ]
+                options = [definition]
 
             # ------------------------------------------------
-            # Liste
+            # List
             # ------------------------------------------------
 
             elif isinstance(
@@ -1598,14 +2064,13 @@ def validate_template(
                 )
 
             # ------------------------------------------------
-            # Objekt
+            # Object
             # ------------------------------------------------
 
             elif isinstance(
                 definition,
                 dict,
             ):
-
                 variants = definition.get(
                     "variants"
                 )
@@ -1628,8 +2093,11 @@ def validate_template(
                     f"{style_name}"
                 )
 
+            if not options:
+                continue
+
             # ------------------------------------------------
-            # Placeholder prüfen
+            # Placeholder validation
             # ------------------------------------------------
 
             for option in options:
@@ -1640,9 +2108,8 @@ def validate_template(
 
                 for placeholder in placeholders:
 
-                    if (
-                        placeholder
-                        not in SUPPORTED_PLACEHOLDERS
+                    if placeholder not in (
+                        SUPPORTED_PLACEHOLDERS
                     ):
                         raise ValueError(
                             "Unbekannter "
@@ -1659,7 +2126,7 @@ def validate_all_templates(
     templates: dict[str, Any],
 ) -> None:
     """
-    Validiert alle Templates.
+    Validate all loaded templates.
     """
 
     if not isinstance(
@@ -1667,14 +2134,13 @@ def validate_all_templates(
         dict,
     ):
         raise ValueError(
-            "templates.json muss "
+            "Templates müssen "
             "ein Objekt enthalten."
         )
 
     if not templates:
         raise ValueError(
-            "templates.json enthält "
-            "keine Templates."
+            "Keine Templates vorhanden."
         )
 
     for template_type, template in templates.items():
@@ -1695,248 +2161,6 @@ def validate_all_templates(
 
 
 # ============================================================
-# TEMPLATE LOADING
-# ============================================================
-
-def load_templates(
-    language: str = DEFAULT_LANGUAGE,
-) -> dict[str, Any]:
-
-    language = clean_single_line(language).casefold()
-
-    if language not in SUPPORTED_LANGUAGES:
-        raise ValueError(
-            f"Nicht unterstützte Sprache: '{language}'. "
-            f"Verfügbar: {', '.join(sorted(SUPPORTED_LANGUAGES))}"
-        )
-
-    if language == "en":
-        filename = "templates_en.json"
-    else:
-        filename = "templates.json"
-
-    templates = load_json(filename)
-    validate_all_templates(templates)
-
-    return templates
-
-
-# ============================================================
-# TEMPLATE TYPE SELECTION
-# ============================================================
-
-def choose_template_type(
-    company: dict[str, Any],
-    templates: dict[str, Any],
-    requested_type: str | None = None,
-) -> str:
-    """
-    Bestimmt den Template-Typ.
-
-    Priorität:
-
-    1. expliziter Typ
-    2. company.template
-    3. company.type
-    4. einfache Klassifizierung
-    5. generischer Fallback
-    """
-
-    available = list(
-        templates.keys()
-    )
-
-    if not available:
-        raise ValueError(
-            "templates.json enthält "
-            "keine Templates."
-        )
-
-    # --------------------------------------------------------
-    # 1. Explizit
-    # --------------------------------------------------------
-
-    if requested_type:
-
-        requested_type = clean_text(
-            requested_type
-        )
-
-        if requested_type not in templates:
-
-            raise ValueError(
-                f"Template-Typ "
-                f"'{requested_type}' "
-                "nicht vorhanden. "
-                f"Verfügbar: "
-                f"{', '.join(available)}"
-            )
-
-        return requested_type
-
-    # --------------------------------------------------------
-    # 2. Company Template
-    # --------------------------------------------------------
-
-    company_template = clean_text(
-        company.get(
-            "template"
-        )
-    )
-
-    if company_template in templates:
-        return company_template
-
-    # --------------------------------------------------------
-    # 3. Company Type
-    # --------------------------------------------------------
-
-    company_type = clean_text(
-        company.get(
-            "type"
-        )
-    ).casefold()
-
-    if company_type in templates:
-        return company_type
-
-    # --------------------------------------------------------
-    # 4. Automatische einfache Klassifizierung
-    # --------------------------------------------------------
-
-    position = clean_text(
-        company.get(
-            "position"
-        )
-    ).casefold()
-
-    keywords = company.get(
-        "keywords",
-        [],
-    )
-
-    if isinstance(
-        keywords,
-        list,
-    ):
-        keyword_text = format_list(
-            keywords
-        ).casefold()
-    else:
-        keyword_text = ""
-
-    text = " ".join(
-        [
-            position,
-            company_type,
-            keyword_text,
-        ]
-    )
-
-    # --------------------------------------------------------
-    # Cybersecurity
-    # --------------------------------------------------------
-
-    cybersecurity_words = [
-        "security",
-        "cybersecurity",
-        "cyber security",
-        "penetration testing",
-        "penetration tester",
-        "pentest",
-        "pentester",
-        "soc",
-        "siem",
-        "incident response",
-        "ethical hacking",
-        "vulnerability",
-        "vulnerability management",
-        "threat detection",
-        "threat intelligence",
-        "malware analysis",
-        "reverse engineering",
-        "digital forensics",
-        "security analyst",
-        "security engineer",
-    ]
-
-    if any(
-        word in text
-        for word in cybersecurity_words
-    ):
-        if "cybersecurity" in templates:
-            return "cybersecurity"
-
-    # --------------------------------------------------------
-    # Software
-    # --------------------------------------------------------
-
-    software_words = [
-        "developer",
-        "software developer",
-        "software engineer",
-        "software",
-        "python developer",
-        "django",
-        "flask",
-        "fastapi",
-        "backend",
-        "backend developer",
-        "frontend",
-        "frontend developer",
-        "full stack",
-        "fullstack",
-        "programming",
-        "softwareentwicklung",
-        "softwareentwicklung",
-    ]
-
-    if any(
-        word in text
-        for word in software_words
-    ):
-        if "software" in templates:
-            return "software"
-
-    # --------------------------------------------------------
-    # IT
-    # --------------------------------------------------------
-
-    it_words = [
-        "systemadministrator",
-        "system administration",
-        "system administration",
-        "administrator",
-        "network administrator",
-        "it administrator",
-        "it systemadministrator",
-        "it administration",
-        "windows server",
-        "active directory",
-        "infrastructure",
-        "system engineer",
-        "it support",
-        "helpdesk",
-    ]
-
-    if any(
-        word in text
-        for word in it_words
-    ):
-        if "it" in templates:
-            return "it"
-
-    # --------------------------------------------------------
-    # Generischer Fallback
-    # --------------------------------------------------------
-
-    if "it" in templates:
-        return "it"
-
-    return available[0]
-
-
-# ============================================================
 # VALIDATION HELPERS
 # ============================================================
 
@@ -1944,12 +2168,7 @@ def validate_company(
     company: dict[str, Any],
 ) -> None:
     """
-    Führt grundlegende Validierungen für
-    einen Company-Datensatz durch.
-
-    Dies ersetzt NICHT die JSON-Schema-Validierung,
-    sondern verhindert offensichtliche Fehler
-    zur Laufzeit.
+    Perform basic validation of a company record.
     """
 
     if not isinstance(
@@ -1974,9 +2193,7 @@ def validate_company(
             "Company 'position' fehlt."
         )
 
-    company_id = company.get(
-        "id"
-    )
+    company_id = company.get("id")
 
     if company_id is not None:
         if not isinstance(
@@ -1993,7 +2210,7 @@ def validate_application_result(
     result: GeneratedApplication,
 ) -> None:
     """
-    Prüft das fertige Generator-Ergebnis.
+    Validate the generated application result.
     """
 
     if not isinstance(
@@ -2023,8 +2240,8 @@ def validate_application_result(
             "keine Position."
         )
 
-    if (
-        not 0.0
+    if not (
+        0.0
         <= result.match_score
         <= 100.0
     ):
@@ -2033,8 +2250,8 @@ def validate_application_result(
             "außerhalb von 0-100."
         )
 
-    if (
-        not 0.0
+    if not (
+        0.0
         <= result.confidence_score
         <= 100.0
     ):
@@ -2044,13 +2261,19 @@ def validate_application_result(
         )
 
 
+# ============================================================
+# GITHUB FOOTER
+# ============================================================
 
 def build_github_footer(
     github: str,
     language: str = DEFAULT_LANGUAGE,
 ) -> str:
+    """
+    Build an optional GitHub footer.
+    """
 
-    language = clean_single_line(language).casefold()
+    language = normalize_language(language)
 
     github = clean_single_line(github)
 
@@ -2069,6 +2292,8 @@ def build_github_footer(
         "Projekten und meinem Code finden Sie auf meinem "
         f"GitHub-Profil: {github}"
     )
+
+
 # ============================================================
 # GENERATE APPLICATION
 # ============================================================
@@ -2082,54 +2307,35 @@ def generate_application(
     seed: int | None = None,
 ) -> GeneratedApplication:
     """
-    Hauptfunktion des Generators.
+    Main application generator.
 
-    Beispiel:
+    Automatic example:
 
-        result = generate_application(
-            company,
-            template_type="cybersecurity",
-            template_style="technical",
-        )
+        company["type"] = "cybersecurity"
+        language = "en"
 
-        print(result.text)
+    results in:
 
-    Wichtig:
+        data/en/cybersecurity.json
 
-    Das Matching erfolgt außerhalb dieses Moduls.
-
-    Beispiel:
-
-        from app.matching.matcher import (
-            apply_match_result,
-            match_job,
-        )
-
-        result = match_job(
-            applicant,
-            company,
-        )
-
-        company = apply_match_result(
-            company,
-            result,
-        )
-
-        application = generate_application(
-            company
-        )
+    An explicit template_type always overrides automatic
+    template selection.
     """
 
     # --------------------------------------------------------
     # Validate company
     # --------------------------------------------------------
 
-    validate_company(
-        company
-    )
+    validate_company(company)
 
     # --------------------------------------------------------
-    # Load applicant
+    # Language
+    # --------------------------------------------------------
+
+    language = normalize_language(language)
+
+    # --------------------------------------------------------
+    # Applicant
     # --------------------------------------------------------
 
     applicant_data = load_json(
@@ -2149,13 +2355,23 @@ def generate_application(
     )
 
     # --------------------------------------------------------
-    # Templates
+    # Load templates
     # --------------------------------------------------------
 
-    templates = load_templates(language)
+    templates = load_templates(
+        language
+    )
 
     # --------------------------------------------------------
-    # Template Type
+    # Validate templates
+    # --------------------------------------------------------
+
+    validate_all_templates(
+        templates
+    )
+
+    # --------------------------------------------------------
+    # Template type
     # --------------------------------------------------------
 
     selected_type = choose_template_type(
@@ -2169,7 +2385,7 @@ def generate_application(
     ]
 
     # --------------------------------------------------------
-    # Template Style
+    # Template style
     # --------------------------------------------------------
 
     selected_style = choose_style(
@@ -2196,9 +2412,7 @@ def generate_application(
     # RNG
     # --------------------------------------------------------
 
-    rng = random.Random(
-        seed
-    )
+    rng = random.Random(seed)
 
     # --------------------------------------------------------
     # Sections
@@ -2228,9 +2442,7 @@ def generate_application(
         )
 
         if generated:
-            sections[
-                section_name
-            ] = generated
+            sections[section_name] = generated
 
     # --------------------------------------------------------
     # Final text
@@ -2248,7 +2460,7 @@ def generate_application(
         )
 
     # --------------------------------------------------------
-    # GitHub Footer
+    # GitHub footer
     # --------------------------------------------------------
 
     github_footer = build_github_footer(
@@ -2272,31 +2484,23 @@ def generate_application(
         text=text,
 
         company_name=job.company_name,
-
         position=job.position,
 
         template_type=selected_type,
-
         template_style=selected_style,
-
         language=language,
 
         matched_keywords=job.matched_keywords,
-
         missing_keywords=job.missing_keywords,
 
         variables=variables,
-
         sections=sections,
 
         match_score=job.match_score,
-
         confidence_score=job.confidence_score,
 
         company_id=job.company_id,
-
         job_id=job.job_id,
-
         source_url=job.source_url,
     )
 
@@ -2312,8 +2516,32 @@ def generate_application(
 
 
 # ============================================================
-# BACKWARD COMPATIBILITY
+# BACKWARD / API COMPATIBILITY
 # ============================================================
+
+def generate_application_text(
+    company: dict[str, Any],
+    *,
+    template_type: str | None = None,
+    template_style: str | None = None,
+    language: str = DEFAULT_LANGUAGE,
+    seed: int | None = None,
+) -> GeneratedApplication:
+    """
+    Compatibility wrapper for callers expecting
+    generate_application_text().
+
+    Returns the complete GeneratedApplication object.
+    """
+
+    return generate_application(
+        company=company,
+        template_type=template_type,
+        template_style=template_style,
+        language=language,
+        seed=seed,
+    )
+
 
 def generate_letter(
     company: dict[str, Any],
@@ -2324,15 +2552,7 @@ def generate_letter(
     seed: int | None = None,
 ) -> str:
     """
-    Kompatibilität mit dem bisherigen Generator.
-
-    Der alte Aufruf:
-
-        generate_letter(company)
-
-    funktioniert weiterhin.
-
-    Intern wird jetzt der Production-Generator verwendet.
+    Backward-compatible function returning only the text.
     """
 
     result = generate_application(
@@ -2359,8 +2579,8 @@ def preview_application(
     seed: int | None = None,
 ) -> str:
     """
-    Erstellt eine menschenlesbare Vorschau
-    inklusive Template- und Matching-Informationen.
+    Create a human-readable application preview including
+    template and matching information.
     """
 
     result = generate_application(
@@ -2373,14 +2593,16 @@ def preview_application(
 
     matched = (
         format_list(
-            result.matched_keywords
+            result.matched_keywords,
+            language=language,
         )
         or "Keine"
     )
 
     missing = (
         format_list(
-            result.missing_keywords
+            result.missing_keywords,
+            language=language,
         )
         or "Keine"
     )
@@ -2407,8 +2629,14 @@ def preview_application(
         "Template:\n"
         f"{result.template_type}\n"
         "\n"
+        "Template-Datei:\n"
+        f"{get_template_path(result.template_type, result.language)}\n"
+        "\n"
         "Style:\n"
         f"{result.template_style}\n"
+        "\n"
+        "Sprache:\n"
+        f"{result.language}\n"
         "\n"
         "Match Score:\n"
         f"{format_score(result.match_score)}\n"

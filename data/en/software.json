@@ -1,0 +1,182 @@
+{
+    "software": {
+        "formal": {
+            "order": [
+                "subject",
+                "salutation",
+                "opening",
+                "background",
+                "technical_approach",
+                "job_connection",
+                "motivation",
+                "closing"
+            ],
+
+            "subject": [
+                "Application for the {position} position"
+            ],
+
+            "salutation": [
+                "Dear Hiring Team,",
+                "Dear {company_name} Recruitment Team,",
+                "Dear Hiring Manager,",
+                "Dear {company_name} Team,"
+            ],
+
+            "opening": [
+                "I am writing to apply for the {position} position at {company_name}. The role particularly interests me because it combines software development with practical technical problem-solving, areas in which I have been developing my skills through hands-on projects and independent learning. My primary technical focus is Python and Linux, and I am looking for an opportunity to apply this foundation to professional software development.",
+
+                "I would like to apply for the {position} position at {company_name}. Software development is an area in which I want to continue building my professional career, with a particular focus on Python, Linux and practical backend-oriented development. I enjoy understanding how software works internally, debugging problems and developing solutions that are reliable and maintainable.",
+
+                "The {position} position at {company_name} immediately caught my attention because of its connection to practical software engineering. My current technical focus is strongly centred around Python and Linux, and I enjoy developing applications, automating technical processes and investigating how software behaves at a deeper level. I am now looking to develop these skills further in a professional environment.",
+
+                "I am pleased to submit my application for the {position} position at {company_name}. What particularly appeals to me about this opportunity is the possibility of working on software that solves practical problems while continuing to deepen my understanding of development, systems and software architecture. Python and Linux are central parts of my current technical development.",
+
+                "I am applying for the {position} position at {company_name} with a strong interest in developing my career in software engineering. I enjoy writing Python, working in Linux environments and investigating technical problems from both a software and systems perspective. The opportunity to apply this mindset to professional development work is therefore particularly appealing to me."
+            ],
+
+            "background": [
+                "My technical background is centred around Python, Linux and practical software development. I have developed my knowledge through hands-on projects, independent learning and experimentation with different software concepts. This has given me experience with programming, debugging, automation and system-level technologies while strengthening my ability to work independently on technical problems.",
+
+                "Through previous technical work and personal projects, I have developed knowledge in Python, Linux and software development. I prefer learning through implementation, which means building projects, testing different approaches and investigating problems directly in the development environment. This has helped me develop a practical understanding of how software is designed, implemented and maintained.",
+
+                "My current technical development includes Python programming, Linux environments, automation and software-related problem-solving. Working on practical projects has allowed me to strengthen my understanding of application logic, debugging and the interaction between software and the underlying operating system. I consider this hands-on approach an important part of becoming a stronger developer.",
+
+                "I have built my technical foundation around Python, Linux and software development concepts. A significant part of my learning has come from independent projects where I had to research technologies, design solutions, debug unexpected behaviour and improve implementations. This has strengthened both my programming skills and my ability to work through unfamiliar technical problems independently.",
+
+                "My technical interests cover Python development, Linux systems, automation and software architecture. I particularly enjoy understanding what happens behind an application interface and how software components interact. Practical project work has therefore played an important role in developing my programming skills and my ability to approach larger technical problems systematically."
+            ],
+
+            "technical_approach": [
+                "My approach to software development is strongly practical and analytical. I prefer to understand how a system or application works before making changes, then break a problem into smaller components and test solutions step by step. Python allows me to develop applications and automation efficiently, while Linux gives me a technical environment in which I can understand and work with the underlying system in greater detail.",
+
+                "I place strong value on understanding the underlying cause of a software problem rather than only fixing its visible symptoms. When debugging, I prefer to reproduce the behaviour, inspect the relevant code and environment and then test potential solutions systematically. This approach helps me create solutions that are not only functional but also easier to understand and maintain.",
+
+                "One of the areas I find particularly interesting in software development is the connection between application code and the systems on which it runs. Python provides a flexible environment for building applications, APIs and automation, while Linux allows me to understand the processes, filesystems and system components supporting the software. Developing knowledge across both areas gives me a broader perspective when solving technical problems.",
+
+                "Practical problem-solving is an important part of how I develop as a programmer. I enjoy taking an unfamiliar problem, researching the relevant technology, implementing a possible solution and then testing and improving it. This iterative approach has helped me become more comfortable with debugging, technical documentation and situations where there is no immediately obvious solution.",
+
+                "I approach software development with an emphasis on understanding the complete technical context of an application. This includes the code itself, dependencies, runtime environment, operating system and interaction between different components. I believe that combining Python development with Linux knowledge provides a strong foundation for building reliable software and investigating problems efficiently."
+            ],
+
+            "job_connection": [
+                "The responsibilities of the {position} position provide a strong connection to my current technical focus. In particular, the relevance of Python and Linux gives me an opportunity to apply skills I have already been developing while gaining experience with professional development processes, codebases and tools. I would approach the role with a willingness to learn quickly, contribute where my current skills are applicable and gradually take on more responsibility.",
+
+                "I see a clear connection between my current technical background and the requirements of the {position} position. My knowledge of Python, Linux and practical software development provides a useful foundation for approaching the technical aspects of the role. At the same time, I am interested in developing a stronger understanding of professional software engineering practices and learning from experienced developers.",
+
+                "What makes this position particularly relevant to me is the combination of software development, technical problem-solving and the opportunity to work with real applications. My background in Python and Linux provides a starting point from which I can contribute while continuing to develop my understanding of professional development workflows, testing, debugging and maintainable software.",
+
+                "The technical requirements of the {position} position align well with my current development, especially in the areas of Python, Linux and software engineering. I would see the role not simply as an opportunity to apply existing knowledge, but also as a chance to develop a more complete understanding of professional development practices and to learn how experienced engineers approach larger and more complex software systems.",
+
+                "I believe my existing technical foundation in Python, Linux and practical software development gives me a solid starting point for the responsibilities associated with this position. I also recognise the importance of writing maintainable code, understanding existing codebases and continuously improving technical skills. This combination of contributing with existing knowledge and learning through professional experience is one of the main reasons I am interested in the role."
+            ],
+
+            "motivation": [
+                "My long-term goal is to build strong practical expertise in software development and gradually take on more demanding engineering responsibilities. I am particularly motivated by environments in which technical quality, continuous learning and practical problem-solving are valued. I would therefore welcome the opportunity to develop within a professional development team while contributing the Python, Linux and programming knowledge I have already built.",
+
+                "I am looking for a professional environment in which I can deepen my programming knowledge while gaining experience with real-world software systems. Working alongside experienced developers would allow me to learn established development practices, improve my ability to work with existing code and understand how professional software is designed and maintained.",
+
+                "What motivates me most about software development is the combination of logical problem-solving and continuous learning. There is always another system to understand, another problem to solve or another way to improve an implementation. I want to develop the technical depth required to handle these challenges effectively while becoming a reliable member of a professional development team.",
+
+                "I am particularly motivated by the opportunity to turn programming knowledge into practical software. Whether developing a feature, debugging an issue, automating a process or understanding an existing codebase, I enjoy the process of working from a technical problem towards a reliable solution. Developing these abilities further in a professional environment is an important next step for me.",
+
+                "For me, professional development as a software engineer means continuously improving both programming skills and technical judgement. I want to work in an environment where I can learn from experienced developers, take responsibility for development tasks and gradually expand the complexity of the software problems I am able to solve. The {position} position represents an opportunity to take that next step."
+            ],
+
+            "closing": [
+                "Thank you for taking the time to consider my application. I would welcome the opportunity to discuss my technical background, motivation and interest in the {position} position in more detail. I look forward to hearing from you.",
+
+                "I would be pleased to discuss my technical background and motivation with you and to explain how I could contribute to {company_name}. Thank you for your time and consideration. I look forward to the opportunity to introduce myself personally.",
+
+                "Thank you for considering my application. I would appreciate the opportunity to discuss the position, my technical background and my motivation in more detail. I look forward to hearing from you and learning more about the team and the role.",
+
+                "I would welcome the opportunity to discuss how my current programming skills, particularly my experience with Python and Linux, could contribute to your team. Thank you for your time and consideration. I look forward to hearing from you.",
+
+                "Thank you for considering my application for the {position} position. I would be glad to discuss my programming background, technical interests and motivation with you in a personal interview and look forward to the opportunity to learn more about {company_name}."
+            ]
+        },
+
+        "modern": {
+            "order": [
+                "subject",
+                "salutation",
+                "opening",
+                "background",
+                "technical_approach",
+                "job_connection",
+                "motivation",
+                "closing"
+            ],
+
+            "subject": [
+                "Application for the {position} position"
+            ],
+
+            "salutation": [
+                "Dear Hiring Team,",
+                "Dear {company_name} Team,",
+                "Dear Hiring Manager,"
+            ],
+
+            "opening": [
+                "I am applying for the {position} position at {company_name} because the role combines the areas I currently enjoy working with most: Python, Linux and practical software development. I like understanding how applications work internally, investigating technical problems and building solutions instead of simply working around issues. I am now looking to bring this mindset into a professional development environment.",
+
+                "The {position} position caught my attention because it offers the kind of technical environment I am looking for: real software, real problems and the opportunity to keep learning. My current focus is on Python, Linux and software development, and I want to continue turning that knowledge into practical experience within a professional engineering team.",
+
+                "I would like to apply for the {position} position at {company_name}. Software development is the area in which I want to build my professional future, and I am particularly interested in work that requires logical thinking, technical curiosity and the ability to investigate problems in detail.",
+
+                "What attracted me to the {position} position is the technical depth behind modern software development. My interests currently include Python, Linux, automation and software architecture, and I enjoy exploring how applications operate, how components interact and how technical problems can be solved effectively. I am looking for an opportunity to develop these interests further through professional experience."
+            ],
+
+            "background": [
+                "My technical development has focused strongly on Python and Linux. I have built this knowledge through practical projects and independent learning, which has given me experience approaching programming problems without always having an existing solution available. This has made independent research, implementation, testing and debugging an important part of the way I work.",
+
+                "I have developed a practical technical foundation around Python, Linux and software development. What matters most to me is not simply knowing a programming language, but understanding how software works as a complete system. Working on practical projects has helped me develop this perspective and has strengthened my ability to investigate unfamiliar technical topics independently.",
+
+                "My current technical background includes Python programming, Linux, automation and software-related problem-solving. I regularly use practical projects and experimentation to deepen my understanding, particularly when dealing with applications, system integration and debugging. This has taught me to approach problems methodically and verify my assumptions through practical testing.",
+
+                "Through hands-on technical work, I have developed knowledge in Python, Linux and software engineering concepts. I enjoy taking a technical problem, breaking it down into individual components and working towards a solution step by step. This approach has become an important part of how I learn and how I handle unfamiliar technologies."
+            ],
+
+            "technical_approach": [
+                "I am especially interested in the technical side of software development and how applications interact with the systems around them. Python allows me to build applications, automation and backend-oriented solutions, while Linux provides an environment where I can work directly with the underlying system. Combining both areas gives me a broader perspective when developing and troubleshooting software.",
+
+                "When I encounter a software problem, I prefer to understand the cause rather than only address the visible symptom. I research the relevant technology, inspect the code and environment, reproduce the behaviour where possible and test potential solutions. I believe this approach is particularly useful in software development, where reliable solutions require both programming knowledge and careful debugging.",
+
+                "My interest in software development comes largely from the technical investigation involved. I enjoy understanding why an application behaves in a certain way, identifying unexpected behaviour and determining how the implementation can be improved. Python and Linux are particularly interesting to me because they allow me to work with both application logic and the underlying technical environment.",
+
+                "I approach software development as a discipline that requires a strong understanding of both code and systems. Programming languages, operating systems, dependencies and application architecture are closely connected. Knowledge across these areas makes it easier to identify the actual source of technical problems, and this is the perspective I bring to my projects and want to develop further professionally."
+            ],
+
+            "job_connection": [
+                "The {position} position is a strong match for this direction. The focus on Python, Linux and software development connects directly with areas I have already been developing, while the professional environment would give me the opportunity to learn how these skills are applied to real codebases and established development processes.",
+
+                "I see the role as a good opportunity to bridge the gap between my current technical knowledge and professional software engineering. My background in Python and Linux gives me a foundation to contribute, while the responsibilities of the position would challenge me to develop further and become more effective in a professional development environment.",
+
+                "The technical focus of this position aligns closely with the areas I am currently developing. In particular, Python, Linux and software development provide a useful foundation for the role. I am interested in applying these skills in practice while learning how experienced developers approach larger and more complex technical challenges.",
+
+                "I believe the position would allow me to make practical use of my current technical foundation while continuing to expand it. The connection to Python and Linux is particularly relevant to me because these are technologies I want to develop into stronger professional software engineering capabilities."
+            ],
+
+            "motivation": [
+                "I want to build my career around developing software, solving technical problems and continuously improving my understanding of modern systems. I am comfortable learning independently, but I also value the opportunity to work with experienced developers and learn from established engineering practices. That combination is what I am looking for in my next professional step.",
+
+                "The part of software development I find most interesting is that there is always more to understand. New technologies introduce new possibilities and new problems, and solving them requires continuous learning. I want to develop in an environment where I can contribute with my existing Python and Linux knowledge while becoming more capable through practical experience.",
+
+                "My goal is to develop from a technically interested programmer into a dependable software professional with strong practical skills. I am therefore looking for opportunities where I can take on real development responsibilities, learn from experienced colleagues and continuously improve the quality of my code and technical decisions.",
+
+                "I am motivated by technically challenging software work where careful analysis and well-designed solutions make a real difference. I want to continue expanding my knowledge of Python, Linux and software engineering while developing the professional discipline required to work reliably with real-world codebases."
+            ],
+
+            "closing": [
+                "Thank you for considering my application. I would be happy to discuss my technical background and motivation for the role in more detail and look forward to hearing from you.",
+
+                "I would welcome the opportunity to discuss the position and my technical background with you. Thank you for your time and consideration. I look forward to hearing from you.",
+
+                "Thank you for taking the time to review my application. I would appreciate the opportunity to introduce myself personally and discuss how I could contribute to {company_name}.",
+
+                "I would be glad to discuss my technical interests, current skills in Python and Linux, and motivation for the {position} position with you. Thank you for your consideration, and I look forward to hearing from you."
+            ]
+        }
+    }
+}

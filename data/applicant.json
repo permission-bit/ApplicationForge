@@ -68,6 +68,7 @@
         "ffuf",
         "Wireshark",
         "Metasploit",
+        "Hydra",
         "Ghidra"
     ],
 

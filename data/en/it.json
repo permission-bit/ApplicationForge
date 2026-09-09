@@ -1,0 +1,182 @@
+{
+    "it": {
+        "formal": {
+            "order": [
+                "subject",
+                "salutation",
+                "opening",
+                "background",
+                "technical_approach",
+                "job_connection",
+                "motivation",
+                "closing"
+            ],
+
+            "subject": [
+                "Application for the {position} position"
+            ],
+
+            "salutation": [
+                "Dear Hiring Team,",
+                "Dear {company_name} Recruitment Team,",
+                "Dear Hiring Manager,",
+                "Dear {company_name} Team,"
+            ],
+
+            "opening": [
+                "I am writing to apply for the {position} position at {company_name}. The role particularly interests me because it combines practical IT work with technical problem-solving, areas in which I have been developing my skills through hands-on projects and independent learning. I am looking for an opportunity to bring my existing technical knowledge into a professional environment while continuing to develop my capabilities in a structured and practical way.",
+
+                "I would like to apply for the {position} position at {company_name}. My technical focus is primarily on Python, Linux and the practical understanding of IT systems. I enjoy investigating technical problems, understanding how systems work and developing reliable solutions rather than simply addressing symptoms. The responsibilities of this position therefore strongly match the direction in which I want to develop professionally.",
+
+                "The {position} position at {company_name} immediately caught my attention because of its technical focus. I have a strong interest in working with Linux systems, Python-based automation and the underlying components that make modern IT environments function reliably. I am now looking for an opportunity where I can apply this foundation to real-world technical challenges and continue learning within an experienced team.",
+
+                "I am pleased to submit my application for the {position} position at {company_name}. What particularly appeals to me about this opportunity is the combination of technical responsibility, troubleshooting and continuous learning. My current technical development focuses strongly on Python and Linux, and I am interested in applying these skills in an environment where reliable systems and practical problem-solving are important.",
+
+                "I am applying for the {position} position at {company_name} with a strong interest in developing my career in IT. I enjoy working directly with systems, investigating technical issues and using Python to automate repetitive tasks or solve technical problems. Linux is an important part of my technical environment, and I would welcome the opportunity to develop these skills further through professional experience."
+            ],
+
+            "background": [
+                "My technical background is centred around Python, Linux and practical IT systems. I have developed my knowledge through hands-on projects, independent learning and technical experimentation. This has given me experience with software, operating systems and automation while also strengthening my ability to investigate unfamiliar technical problems and develop solutions independently.",
+
+                "Through previous technical work and personal projects, I have developed knowledge in Python, Linux and general IT infrastructure. I prefer learning through practical implementation, which means building projects, testing configurations and investigating how individual components interact. This approach has helped me develop a practical understanding of technical systems rather than relying solely on theoretical knowledge.",
+
+                "My current technical development includes Python, Linux, system administration concepts and technical automation. Working on practical projects has allowed me to improve my ability to troubleshoot problems, analyse system behaviour and create repeatable solutions. I consider this hands-on approach particularly valuable in IT because technical issues often require both structured analysis and practical experimentation.",
+
+                "I have built my technical foundation around Python, Linux and the practical operation of IT systems. A significant part of my learning has come from independent projects in which I had to research technologies, configure systems, identify errors and develop solutions myself. This has strengthened my ability to approach unfamiliar technical subjects systematically and work towards a reliable result.",
+
+                "My technical interests include Python development, Linux systems, automation and general IT infrastructure. I particularly enjoy understanding what happens behind the interface of a system and how individual components communicate and operate together. Practical projects have therefore played an important role in developing both my technical knowledge and my ability to solve problems independently."
+            ],
+
+            "technical_approach": [
+                "My approach to IT problems is analytical and hands-on. I generally begin by understanding the affected system, identifying where the actual problem occurs and then testing possible solutions in a controlled way. Python is particularly useful in this context because it allows me to automate repetitive tasks, process information and create practical tools for technical workflows. Linux provides an environment in which I can work closely with the underlying system and understand its behaviour in greater detail.",
+
+                "I place strong value on understanding the underlying cause of a technical issue rather than only addressing its visible symptoms. When troubleshooting, I prefer to examine logs, configurations, processes and system behaviour step by step before implementing a solution. Combined with Python-based automation and Linux knowledge, this approach allows me to work systematically and create solutions that are both practical and reproducible.",
+
+                "One of the areas I find particularly interesting in IT is the connection between operating systems, software and automation. Linux provides a strong technical environment for understanding these relationships, while Python allows many administrative and repetitive processes to be automated. Developing knowledge across these areas helps me approach technical problems from both a systems and a programming perspective.",
+
+                "Practical problem-solving is an important part of how I develop my technical skills. I enjoy investigating unexpected behaviour, identifying possible causes and testing solutions until I understand why something works. Working with Linux has strengthened this mindset because it encourages direct interaction with system processes, configuration and command-line tools, while Python gives me the ability to build custom solutions when existing tools are not sufficient.",
+
+                "I approach technical work with an emphasis on understanding systems before making changes. This includes examining configurations, processes, dependencies and the interaction between different components. I believe that combining Linux knowledge with Python and structured troubleshooting provides a strong foundation for reliable IT work and allows technical problems to be approached efficiently and methodically."
+            ],
+
+            "job_connection": [
+                "The responsibilities of the {position} position provide a strong connection to my current technical focus. In particular, the relevance of Python and Linux gives me an opportunity to apply skills I have already been developing while gaining experience with professional systems, processes and tools. I would approach the role with a willingness to learn quickly, contribute where my current knowledge is applicable and gradually take on more technical responsibility.",
+
+                "I see a clear connection between my current technical background and the requirements of the {position} position. My experience with Python, Linux and practical troubleshooting provides a useful foundation for approaching the technical aspects of the role. At the same time, I recognise the value of developing these skills further within a professional IT environment and learning from established processes and experienced colleagues.",
+
+                "What makes this position particularly relevant to me is the combination of practical IT work, technical problem-solving and the opportunity to work with systems on a deeper level. My background in Python and Linux provides a starting point from which I can contribute while continuing to develop my understanding of professional IT operations, automation and troubleshooting.",
+
+                "The technical requirements of the {position} position align well with my current development, especially in the areas of Python, Linux and system-related problem-solving. I would see this role not simply as an opportunity to apply existing knowledge, but also as a chance to develop a stronger understanding of professional IT environments and to learn how experienced teams maintain reliable and efficient systems.",
+
+                "I believe my existing foundation in Python, Linux and practical IT gives me a solid starting point for the responsibilities associated with this position. I am also aware that professional IT work requires continuous learning, careful documentation and reliable execution. The combination of contributing with my current technical skills while continuing to develop professionally is one of the main reasons I am interested in this opportunity."
+            ],
+
+            "motivation": [
+                "My long-term goal is to build strong practical expertise in IT and to gradually take on more demanding technical responsibilities. I am particularly motivated by environments where technical curiosity, reliable problem-solving and continuous learning are valued. I would therefore welcome the opportunity to develop within a professional team while contributing the Python, Linux and systems knowledge I have already built.",
+
+                "I am looking for a professional environment in which I can deepen my technical knowledge while gaining experience with real-world IT systems. Working alongside experienced professionals would allow me to learn established approaches, improve my troubleshooting skills and understand how technical processes are managed in a professional environment. At the same time, I would bring my own willingness to investigate problems independently and develop practical solutions.",
+
+                "What motivates me most about working in IT is the combination of technical depth and practical problem-solving. Systems continuously evolve, new technologies introduce new challenges and existing environments require reliable maintenance and improvement. I want to develop the knowledge and judgement required to work effectively in these environments while becoming a dependable member of a professional IT team.",
+
+                "I am particularly motivated by the opportunity to turn technical knowledge into practical value. Whether troubleshooting a system, automating a repetitive process with Python or understanding why a Linux environment behaves in a certain way, I enjoy working from an initial problem towards a technically sound solution. Developing these abilities further in a professional environment is an important next step for me.",
+
+                "For me, professional development in IT means continuously improving both technical depth and practical judgement. I want to work in an environment where I can learn from experienced colleagues, take responsibility for technical tasks and gradually expand the complexity of the systems and problems I can handle. The {position} position represents an opportunity to take that next step."
+            ],
+
+            "closing": [
+                "Thank you for taking the time to consider my application. I would welcome the opportunity to discuss my technical background, motivation and interest in the {position} position in more detail. I look forward to hearing from you.",
+
+                "I would be pleased to discuss my technical background and motivation with you and to explain how I could contribute to {company_name}. Thank you for your time and consideration. I look forward to the opportunity to introduce myself personally.",
+
+                "Thank you for considering my application. I would appreciate the opportunity to discuss the position, my technical background and my motivation in more detail. I look forward to hearing from you and learning more about the team and the role.",
+
+                "I would welcome the opportunity to discuss how my current technical skills, particularly my experience with Python and Linux, could contribute to your team. Thank you for your time and consideration. I look forward to hearing from you.",
+
+                "Thank you for considering my application for the {position} position. I would be glad to discuss my background, technical interests and motivation with you in a personal interview and look forward to the opportunity to learn more about {company_name}."
+            ]
+        },
+
+        "modern": {
+            "order": [
+                "subject",
+                "salutation",
+                "opening",
+                "background",
+                "technical_approach",
+                "job_connection",
+                "motivation",
+                "closing"
+            ],
+
+            "subject": [
+                "Application for the {position} position"
+            ],
+
+            "salutation": [
+                "Dear Hiring Team,",
+                "Dear {company_name} Team,",
+                "Dear Hiring Manager,"
+            ],
+
+            "opening": [
+                "I am applying for the {position} position at {company_name} because the role combines the areas I currently enjoy working with most: Python, Linux and practical IT problem-solving. I like understanding how systems work, investigating technical issues and building solutions instead of simply working around problems. I am now looking to bring this mindset into a professional environment.",
+
+                "The {position} position caught my attention because it offers the kind of technical environment I am looking for: real systems, real problems and the opportunity to keep learning. My current focus is on Python, Linux and technical automation, and I want to continue turning that knowledge into practical experience within a professional IT team.",
+
+                "I would like to apply for the {position} position at {company_name}. IT is the technical field in which I want to build my professional future, and I am particularly interested in work that requires technical curiosity, structured troubleshooting and an understanding of how systems operate underneath the surface.",
+
+                "What attracted me to the {position} position is the technical depth behind modern IT environments. My interests currently include Python, Linux, automation and system-related technologies, and I enjoy exploring how components operate together and how technical problems can be solved efficiently. I am looking for an opportunity to develop these interests further through professional experience."
+            ],
+
+            "background": [
+                "My technical development has focused strongly on Python and Linux. I have built this knowledge through practical projects and independent learning, which has given me experience approaching technical problems without always having an existing solution available. This has made independent research, testing and troubleshooting an important part of the way I work.",
+
+                "I have developed a practical technical foundation around Python, Linux and IT systems. What matters most to me is not simply knowing individual commands or technologies, but understanding how they work together. Working on practical projects has helped me develop this perspective and has strengthened my ability to investigate unfamiliar technical topics independently.",
+
+                "My current technical background includes Python, Linux, automation and general systems knowledge. I regularly use practical projects and experimentation to deepen my understanding, particularly when dealing with operating systems, software and technical infrastructure. This has taught me to approach problems methodically and verify my assumptions through practical testing.",
+
+                "Through hands-on technical work, I have developed knowledge in Python and Linux as well as broader IT concepts. I enjoy taking a technical problem, breaking it down into its individual components and working towards a solution step by step. This approach has become an important part of how I learn and how I handle unfamiliar technologies."
+            ],
+
+            "technical_approach": [
+                "I am especially interested in the technical side of IT and how different components interact. Linux provides an environment where I can work directly with processes, filesystems, networking and system configuration, while Python allows me to automate tasks and build practical tools. Combining these areas gives me a broader understanding of how technical solutions can be developed and maintained.",
+
+                "When I encounter a technical problem, I prefer to understand the cause rather than only address the visible symptom. I research the relevant technology, inspect the system, reproduce the behaviour where possible and test potential solutions. I believe this approach is particularly useful in IT, where reliable troubleshooting often depends on understanding several connected components.",
+
+                "My interest in IT comes largely from the technical investigation involved. I enjoy understanding why a system behaves in a certain way, identifying unexpected behaviour and determining how it can be improved. Python and Linux are particularly interesting to me because they allow me to work both with the system itself and with software that can automate or improve technical processes.",
+
+                "I approach IT as a discipline that requires a strong understanding of technology as a whole. Operating systems, software, networking and automation are closely connected, and knowledge across these areas makes it easier to identify the actual source of technical problems. This is the perspective I bring to my projects and the perspective I would like to develop further in a professional role."
+            ],
+
+            "job_connection": [
+                "The {position} position is a strong match for this direction. The focus on Python, Linux and practical IT work connects directly with areas I have already been developing, while the professional environment would give me the opportunity to learn how these skills are applied to real systems and established technical processes.",
+
+                "I see the role as a good opportunity to bridge the gap between my current technical knowledge and professional IT work. My background in Python and Linux gives me a foundation to contribute, while the responsibilities of the position would challenge me to develop further and become more effective in a professional environment.",
+
+                "The technical focus of this position aligns closely with the areas I am currently developing. In particular, Python, Linux and automation provide a useful foundation for the role. I am interested in applying these skills in practice while learning how experienced IT professionals approach larger and more complex technical challenges.",
+
+                "I believe the position would allow me to make practical use of my current technical foundation while continuing to expand it. The connection to Python and Linux is particularly relevant to me because these are technologies I want to develop into stronger professional capabilities."
+            ],
+
+            "motivation": [
+                "I want to build my career around solving technical IT problems and continuously improving my understanding of modern systems. I am comfortable learning independently, but I also value the opportunity to work with experienced professionals and learn from established processes. That combination is what I am looking for in my next professional step.",
+
+                "The part of IT I find most interesting is that there is always more to understand. New technologies introduce new challenges, and solving them requires continuous learning. I want to develop in an environment where I can contribute with my existing Python and Linux knowledge while becoming more capable through practical experience.",
+
+                "My goal is to develop from a technically interested learner into a dependable IT professional with strong practical skills. I am therefore looking for opportunities where I can take on real responsibilities, learn from experienced colleagues and continuously improve the quality of my technical work.",
+
+                "I am motivated by technically challenging work where careful analysis and practical solutions make a real difference. I want to continue expanding my knowledge of Python, Linux and IT systems while developing the professional discipline required to work reliably with technical environments."
+            ],
+
+            "closing": [
+                "Thank you for considering my application. I would be happy to discuss my technical background and motivation for the role in more detail and look forward to hearing from you.",
+
+                "I would welcome the opportunity to discuss the position and my technical background with you. Thank you for your time and consideration. I look forward to hearing from you.",
+
+                "Thank you for taking the time to review my application. I would appreciate the opportunity to introduce myself personally and discuss how I could contribute to {company_name}.",
+
+                "I would be glad to discuss my technical interests, current skills in Python and Linux, and motivation for the {position} position with you. Thank you for your consideration, and I look forward to hearing from you."
+            ]
+        }
+    }
+}
